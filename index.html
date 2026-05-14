@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>프라임K수학 — 태도가 공부를 완성한다 | 고1·중1 집중 모집 · 전 학년 상시</title>
+<meta name="description" content="확실한 관리와 맞춤형 지도로 수학 자신감을 키우는 프라임K수학. 고교학점제 시대, 소수정예·MBTI 케어·수행평가/세특 관리·관리형 시스템.">
+<meta property="og:title" content="프라임K수학 — 태도가 공부를 완성한다">
+<meta property="og:description" content="확실한 관리와 맞춤형 지도. 소수정예·MBTI 케어·수행/세특 전과목 관리.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --navy:#0d1b2e;
+    --navy-2:#1a2a44;
+    --navy-light:#3a4a64;
+    --mustard:#c8a96a;
+    --mustard-light:#dcc188;
+    --mustard-dark:#a88a4a;
+    --bg:#ffffff;
+    --bg-warm:#faf6ee;
+    --bg-2:#f3eee0;
+    --text:#1a1a1a;
+    --text-2:#3a3a3a;
+    --muted:#6b6b6b;
+    --line:rgba(13,27,46,0.1);
+    --line-warm:rgba(168,138,74,0.2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Pretendard','Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    -webkit-text-size-adjust:100%;
+    word-break:keep-all;
+  }
+  .container{max-width:760px;margin:0 auto;padding:0 20px}
+
+  /* ============ HERO ============ */
+  .hero{
+    background:linear-gradient(180deg,var(--bg-warm) 0%,var(--bg) 100%);
+    padding:64px 0 56px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-80px;right:-80px;
+    width:280px;height:280px;
+    background:radial-gradient(circle,rgba(200,169,106,0.18) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1}
+  .hero-brand{
+    display:inline-block;
+    font-size:11.5px;
+    font-weight:800;
+    color:var(--mustard-dark);
+    letter-spacing:3px;
+    margin-bottom:14px;
+    text-transform:uppercase;
+  }
+  .hero-logo{
+    font-size:32px;
+    font-weight:900;
+    color:var(--navy);
+    margin-bottom:6px;
+    letter-spacing:-0.5px;
+    line-height:1.2;
+  }
+  .hero-logo .accent{color:var(--mustard-dark)}
+  .hero-tagline{
+    font-size:24px;
+    font-weight:800;
+    color:var(--navy);
+    margin:18px 0 12px;
+    letter-spacing:-0.5px;
+    line-height:1.4;
+  }
+  .hero-tagline .em{
+    background:linear-gradient(180deg,transparent 60%,rgba(200,169,106,0.35) 60%);
+    padding:0 2px;
+  }
+  .hero-sub{
+    font-size:15.5px;
+    color:var(--text-2);
+    margin-bottom:24px;
+    line-height:1.7;
+  }
+  .hero-target{
+    display:inline-block;
+    background:var(--navy);
+    color:var(--mustard-light);
+    padding:9px 20px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:24px;
+    box-shadow:0 4px 14px rgba(13,27,46,0.18);
+  }
+  .hero-target .dot{
+    display:inline-block;
+    width:6px;height:6px;
+    background:var(--mustard);
+    border-radius:50%;
+    margin:0 6px 0 2px;
+    vertical-align:middle;
+  }
+
+  .cta-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    width:100%;
+    max-width:380px;
+    background:var(--navy);
+    color:var(--mustard-light);
+    padding:18px 24px;
+    border-radius:14px;
+    font-size:17px;
+    font-weight:800;
+    text-decoration:none;
+    box-shadow:0 6px 22px rgba(13,27,46,0.25);
+    transition:transform 0.15s,box-shadow 0.15s;
+  }
+  .cta-btn:hover{transform:translateY(-1px);box-shadow:0 8px 26px rgba(13,27,46,0.3)}
+  .cta-btn .arrow{
+    transition:transform 0.2s;
+  }
+  .cta-btn:hover .arrow{transform:translateX(3px)}
+  .cta-note{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:14px;
+  }
+
+  /* ============ SECTION COMMON ============ */
+  section{padding:64px 0;position:relative}
+
+  .section-divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:14px;
+  }
+  .section-divider::before,.section-divider::after{
+    content:"";
+    width:30px;
+    height:2px;
+    background:var(--mustard);
+  }
+  .section-divider span{
+    margin:0 12px;
+    color:var(--mustard-dark);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:3px;
+  }
+  h2{
+    font-size:28px;
+    line-height:1.3;
+    font-weight:900;
+    color:var(--navy);
+    text-align:center;
+    margin-bottom:10px;
+    letter-spacing:-0.5px;
+  }
+  h2 .num{
+    display:inline-block;
+    color:var(--mustard-dark);
+    margin-right:6px;
+  }
+  .section-sub{
+    font-size:14.5px;
+    color:var(--muted);
+    text-align:center;
+    margin-bottom:36px;
+    line-height:1.6;
+  }
+
+  /* ============ VIDEO + TEACHER ============ */
+  .teacher-block{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 6px 28px rgba(13,27,46,0.08);
+    border:1px solid var(--line-warm);
+  }
+  .video-wrap{
+    position:relative;
+    width:100%;
+    padding-bottom:56.25%;
+    background:var(--navy);
+  }
+  .video-wrap iframe,.video-placeholder{
+    position:absolute;
+    top:0;left:0;
+    width:100%;height:100%;
+    border:0;
+  }
+  .video-placeholder{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    color:rgba(255,255,255,0.75);
+    text-align:center;
+    padding:20px;
+  }
+  .video-placeholder .vp-icon{font-size:48px;margin-bottom:10px}
+  .video-placeholder .vp-text{font-size:15px;font-weight:700;color:var(--mustard-light)}
+  .video-placeholder .vp-sub{font-size:13px;margin-top:6px;color:rgba(255,255,255,0.55)}
+  .teacher-info{
+    padding:22px 24px 24px;
+    border-top:3px solid var(--mustard);
+  }
+  .teacher-tag{
+    display:inline-block;
+    background:var(--navy);
+    color:var(--mustard-light);
+    padding:4px 10px;
+    border-radius:6px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    margin-bottom:10px;
+  }
+  .teacher-name{
+    font-size:18px;
+    font-weight:800;
+    color:var(--navy);
+    margin-bottom:8px;
+  }
+  .teacher-desc{
+    font-size:13.5px;
+    color:var(--muted);
+    line-height:1.7;
+  }
+
+  /* ============ DIAGNOSIS (중1·고1 진단) ============ */
+  .diag-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .diag-card{
+    background:#fff;
+    border-radius:16px;
+    padding:24px 22px;
+    box-shadow:0 4px 18px rgba(13,27,46,0.06);
+    border:1px solid var(--line-warm);
+    position:relative;
+    overflow:hidden;
+  }
+  .diag-card .tag{
+    display:inline-block;
+    background:var(--mustard);
+    color:var(--navy);
+    padding:5px 12px;
+    border-radius:30px;
+    font-size:12.5px;
+    font-weight:800;
+    letter-spacing:0.5px;
+    margin-bottom:12px;
+  }
+  .diag-card h3{
+    font-size:17.5px;
+    color:var(--navy);
+    font-weight:800;
+    margin-bottom:10px;
+    line-height:1.4;
+  }
+  .diag-card p{
+    font-size:13.5px;
+    color:var(--text-2);
+    line-height:1.7;
+  }
+
+  /* ============ 4 POINTS (원형 인포그래픽) ============ */
+  .sys-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px 16px;
+  }
+  .sys-item{text-align:center}
+  .sys-circle{
+    width:108px;
+    height:108px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#fff 0%,var(--bg-warm) 100%);
+    border:3px solid var(--mustard);
+    margin:0 auto 14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    box-shadow:0 6px 20px rgba(168,138,74,0.18);
+    position:relative;
+  }
+  .sys-circle::before{
+    content:"";
+    position:absolute;
+    inset:-6px;
+    border-radius:50%;
+    border:1px dashed rgba(200,169,106,0.35);
+  }
+  .sys-icon{font-size:28px;line-height:1;margin-bottom:4px}
+  .sys-num{
+    font-size:10.5px;
+    font-weight:800;
+    color:var(--mustard-dark);
+    letter-spacing:1.5px;
+  }
+  .sys-title{
+    font-size:16px;
+    font-weight:800;
+    color:var(--navy);
+    margin-bottom:6px;
+  }
+  .sys-desc{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.6;
+    padding:0 4px;
+  }
+
+  /* ============ 4-AXIS (알약+부호) ============ */
+  .axis-section{background:var(--navy);color:#fff;padding:64px 0}
+  .axis-section h2{color:#fff}
+  .axis-section h2 .num{color:var(--mustard)}
+  .axis-section .section-sub{color:rgba(255,255,255,0.7)}
+  .axis-section .section-divider span{color:var(--mustard)}
+  .axis-section .section-divider::before,
+  .axis-section .section-divider::after{background:var(--mustard)}
+
+  .pill-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-bottom:20px;
+  }
+  .axis-pill{
+    background:linear-gradient(135deg,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.04) 100%);
+    border:1.5px solid var(--mustard);
+    border-radius:14px;
+    padding:18px 16px;
+    text-align:center;
+    backdrop-filter:blur(8px);
+  }
+  .axis-pill .axis-num{
+    display:inline-block;
+    background:var(--mustard);
+    color:var(--navy);
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    font-size:13px;
+    font-weight:900;
+    line-height:28px;
+    margin-bottom:10px;
+  }
+  .axis-pill .axis-title{
+    font-size:15.5px;
+    font-weight:800;
+    color:#fff;
+    margin-bottom:4px;
+  }
+  .axis-pill .axis-desc{
+    font-size:12.5px;
+    color:rgba(255,255,255,0.7);
+    line-height:1.55;
+  }
+  .axis-summary{
+    text-align:center;
+    font-size:14px;
+    color:var(--mustard-light);
+    font-weight:600;
+    padding:16px 18px;
+    background:rgba(200,169,106,0.08);
+    border:1px solid rgba(200,169,106,0.25);
+    border-radius:12px;
+    margin-top:20px;
+    line-height:1.6;
+  }
+
+  /* ============ SPACE ============ */
+  .space-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .space-row{
+    display:grid;
+    grid-template-columns:60px 1fr;
+    gap:14px;
+    background:#fff;
+    border-radius:14px;
+    padding:18px 20px;
+    box-shadow:0 3px 14px rgba(13,27,46,0.06);
+    border:1px solid var(--line-warm);
+    align-items:flex-start;
+  }
+  .space-icon{
+    width:56px;height:56px;
+    border-radius:14px;
+    background:var(--bg-warm);
+    display:flex;align-items:center;justify-content:center;
+    font-size:24px;
+    border:1px solid var(--line-warm);
+  }
+  .space-content h4{
+    font-size:15.5px;
+    color:var(--navy);
+    font-weight:800;
+    margin-bottom:4px;
+  }
+  .space-content p{
+    font-size:13.5px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+  .safety-row{
+    margin-top:16px;
+    background:var(--navy);
+    color:#fff;
+    border-radius:14px;
+    padding:18px 20px;
+    text-align:center;
+    font-size:14px;
+    line-height:1.7;
+    border:1px solid rgba(200,169,106,0.3);
+  }
+  .safety-row strong{color:var(--mustard-light);font-weight:800}
+
+  /* ============ CLINIC HIGHLIGHT ============ */
+  .clinic-box{
+    background:linear-gradient(135deg,var(--bg-warm) 0%,var(--bg-2) 100%);
+    border-radius:18px;
+    padding:32px 26px;
+    text-align:center;
+    border:1px solid var(--line-warm);
+    position:relative;
+    overflow:hidden;
+  }
+  .clinic-box::before{
+    content:"👀";
+    position:absolute;
+    top:-30px;left:-20px;
+    font-size:140px;
+    opacity:0.07;
+    transform:rotate(-15deg);
+  }
+  .clinic-headline{
+    font-size:22px;
+    font-weight:900;
+    color:var(--navy);
+    margin-bottom:14px;
+    line-height:1.4;
+    position:relative;
+    z-index:1;
+  }
+  .clinic-headline .em{color:var(--mustard-dark)}
+  .clinic-desc{
+    font-size:14.5px;
+    color:var(--text-2);
+    line-height:1.75;
+    position:relative;
+    z-index:1;
+    max-width:560px;
+    margin:0 auto;
+  }
+
+  /* ============ RESULTS ============ */
+  .result-box{
+    background:#fff;
+    border-radius:16px;
+    padding:30px 24px 24px;
+    border:1px solid var(--line-warm);
+    box-shadow:0 4px 18px rgba(13,27,46,0.06);
+  }
+  .result-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+    margin-bottom:14px;
+  }
+  .result-chip{
+    background:var(--bg-warm);
+    color:var(--navy);
+    padding:11px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:800;
+    border:1px solid var(--line-warm);
+  }
+  .result-note{
+    text-align:center;
+    font-size:13.5px;
+    color:var(--text-2);
+    margin-top:12px;
+    line-height:1.6;
+  }
+  .result-note strong{color:var(--mustard-dark)}
+
+  /* ============ PRICE ============ */
+  .price-table{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid var(--line-warm);
+    box-shadow:0 4px 18px rgba(13,27,46,0.06);
+  }
+  .price-row{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    padding:18px 22px;
+    border-bottom:1px solid var(--line-warm);
+    gap:14px;
+  }
+  .price-row:last-child{border-bottom:0}
+  .price-row .pr-label{
+    font-size:15px;
+    color:var(--navy);
+    font-weight:700;
+  }
+  .price-row .pr-sub{
+    display:block;
+    font-size:12px;
+    color:var(--muted);
+    font-weight:500;
+    margin-top:2px;
+  }
+  .price-row .pr-value{
+    font-size:19px;
+    font-weight:900;
+    color:var(--mustard-dark);
+    white-space:nowrap;
+  }
+  .price-note{
+    text-align:center;
+    font-size:12.5px;
+    color:var(--muted);
+    margin-top:14px;
+    line-height:1.6;
+  }
+
+  /* ============ RECRUIT BOX ============ */
+  .recruit-box{
+    background:linear-gradient(135deg,var(--navy-2) 0%,var(--navy) 100%);
+    color:#fff;
+    border-radius:18px;
+    padding:30px 26px;
+    text-align:center;
+    box-shadow:0 10px 28px rgba(13,27,46,0.2);
+    margin-bottom:24px;
+  }
+  .recruit-tag{
+    display:inline-block;
+    background:var(--mustard);
+    color:var(--navy);
+    padding:8px 16px;
+    border-radius:30px;
+    font-size:12.5px;
+    font-weight:900;
+    letter-spacing:0.5px;
+    margin-bottom:16px;
+  }
+  .recruit-headline{
+    font-size:22px;
+    font-weight:900;
+    color:var(--mustard-light);
+    margin-bottom:10px;
+    line-height:1.4;
+  }
+  .recruit-sub{
+    font-size:14px;
+    color:rgba(255,255,255,0.8);
+    line-height:1.7;
+  }
+
+  /* ============ CTA ============ */
+  .cta-section{
+    background:linear-gradient(180deg,var(--bg-warm) 0%,var(--bg-2) 100%);
+    text-align:center;
+    padding:60px 0;
+  }
+  .cta-section h2{margin-bottom:14px}
+  .cta-section p.lead{
+    font-size:15px;
+    color:var(--text-2);
+    margin-bottom:28px;
+    line-height:1.7;
+  }
+  .cta-section .cta-note{color:var(--muted)}
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--navy);
+    color:rgba(255,255,255,0.65);
+    padding:36px 0 28px;
+    font-size:13px;
+    line-height:1.8;
+    text-align:center;
+  }
+  footer .footer-brand{
+    color:var(--mustard);
+    font-weight:800;
+    font-size:14.5px;
+    margin-bottom:6px;
+    letter-spacing:0.5px;
+  }
+  footer .footer-divider{
+    height:1px;
+    background:rgba(255,255,255,0.08);
+    margin:16px auto;
+    max-width:200px;
+  }
+  footer a{color:rgba(255,255,255,0.85);text-decoration:none}
+  .footer-copy{font-size:11.5px;color:rgba(255,255,255,0.4);margin-top:8px}
+
+  /* ============ STUDIO (이미지 갤러리) ============ */
+  .studio-stack{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .studio-card{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid var(--line-warm);
+    box-shadow:0 4px 18px rgba(13,27,46,0.08);
+    display:block;
+    text-decoration:none;
+    color:inherit;
+    transition:transform 0.2s,box-shadow 0.2s;
+  }
+  .studio-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 28px rgba(13,27,46,0.12);
+  }
+  .studio-card img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .studio-caption{
+    padding:14px 18px 16px;
+    border-top:3px solid var(--mustard);
+    text-align:center;
+    background:#fff;
+  }
+  .studio-caption .sc-tag{
+    display:inline-block;
+    background:var(--bg-warm);
+    color:var(--mustard-dark);
+    padding:3px 10px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    margin-bottom:6px;
+  }
+  .studio-caption .sc-title{
+    font-size:15px;
+    font-weight:800;
+    color:var(--navy);
+    margin-bottom:4px;
+  }
+  .studio-caption .sc-sub{
+    font-size:12.5px;
+    color:var(--muted);
+  }
+  .studio-note{
+    text-align:center;
+    font-size:12.5px;
+    color:var(--muted);
+    margin-top:16px;
+    line-height:1.6;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:560px){
+    .hero{padding:52px 0 48px}
+    .hero-logo{font-size:26px}
+    .hero-tagline{font-size:20px}
+    section{padding:52px 0}
+    h2{font-size:22px}
+
+    .diag-grid{grid-template-columns:1fr}
+    .sys-circle{width:96px;height:96px}
+    .sys-icon{font-size:24px}
+    .sys-title{font-size:15px}
+    .pill-grid{grid-template-columns:1fr}
+    .clinic-headline{font-size:19px}
+    .recruit-headline{font-size:19px}
+    .price-row{padding:16px 18px}
+    .price-row .pr-value{font-size:17px}
+  }
+  @media (max-width:360px){
+    .hero-logo{font-size:22px}
+    h2{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="container hero-inner">
+    <span class="hero-brand">PRIME K MATH · MAXIMUM K CONSULTING</span>
+    <div class="hero-logo">프라임<span class="accent">K</span>수학</div>
+    <p class="hero-tagline"><span class="em">태도가 공부를</span><br>완성한다</p>
+    <p class="hero-sub">확실한 관리와 맞춤형 지도로<br>수학 자신감을 키우는 학원입니다.</p>
+    <div class="hero-target"><span class="dot"></span>고1·중1 집중 모집 · 전 학년 상시</div>
+    <br>
+    <a href="tel:01064087421" class="cta-btn">📞 무료 진단 받기 · 010-6408-7421 <span class="arrow">→</span></a>
+    <p class="cta-note">K선생 직통 · 상담은 진단 후 안내</p>
+  </div>
+</header>
+
+<!-- ========== 1. VIDEO + TEACHER ========== -->
+<section style="background:var(--bg);">
+  <div class="container">
+    <div class="section-divider"><span>INTRO</span></div>
+    <h2><span class="num">01</span>K선생이 직접 안내합니다</h2>
+    <p class="section-sub">더루멘 채널 · K선생 시리즈</p>
+
+    <div class="teacher-block">
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <div class="vp-icon">🎥</div>
+          <div class="vp-text">콘텐츠 준비 중</div>
+          <div class="vp-sub">K선생 시리즈 영상 곧 업데이트</div>
+        </div>
+      </div>
+      <div class="teacher-info">
+        <span class="teacher-tag">CHIEF · K선생</span>
+        <div class="teacher-name">김범수 원장</div>
+        <p class="teacher-desc">프라임K수학 원장 · 맥시멈K컨설팅 운영. 수학 진도와 입시 컨설팅을 한 사람이 함께 책임지는 흔치 않은 구조. 무섭게 끌어가는 학원이 아니라, 학생 한 명 한 명을 섬세하게 살펴보는 학원을 지향합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2. DIAGNOSIS (중1·고1) ========== -->
+<section style="background:var(--bg-warm);">
+  <div class="container">
+    <div class="section-divider"><span>WHY NOW</span></div>
+    <h2><span class="num">02</span>지금이 결정적 시점입니다</h2>
+    <p class="section-sub">중1·고1은 학습 방향이 굳어지는 분기점</p>
+
+    <div class="diag-grid">
+      <div class="diag-card">
+        <span class="tag">중1</span>
+        <h3>학습 태도·습관이 굳는 시기</h3>
+        <p>중학교 진입 직후의 1년이 향후 학습 태도의 70%를 결정합니다. 자율학습 습관·플래너 활용·꼼꼼한 점검 — 지금 잡으면 고등에서 안 무너집니다.</p>
+      </div>
+      <div class="diag-card">
+        <span class="tag">고1</span>
+        <h3>고교학점제 적응의 골든타임</h3>
+        <p>고교학점제로 내신 구조와 과목 선택이 바뀌었습니다. 1학년 1학기 첫 시험 전후 한 학기가 진로·내신·수능 트랙을 정리하는 골든타임입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 3. 4 POINTS ========== -->
+<section style="background:var(--bg);">
+  <div class="container">
+    <div class="section-divider"><span>STRENGTH</span></div>
+    <h2><span class="num">03</span>프라임K수학 차별화 4 포인트</h2>
+    <p class="section-sub">학부모가 안심하는 네 가지 이유</p>
+
+    <div class="sys-grid">
+      <div class="sys-item">
+        <div class="sys-circle">
+          <div class="sys-icon">👥</div>
+          <div class="sys-num">POINT 01</div>
+        </div>
+        <div class="sys-title">소수정예 집중 지도</div>
+        <div class="sys-desc">2:1 · 3:1 등 3인 이하 현강. 한 명도 놓치지 않습니다.</div>
+      </div>
+      <div class="sys-item">
+        <div class="sys-circle">
+          <div class="sys-icon">📋</div>
+          <div class="sys-num">POINT 02</div>
+        </div>
+        <div class="sys-title">수행평가·세특 관리</div>
+        <div class="sys-desc">수학만 보지 않습니다. 전과목 수행·세특을 함께 점검합니다.</div>
+      </div>
+      <div class="sys-item">
+        <div class="sys-circle">
+          <div class="sys-icon">💭</div>
+          <div class="sys-num">POINT 03</div>
+        </div>
+        <div class="sys-title">성향 기반 퍼스널 지도</div>
+        <div class="sys-desc">MBTI·성별·기질을 분석해 학생마다 다르게 케어합니다.</div>
+      </div>
+      <div class="sys-item">
+        <div class="sys-circle">
+          <div class="sys-icon">🛡️</div>
+          <div class="sys-num">POINT 04</div>
+        </div>
+        <div class="sys-title">관리형 시스템</div>
+        <div class="sys-desc">클리닉 선생 + 자체 키오스크 + CCTV + 지문등록 출석.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. 4-AXIS ========== -->
+<section class="axis-section">
+  <div class="container">
+    <div class="section-divider"><span>SYSTEM</span></div>
+    <h2><span class="num">04</span>4축 학습 시스템</h2>
+    <p class="section-sub">현강 + 모의고사 + 관리형 학습 + 입시 컨설팅</p>
+
+    <div class="pill-grid">
+      <div class="axis-pill">
+        <div class="axis-num">1</div>
+        <div class="axis-title">현강</div>
+        <div class="axis-desc">3인 이하 소수정예 · 꼼꼼한 체크</div>
+      </div>
+      <div class="axis-pill">
+        <div class="axis-num">2</div>
+        <div class="axis-title">실시간 모의고사</div>
+        <div class="axis-desc">평가원·사설 3개년 최신 자료</div>
+      </div>
+      <div class="axis-pill">
+        <div class="axis-num">3</div>
+        <div class="axis-title">관리형 학습</div>
+        <div class="axis-desc">플래너 + 수행·세특 점검</div>
+      </div>
+      <div class="axis-pill">
+        <div class="axis-num">4</div>
+        <div class="axis-title">입시 컨설턴트 지도</div>
+        <div class="axis-desc">맥시멈K컨설팅 직접 연계</div>
+      </div>
+    </div>
+
+    <div class="axis-summary">
+      "가장 확실한 고등 공부, 대학입시까지"
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. SPACE ========== -->
+<section style="background:var(--bg);">
+  <div class="container">
+    <div class="section-divider"><span>SPACE</span></div>
+    <h2><span class="num">05</span>4공간 · 14좌석 자습실</h2>
+    <p class="section-sub">정규시간 외에도 언제든 자습 가능</p>
+
+    <div class="space-list">
+      <div class="space-row">
+        <div class="space-icon">📚</div>
+        <div class="space-content">
+          <h4>STUDY ROOM · 자습실 14좌석</h4>
+          <p>스터디 카페형. 모든 자리에 콘센트·빠른 와이파이. 자기주도 학습 독립 공간.</p>
+        </div>
+      </div>
+      <div class="space-row">
+        <div class="space-icon">🎓</div>
+        <div class="space-content">
+          <h4>CLASS ROOM · 수업·모의고사</h4>
+          <p>수학 전문 수업 + 실전 모의고사 진행 공간.</p>
+        </div>
+      </div>
+      <div class="space-row">
+        <div class="space-icon">💬</div>
+        <div class="space-content">
+          <h4>COUNSELING ROOM · 상담실</h4>
+          <p>학부모·학생 상담, 학습 방향 컨설팅, 수행·세특 점검.</p>
+        </div>
+      </div>
+      <div class="space-row">
+        <div class="space-icon">🍵</div>
+        <div class="space-content">
+          <h4>휴게·간식·운동 공간</h4>
+          <p>학생 휴식 공간, 간식 쇼케이스, 운동 공간, 위생용품 화장실.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="safety-row">
+      🛡️ <strong>CCTV·지문등록 출석</strong> — 안전과 출결 관리, 동시에 잡습니다.
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. CLINIC ========== -->
+<section style="background:var(--bg-warm);">
+  <div class="container">
+    <div class="section-divider"><span>CARE</span></div>
+    <h2><span class="num">06</span>방치되지 않는 학원입니다</h2>
+    <p class="section-sub">"수업만 하고 끝나는 곳이 아닙니다"</p>
+
+    <div class="clinic-box">
+      <div class="clinic-headline">
+        진도(50분)는 <span class="em">K선생</span>이,<br>
+        클리닉은 <span class="em">전담 선생님</span>이.
+      </div>
+      <p class="clinic-desc">진도 수업이 끝난 뒤에도 학생이 혼자 푸는 시간을 봐주는 사람이 있습니다. 50분 단위 클리닉 타이머로 진행 상황을 추적하고, 미이수가 쌓이면 보강으로 자동 전환됩니다. "관리해주는 학원"이라는 학부모 입소문은 이 지점에서 만들어졌습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7. RESULTS ========== -->
+<section style="background:var(--bg);">
+  <div class="container">
+    <div class="section-divider"><span>RESULTS</span></div>
+    <h2><span class="num">07</span>입시 결과</h2>
+    <p class="section-sub">"프라임K 수학은 결과로 말합니다"</p>
+
+    <div class="result-box">
+      <div class="result-list">
+        <span class="result-chip">성균관대</span>
+        <span class="result-chip">한양대</span>
+        <span class="result-chip">한국외대</span>
+        <span class="result-chip">숙명여대</span>
+        <span class="result-chip">건국대</span>
+        <span class="result-chip">단국대</span>
+      </div>
+      <p class="result-note"><strong>인서울 대학 합격자 다수 배출</strong> · 의대·한국외대 합격생 별도 보유</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8. STUDIO (학원 한눈에 보기) ========== -->
+<section style="background:var(--bg-warm);">
+  <div class="container">
+    <div class="section-divider"><span>STUDIO</span></div>
+    <h2><span class="num">08</span>학원 한눈에 보기</h2>
+    <p class="section-sub">공간·시설과 K선생 프로필을 한 장으로</p>
+
+    <div class="studio-stack">
+      <a href="공부방홍보1.jpg" target="_blank" rel="noopener" class="studio-card">
+        <img src="공부방홍보1.jpg" alt="프라임K수학 공간·시설 종합 안내" loading="lazy">
+        <div class="studio-caption">
+          <span class="sc-tag">SPACE · FACILITY</span>
+          <div class="sc-title">공간·시설 종합 안내</div>
+          <div class="sc-sub">STUDY ROOM · CLASS ROOM · COUNSELING ROOM · 4축 시스템</div>
+        </div>
+      </a>
+      <a href="공부방홍보2.jpg" target="_blank" rel="noopener" class="studio-card">
+        <img src="공부방홍보2.jpg" alt="K선생 김범수 원장 프로필 · 프라임K수학 입시 결과" loading="lazy">
+        <div class="studio-caption">
+          <span class="sc-tag">CHIEF · RESULTS</span>
+          <div class="sc-title">K선생 프로필 + 입시 결과</div>
+          <div class="sc-sub">김범수 원장 약력 · 인서울 합격증서</div>
+        </div>
+      </a>
+    </div>
+    <p class="studio-note">※ 이미지를 클릭하면 새 창에서 원본 크기로 열립니다</p>
+  </div>
+</section>
+
+<!-- ========== 9. RECRUIT + PRICE ========== -->
+<section style="background:var(--bg);">
+  <div class="container">
+    <div class="section-divider"><span>ENROLLMENT</span></div>
+    <h2><span class="num">09</span>모집 안내 · 수강료</h2>
+    <p class="section-sub">반편성은 무료 진단 후 안내드립니다</p>
+
+    <div class="recruit-box">
+      <div class="recruit-tag">🎯 NOW RECRUITING</div>
+      <div class="recruit-headline">고1·중1 집중 모집<br>전 학년 상시 모집</div>
+      <p class="recruit-sub">중장기 재원을 위한 최적 진입 시점.<br>다른 학년도 결원 발생 시 상시 진입 가능합니다.</p>
+    </div>
+
+    <div class="price-table">
+      <div class="price-row">
+        <div>
+          <div class="pr-label">중등 1:3반</div>
+          <span class="pr-sub">3인 이하 소수정예</span>
+        </div>
+        <div class="pr-value">월 28만원</div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="pr-label">고등 1:3반</div>
+          <span class="pr-sub">3인 이하 소수정예</span>
+        </div>
+        <div class="pr-value">월 32만원</div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="pr-label">1:2반</div>
+          <span class="pr-sub">2인 밀착 지도</span>
+        </div>
+        <div class="pr-value">월 35만원</div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="pr-label">모의고사반</div>
+          <span class="pr-sub">평가원·사설 3개년 + 인강 풀이</span>
+        </div>
+        <div class="pr-value">월 36만원</div>
+      </div>
+    </div>
+    <p class="price-note">※ 위 수강료는 정규 학년 기준이며, 구체적 반 배정은 진단·상담 후 결정됩니다.</p>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta-section">
+  <div class="container">
+    <div class="section-divider"><span>NEXT STEP</span></div>
+    <h2>무료 진단부터 시작합니다</h2>
+    <p class="lead">학생의 현재 학습 상태, 성향, 학교 진도를 듣고<br>가장 적합한 반·시간표·학습 방향을 K선생이 직접 안내드립니다.</p>
+    <a href="tel:01064087421" class="cta-btn">📞 010-6408-7421 · 지금 전화하기 <span class="arrow">→</span></a>
+    <p class="cta-note">프라임K수학 · 맥시멈K컨설팅 K선생 직통</p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="footer-brand">PRIME K MATH × MAXIMUM K</div>
+    <div>프라임K수학 · 맥시멈K컨설팅 · 김범수 원장</div>
+    <div class="footer-divider"></div>
+    <div>📍 대전광역시 중구 목동 한사랑 아파트 106동</div>
+    <div>📞 <a href="tel:01064087421">010-6408-7421</a></div>
+    <div>✍️ <a href="https://blog.naver.com/maximumk1010" target="_blank" rel="noopener">blog.naver.com/maximumk1010</a></div>
+    <div class="footer-divider"></div>
+    <div class="footer-copy">© 2026 프라임K수학 · 확실한 관리와 맞춤형 지도로 수학 자신감을 키웁니다.</div>
+  </div>
+</footer>
+
+</body>
+</html>
