@@ -132,6 +132,7 @@
     transition:transform 0.2s;
   }
   .cta-btn:hover .arrow{transform:translateX(3px)}
+  .cta-btn .cta-phone::before{content:" · "}
   .cta-note{
     font-size:13px;
     color:var(--muted);
@@ -702,6 +703,11 @@
     .recruit-headline{font-size:19px}
     .price-row{padding:16px 18px}
     .price-row .pr-value{font-size:17px}
+
+    /* CTA 버튼 — 모바일에서 두 줄 (메인 메시지 / 전화번호) */
+    .cta-btn{flex-direction:column;gap:4px;padding:15px 20px;font-size:15.5px}
+    .cta-btn .cta-phone::before{content:""}
+    .cta-btn .arrow{display:none}
   }
   @media (max-width:360px){
     .hero-logo{font-size:22px}
@@ -720,7 +726,7 @@
     <p class="hero-sub">확실한 관리와 맞춤형 지도로<br>수학 자신감을 키우는 학원입니다.</p>
     <div class="hero-target"><span class="dot"></span>고1·중1 집중 모집 · 전 학년 상시</div>
     <br>
-    <a href="tel:01064087421" class="cta-btn">📞 무료 진단 받기 · 010-6408-7421 <span class="arrow">→</span></a>
+    <a href="tel:01064087421" class="cta-btn"><span class="cta-main">📞 무료 진단 받기</span><span class="cta-phone">010-6408-7421</span><span class="arrow">→</span></a>
     <p class="cta-note">K선생 직통 · 상담은 진단 후 안내</p>
   </div>
 </header>
@@ -1008,7 +1014,7 @@
     <div class="section-divider"><span>NEXT STEP</span></div>
     <h2>무료 진단부터 시작합니다</h2>
     <p class="lead">학생의 현재 학습 상태, 성향, 학교 진도를 듣고<br>가장 적합한 반·시간표·학습 방향을 K선생이 직접 안내드립니다.</p>
-    <a href="tel:01064087421" class="cta-btn">📞 010-6408-7421 · 지금 전화하기 <span class="arrow">→</span></a>
+    <a href="tel:01064087421" class="cta-btn"><span class="cta-main">📞 지금 전화하기</span><span class="cta-phone">010-6408-7421</span><span class="arrow">→</span></a>
     <p class="cta-note">프라임K수학 · 맥시멈K컨설팅 K선생 직통</p>
   </div>
 </section>
