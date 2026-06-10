@@ -1412,11 +1412,12 @@
   if (reduced || !('IntersectionObserver' in window)) {
     targets.forEach(function(el){ el.classList.add('in'); });
   } else {
+    /* threshold 0 : 화면보다 큰(긴 이미지) 요소도 일부만 보이면 바로 등장 */
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
     targets.forEach(function(el){ io.observe(el); });
   }
 
