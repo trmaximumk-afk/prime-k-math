@@ -537,18 +537,25 @@
     background:linear-gradient(135deg,rgba(200,169,106,0.16) 0%,rgba(200,169,106,0.06) 100%);
     box-shadow:0 12px 28px rgba(0,0,0,0.25);
   }
-  .axis-pill .axis-num{
-    display:inline-block;
-    background:var(--mustard);
-    color:var(--navy);
-    width:30px;
-    height:30px;
+  .axis-ico{
+    width:66px;height:66px;
     border-radius:50%;
-    font-size:14px;
-    font-weight:900;
-    line-height:30px;
-    margin-bottom:12px;
+    background:rgba(200,169,106,0.12);
+    border:1.5px solid var(--mustard);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 14px;
+    position:relative;
   }
+  .axis-ico svg{width:32px;height:32px;stroke:var(--mustard-light);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .axis-ico .n{
+    position:absolute;top:-7px;right:-7px;
+    background:var(--mustard);color:var(--navy);
+    width:23px;height:23px;border-radius:50%;
+    font-size:12.5px;font-weight:900;line-height:23px;
+    text-align:center;
+    box-shadow:0 2px 6px rgba(0,0,0,0.3);
+  }
+  .axis-pill:hover .axis-ico{background:rgba(200,169,106,0.22)}
   .axis-pill .axis-title{
     font-size:clamp(15px,1.7vw,17px);
     font-weight:800;
@@ -560,6 +567,12 @@
     color:rgba(255,255,255,0.7);
     line-height:1.6;
   }
+  .axis-diagram{
+    max-width:400px;
+    margin:34px auto 0;
+  }
+  .axis-diagram svg{display:block;width:100%;height:auto}
+  .axis-diagram text{font-family:inherit}
   .axis-summary{
     text-align:center;
     font-size:clamp(14px,1.7vw,16.5px);
@@ -720,9 +733,10 @@
   /* ============ 08. STUDIO ============ */
   .studio-stack{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:22px;
-    align-items:start;
+    grid-template-columns:1fr;
+    gap:24px;
+    max-width:760px;
+    margin:0 auto;
   }
   .studio-card{
     background:#fff;
@@ -740,6 +754,7 @@
     box-shadow:var(--shadow-lg);
   }
   .studio-card .img-wrap{overflow:hidden}
+  .studio-card .img-wrap a{display:block;line-height:0;font-size:0}
   .studio-card img{
     display:block;
     width:100%;
@@ -747,6 +762,8 @@
     transition:transform 0.6s var(--ease);
   }
   .studio-card:hover img{transform:scale(1.03)}
+  .studio-card.no-zoom img,
+  .studio-card.no-zoom:hover img{transform:none;transition:none}
   .studio-caption{
     padding:16px 20px 18px;
     border-top:3px solid var(--mustard);
@@ -780,9 +797,6 @@
     color:var(--muted);
     margin-top:18px;
     line-height:1.6;
-  }
-  @media (max-width:720px){
-    .studio-stack{grid-template-columns:1fr;gap:18px}
   }
 
   /* ============ 09. RECRUIT + PRICE ============ */
@@ -1104,25 +1118,86 @@
 
     <div class="pill-grid">
       <div class="axis-pill reveal">
-        <div class="axis-num">1</div>
+        <div class="axis-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3.5" width="18" height="12" rx="1.5"/>
+            <path d="M7 7.5h6M7 10.5h4"/>
+            <path d="M16 11.5l2-2M8 21l3.2-5.5M16 21l-3.2-5.5"/>
+          </svg>
+          <span class="n">1</span>
+        </div>
         <div class="axis-title">현강</div>
         <div class="axis-desc">3인 이하 소수정예 · 꼼꼼한 체크</div>
       </div>
       <div class="axis-pill reveal" data-delay="1">
-        <div class="axis-num">2</div>
+        <div class="axis-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="13.5" r="7.5"/>
+            <path d="M12 9.5v4l3 2M12 6V3.5M9.5 3.5h5"/>
+          </svg>
+          <span class="n">2</span>
+        </div>
         <div class="axis-title">실시간 모의고사</div>
         <div class="axis-desc">평가원·사설 3개년 최신 자료</div>
       </div>
       <div class="axis-pill reveal" data-delay="2">
-        <div class="axis-num">3</div>
+        <div class="axis-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4.5" y="4" width="15" height="17.5" rx="2"/>
+            <path d="M9 2.5h6v3H9z"/>
+            <path d="M8.5 12l2.2 2.2L15.5 9.5M8.5 17.5h7"/>
+          </svg>
+          <span class="n">3</span>
+        </div>
         <div class="axis-title">관리형 학습</div>
         <div class="axis-desc">플래너 + 수행·세특 점검</div>
       </div>
       <div class="axis-pill reveal" data-delay="3">
-        <div class="axis-num">4</div>
+        <div class="axis-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5"/>
+            <circle cx="12" cy="12" r="4.5"/>
+            <circle cx="12" cy="12" r="1" fill="currentColor"/>
+            <path d="M12 3.5V1.5M12 22.5v-2M3.5 12h-2M22.5 12h-2"/>
+          </svg>
+          <span class="n">4</span>
+        </div>
         <div class="axis-title">입시 컨설턴트 지도</div>
         <div class="axis-desc">맥시멈K컨설팅 직접 연계</div>
       </div>
+    </div>
+
+    <!-- 4축 도식 : 한 학생을 중심으로 4축이 교차 -->
+    <div class="axis-diagram reveal" data-delay="1">
+      <svg viewBox="0 0 360 372" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="4축 학습 시스템 도식 — 한 학생에게 현강, 실시간 모의고사, 관리형 학습, 입시 컨설팅이 동시 집중">
+        <!-- 점선 원 궤도 -->
+        <circle cx="180" cy="186" r="122" fill="none" stroke="rgba(200,169,106,0.35)" stroke-width="1.2" stroke-dasharray="5 6"/>
+        <!-- 축선 -->
+        <line x1="180" y1="64" x2="180" y2="308" stroke="rgba(220,193,136,0.45)" stroke-width="1.5"/>
+        <line x1="58" y1="186" x2="302" y2="186" stroke="rgba(220,193,136,0.45)" stroke-width="1.5"/>
+        <!-- 중심 : 학생 -->
+        <circle cx="180" cy="186" r="50" fill="rgba(200,169,106,0.12)" stroke="#c8a96a" stroke-width="1.6"/>
+        <text x="180" y="180" text-anchor="middle" fill="#ffffff" font-size="14.5" font-weight="800">한 학생에게</text>
+        <text x="180" y="200" text-anchor="middle" fill="#dcc188" font-size="13" font-weight="700">4축 동시 집중</text>
+        <!-- 노드 1 : 현강 (상) -->
+        <circle cx="180" cy="64" r="15" fill="#c8a96a"/>
+        <text x="180" y="69" text-anchor="middle" fill="#0d1b2e" font-size="13.5" font-weight="900">1</text>
+        <text x="180" y="38" text-anchor="middle" fill="#dcc188" font-size="13.5" font-weight="800">현강</text>
+        <!-- 노드 2 : 모의고사 (우) -->
+        <circle cx="302" cy="186" r="15" fill="#c8a96a"/>
+        <text x="302" y="191" text-anchor="middle" fill="#0d1b2e" font-size="13.5" font-weight="900">2</text>
+        <text x="302" y="220" text-anchor="middle" fill="#dcc188" font-size="13" font-weight="800">실시간</text>
+        <text x="302" y="236" text-anchor="middle" fill="#dcc188" font-size="13" font-weight="800">모의고사</text>
+        <!-- 노드 3 : 관리형 학습 (하) -->
+        <circle cx="180" cy="308" r="15" fill="#c8a96a"/>
+        <text x="180" y="313" text-anchor="middle" fill="#0d1b2e" font-size="13.5" font-weight="900">3</text>
+        <text x="180" y="344" text-anchor="middle" fill="#dcc188" font-size="13.5" font-weight="800">관리형 학습</text>
+        <!-- 노드 4 : 입시 컨설팅 (좌) -->
+        <circle cx="58" cy="186" r="15" fill="#c8a96a"/>
+        <text x="58" y="191" text-anchor="middle" fill="#0d1b2e" font-size="13.5" font-weight="900">4</text>
+        <text x="58" y="220" text-anchor="middle" fill="#dcc188" font-size="13" font-weight="800">입시</text>
+        <text x="58" y="236" text-anchor="middle" fill="#dcc188" font-size="13" font-weight="800">컨설팅</text>
+      </svg>
     </div>
 
     <div class="axis-summary reveal" data-delay="2">
@@ -1221,14 +1296,18 @@
     <p class="section-sub reveal">공간·시설과 K선생 프로필을 한 장으로</p>
 
     <div class="studio-stack">
-      <a href="공부방홍보1.jpg" target="_blank" rel="noopener" class="studio-card reveal">
-        <div class="img-wrap"><img src="공부방홍보1.jpg" alt="프라임K수학 공간·시설 종합 안내" loading="lazy"></div>
+      <div class="studio-card no-zoom reveal">
+        <div class="img-wrap">
+          <a href="공부방홍보1_1.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_1.jpg" alt="프라임K수학 공간·시설 종합 안내 1" loading="lazy"></a>
+          <a href="공부방홍보1_2.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_2.jpg" alt="프라임K수학 공간·시설 종합 안내 2" loading="lazy"></a>
+          <a href="공부방홍보1_3.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_3.jpg" alt="프라임K수학 공간·시설 종합 안내 3" loading="lazy"></a>
+        </div>
         <div class="studio-caption">
           <span class="sc-tag">SPACE · FACILITY</span>
           <div class="sc-title">공간·시설 종합 안내</div>
           <div class="sc-sub">STUDY ROOM · CLASS ROOM · COUNSELING ROOM · 4축 시스템</div>
         </div>
-      </a>
+      </div>
       <a href="공부방홍보2.jpg" target="_blank" rel="noopener" class="studio-card reveal" data-delay="1">
         <div class="img-wrap"><img src="공부방홍보2.jpg" alt="K선생 김범수 원장 프로필 · 프라임K수학 입시 결과" loading="lazy"></div>
         <div class="studio-caption">
