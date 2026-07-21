@@ -312,7 +312,7 @@
     line-height:1.6;
   }
 
-  /* ============ 01. VIDEO + TEACHER ============ */
+  /* ============ 01. TEACHER ============ */
   .teacher-block{
     background:#fff;
     border-radius:var(--radius);
@@ -321,47 +321,8 @@
     border:1px solid var(--line-warm);
   }
   @media (min-width:880px){
-    .teacher-block{
-      display:grid;
-      grid-template-columns:1.45fr 1fr;
-      align-items:stretch;
-    }
-    .teacher-block .video-wrap{padding-bottom:0;min-height:340px;height:100%}
-    .teacher-block .teacher-info{
-      border-top:0;
-      border-left:3px solid var(--mustard);
-      display:flex;flex-direction:column;justify-content:center;
-      padding:36px 34px;
-    }
+    .teacher-block .teacher-info{padding:36px 40px}
   }
-  .video-wrap{
-    position:relative;
-    width:100%;
-    padding-bottom:56.25%;
-    background:var(--navy);
-  }
-  .video-wrap iframe,.video-placeholder{
-    position:absolute;
-    top:0;left:0;
-    width:100%;height:100%;
-    border:0;
-  }
-  .video-placeholder{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    color:rgba(255,255,255,0.75);
-    text-align:center;
-    padding:20px;
-    background:
-      radial-gradient(circle at 20% 20%,rgba(200,169,106,0.12) 0%,transparent 50%),
-      radial-gradient(circle at 80% 80%,rgba(200,169,106,0.08) 0%,transparent 50%),
-      var(--navy);
-  }
-  .video-placeholder .vp-icon{font-size:52px;margin-bottom:12px}
-  .video-placeholder .vp-text{font-size:16px;font-weight:700;color:var(--mustard-light)}
-  .video-placeholder .vp-sub{font-size:13px;margin-top:6px;color:rgba(255,255,255,0.55)}
   .teacher-info{
     padding:24px 26px 26px;
     border-top:3px solid var(--mustard);
@@ -975,6 +936,25 @@
     .cta-btn .cta-phone::before{content:""}
     .cta-btn .arrow{display:none}
   }
+
+  /* ============ 07. KIOSK ============ */
+  .kiosk-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:32px}
+  .kiosk-chip{border:1px solid rgba(200,169,106,0.45);color:var(--mustard-light);font-size:13px;font-weight:700;padding:7px 16px;border-radius:999px;background:rgba(200,169,106,0.08)}
+  .kiosk-card{margin:0;background:var(--navy-2);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg)}
+  .kiosk-card img{display:block;width:100%;height:auto}
+  .kiosk-card figcaption{padding:18px 22px;border-top:2px solid var(--mustard)}
+  .kc-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:2px;color:var(--mustard-light);margin-bottom:6px}
+  .kc-title{font-size:16px;font-weight:800;color:#fff}
+  .kc-sub{font-size:13px;color:rgba(255,255,255,0.6);margin-top:4px;line-height:1.6}
+  .kiosk-wide{margin-bottom:22px}
+  .kiosk-grid{display:grid;gap:22px;margin-bottom:22px}
+  @media (min-width:880px){.kiosk-grid{grid-template-columns:1fr 1fr}}
+  .kiosk-app{display:grid;gap:26px;background:var(--navy-2);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:26px}
+  @media (min-width:880px){.kiosk-app{grid-template-columns:1.1fr 0.9fr;align-items:center;padding:38px}}
+  .kiosk-app .kiosk-card{box-shadow:none;border:1px solid rgba(255,255,255,0.12);max-width:300px;margin:0 auto}
+  .ka-title{font-size:clamp(19px,2.4vw,24px);font-weight:900;color:#fff;margin:4px 0 10px;line-height:1.4}
+  .kiosk-app p{font-size:14px;color:rgba(255,255,255,0.68);line-height:1.85}
+  .kiosk-note{text-align:center;font-size:12.5px;color:rgba(255,255,255,0.45);margin-top:18px}
 </style>
 </head>
 <body class="has-float">
@@ -1019,21 +999,14 @@
   </div>
 </header>
 
-<!-- ========== 01. VIDEO + TEACHER ========== -->
+<!-- ========== 01. TEACHER ========== -->
 <section style="background:var(--bg);">
   <div class="container">
     <div class="section-divider reveal"><span>INTRO</span></div>
     <h2 class="reveal"><span class="num">01</span>K선생이 직접 안내합니다</h2>
-    <p class="section-sub reveal">더루멘 채널 · K선생 시리즈</p>
+    <p class="section-sub reveal">수학 진도 + 입시 컨설팅 · 1인 책임 구조</p>
 
     <div class="teacher-block reveal" data-delay="1">
-      <div class="video-wrap">
-        <div class="video-placeholder">
-          <div class="vp-icon">🎥</div>
-          <div class="vp-text">콘텐츠 준비 중</div>
-          <div class="vp-sub">K선생 시리즈 영상 곧 업데이트</div>
-        </div>
-      </div>
       <div class="teacher-info">
         <span class="teacher-tag">CHIEF · K선생</span>
         <div class="teacher-name">김범수 원장</div>
@@ -1267,11 +1240,68 @@
   </div>
 </section>
 
-<!-- ========== 07. RESULTS ========== -->
+<!-- ========== 07. KIOSK ========== -->
+<section class="axis-section kiosk-section">
+  <div class="container">
+    <div class="section-divider reveal"><span>SMART SYSTEM</span></div>
+    <h2 class="reveal"><span class="num">07</span>자체 개발 키오스크 · AI 학습분석</h2>
+    <p class="section-sub reveal">출결부터 집중도까지, 데이터로 관리합니다</p>
+
+    <div class="kiosk-chips reveal" data-delay="1">
+      <span class="kiosk-chip">태블릿 키오스크 출결</span>
+      <span class="kiosk-chip">좌석·클리닉 타이머</span>
+      <span class="kiosk-chip">AI 집중도 분석</span>
+      <span class="kiosk-chip">학생·학부모 리포트</span>
+    </div>
+
+    <figure class="kiosk-card kiosk-wide reveal" data-delay="1">
+      <a href="kiosk_ai.jpg" target="_blank" rel="noopener"><img src="kiosk_ai.jpg" alt="AI 학습분석 — 카메라 기반 집중 상태 판정 화면" width="1456" height="1280" loading="lazy" decoding="async"></a>
+      <figcaption>
+        <span class="kc-tag">AI 학습분석</span>
+        <div class="kc-title">카메라가 학생의 집중 상태를 실시간 판정합니다</div>
+        <div class="kc-sub">필기·독서 자세를 인식해 집중/딴짓/졸음을 구분 — 순공시간이 감이 아닌 데이터로 남습니다</div>
+      </figcaption>
+    </figure>
+
+    <div class="kiosk-grid">
+      <figure class="kiosk-card reveal" data-delay="1">
+        <a href="kiosk_main.png" target="_blank" rel="noopener"><img src="kiosk_main.png" alt="키오스크 실시간 좌석 현황판" width="2560" height="1600" loading="lazy" decoding="async"></a>
+        <figcaption>
+          <span class="kc-tag">KIOSK BOARD</span>
+          <div class="kc-title">실시간 좌석 현황판</div>
+          <div class="kc-sub">14좌석 + 강의실 좌석 — 누가, 몇 시간째 공부 중인지 한눈에</div>
+        </figcaption>
+      </figure>
+      <figure class="kiosk-card reveal" data-delay="2">
+        <a href="kiosk_rank.png" target="_blank" rel="noopener"><img src="kiosk_rank.png" alt="이달의 공부왕 랭킹 화면" width="2560" height="1600" loading="lazy" decoding="async"></a>
+        <figcaption>
+          <span class="kc-tag">RANKING</span>
+          <div class="kc-title">이달의 공부왕 TOP 10</div>
+          <div class="kc-sub">공부시간 랭킹으로 선의의 경쟁 — 스스로 앉게 만드는 장치</div>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="kiosk-app reveal" data-delay="1">
+      <div>
+        <span class="kc-tag">맥시멈K스터디 학생앱</span>
+        <div class="ka-title">공부한 만큼,<br>리포트로 증명합니다</div>
+        <p>총 착석·순공시간·집중도·시간대별 분석까지. 학생 스스로 자기 기록을 확인하고, 학부모님도 아이의 공부를 투명하게 볼 수 있습니다.</p>
+      </div>
+      <figure class="kiosk-card">
+        <a href="kiosk_report.png" target="_blank" rel="noopener"><img src="kiosk_report.png" alt="맥시멈K스터디 학생앱 학습 리포트" width="780" height="2692" loading="lazy" decoding="async"></a>
+      </figure>
+    </div>
+
+    <p class="kiosk-note reveal">※ AI 분석은 판정 결과만 기록하며, 영상은 저장되지 않습니다.</p>
+  </div>
+</section>
+
+<!-- ========== 08. RESULTS ========== -->
 <section style="background:var(--bg);" id="results">
   <div class="container">
     <div class="section-divider reveal"><span>RESULTS</span></div>
-    <h2 class="reveal"><span class="num">07</span>입시 결과</h2>
+    <h2 class="reveal"><span class="num">08</span>입시 결과</h2>
     <p class="section-sub reveal">"프라임K 수학은 결과로 말합니다"</p>
 
     <div class="result-box reveal" data-delay="1">
@@ -1288,11 +1318,11 @@
   </div>
 </section>
 
-<!-- ========== 08. STUDIO ========== -->
+<!-- ========== 09. STUDIO ========== -->
 <section style="background:var(--bg-warm);">
   <div class="container">
     <div class="section-divider reveal"><span>STUDIO</span></div>
-    <h2 class="reveal"><span class="num">08</span>학원 한눈에 보기</h2>
+    <h2 class="reveal"><span class="num">09</span>학원 한눈에 보기</h2>
     <p class="section-sub reveal">공간·시설과 K선생 프로필을 한 장으로</p>
 
     <div class="studio-stack">
@@ -1332,11 +1362,11 @@
   </div>
 </section>
 
-<!-- ========== 09. RECRUIT + PRICE ========== -->
+<!-- ========== 10. RECRUIT + PRICE ========== -->
 <section style="background:var(--bg);" id="enroll">
   <div class="container">
     <div class="section-divider reveal"><span>ENROLLMENT</span></div>
-    <h2 class="reveal"><span class="num">09</span>모집 안내 · 수강료</h2>
+    <h2 class="reveal"><span class="num">10</span>모집 안내 · 수강료</h2>
     <p class="section-sub reveal">반편성은 무료 진단 후 안내드립니다</p>
 
     <div class="enroll-grid">
