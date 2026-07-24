@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>프라임K수학 — 태도가 공부를 완성한다 | 고1·중1 집중 모집 · 전 학년 상시</title>
-<meta name="description" content="확실한 관리와 맞춤형 지도로 수학 자신감을 키우는 프라임K수학. 고교학점제 시대, 소수정예·MBTI 케어·수행평가/세특 관리·관리형 시스템.">
+<meta name="description" content="확실한 관리와 맞춤형 지도로 수학 자신감을 키우는 프라임K수학. 소수정예·관리형 시스템에 과학(통합과학)·물리·경제 수업까지 — 방학 특강 + 학기 중 3인 과외식 운영.">
 <meta property="og:title" content="프라임K수학 — 태도가 공부를 완성한다">
-<meta property="og:description" content="확실한 관리와 맞춤형 지도. 소수정예·MBTI 케어·수행/세특 전과목 관리.">
+<meta property="og:description" content="확실한 관리와 맞춤형 지도. 수학 + 과학·물리·경제까지 한 곳에서 관리합니다.">
 <meta property="og:type" content="website">
 <style>
   :root{
@@ -57,31 +57,39 @@
     *{animation:none !important;transition:none !important}
   }
 
-  /* ============ TOPBAR (스크롤 시 등장) ============ */
+  /* ============ TOPBAR (상시 고정 · 2단) ============ */
   .topbar{
     position:fixed;top:0;left:0;right:0;z-index:100;
-    background:rgba(13,27,46,0.92);
+    background:rgba(13,27,46,0.94);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
-    transform:translateY(-100%);
-    transition:transform 0.4s var(--ease);
     border-bottom:1px solid rgba(200,169,106,0.25);
   }
-  .topbar.show{transform:translateY(0)}
   .topbar-inner{
     max-width:1080px;margin:0 auto;padding:0 24px;
-    height:58px;
+    height:52px;
     display:flex;align-items:center;justify-content:space-between;gap:12px;
   }
+  .topbar-navrow{
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  .topbar-navrow .topbar-nav{
+    max-width:1080px;margin:0 auto;padding:0 24px;
+    height:42px;align-items:center;
+    overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  }
+  .topbar-navrow .topbar-nav::-webkit-scrollbar{display:none}
+  body{padding-top:94px}
+  section[id],#science{scroll-margin-top:100px}
   .topbar-logo{
     font-size:17px;font-weight:900;color:#fff;letter-spacing:-0.3px;
     text-decoration:none;white-space:nowrap;
   }
   .topbar-logo .accent{color:var(--mustard)}
-  .topbar-nav{display:flex;gap:22px}
+  .topbar-nav{display:flex;gap:18px}
   .topbar-nav a{
     color:rgba(255,255,255,0.78);text-decoration:none;
-    font-size:13.5px;font-weight:600;
+    font-size:13px;font-weight:600;white-space:nowrap;
     transition:color 0.2s;
   }
   .topbar-nav a:hover{color:var(--mustard-light)}
@@ -95,8 +103,10 @@
   }
   .topbar-cta:hover{background:var(--mustard-light);transform:translateY(-1px)}
   @media (max-width:760px){
-    .topbar-nav{display:none}
-    .topbar-inner{height:52px}
+    .topbar-inner{height:48px}
+    .topbar-navrow .topbar-nav{height:40px;gap:16px}
+    body{padding-top:88px}
+    section[id],#science{scroll-margin-top:94px}
   }
 
   /* ============ HERO ============ */
@@ -834,6 +844,8 @@
   }
   .price-row:hover{background:var(--bg-warm)}
   .price-row:last-child{border-bottom:0}
+  .pr-link{color:var(--mustard-dark);font-weight:800;text-decoration:none;font-size:12.5px}
+  .pr-link:hover{text-decoration:underline}
   .price-row .pr-label{
     font-size:clamp(14.5px,1.7vw,16.5px);
     color:var(--navy);
@@ -955,6 +967,92 @@
   .ka-title{font-size:clamp(19px,2.4vw,24px);font-weight:900;color:#fff;margin:4px 0 10px;line-height:1.4}
   .kiosk-app p{font-size:14px;color:rgba(255,255,255,0.68);line-height:1.85}
   .kiosk-note{text-align:center;font-size:12.5px;color:rgba(255,255,255,0.45);margin-top:18px}
+
+  /* ============ SPECIAL STRIP BANNER ============ */
+  .strip-banner{
+    display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+    background:linear-gradient(90deg,var(--mustard-dark),var(--mustard) 50%,var(--mustard-dark));
+    color:var(--navy);text-decoration:none;text-align:center;
+    padding:13px 18px;font-size:clamp(13.5px,1.8vw,15.5px);font-weight:700;line-height:1.5;
+  }
+  .strip-banner strong{font-weight:900}
+  .strip-banner .sb-arrow{font-weight:900}
+  .strip-banner:hover{filter:brightness(1.05)}
+
+  /* ============ 07. SCIENCE & ECONOMICS ============ */
+  .sci-modes{display:grid;gap:16px;margin-bottom:34px}
+  @media (min-width:760px){.sci-modes{grid-template-columns:1fr 1fr}}
+  .sci-mode{
+    background:#fff;border:1px solid var(--line-warm);border-radius:var(--radius);
+    padding:26px 26px 24px;box-shadow:var(--shadow-sm);position:relative;
+  }
+  .sci-mode .sm-when{display:inline-block;background:var(--navy);color:var(--mustard-light);font-size:12px;font-weight:800;letter-spacing:2px;padding:5px 14px;border-radius:999px;margin-bottom:12px}
+  .sci-mode h3{font-size:clamp(17px,2.2vw,20px);color:var(--navy);margin-bottom:8px;line-height:1.45}
+  .sci-mode p{font-size:14px;color:var(--muted);line-height:1.75}
+  .sci-subjects{display:grid;gap:14px;margin-bottom:40px}
+  @media (min-width:760px){.sci-subjects{grid-template-columns:repeat(3,1fr)}}
+  .sci-subject{
+    background:var(--bg-warm);border:1px solid var(--line-warm);border-radius:var(--radius);
+    padding:22px 20px;text-align:center;
+  }
+  .sci-subject .ss-icon{font-size:30px;margin-bottom:8px}
+  .sci-subject h4{font-size:16.5px;color:var(--navy);margin-bottom:5px}
+  .sci-subject .ss-detail{font-size:13.5px;color:var(--text-2);line-height:1.65}
+  .sci-subject .ss-status{display:inline-block;margin-top:10px;font-size:11.5px;font-weight:800;letter-spacing:1px;padding:4px 12px;border-radius:999px}
+  .ss-on{background:rgba(200,169,106,0.18);color:var(--mustard-dark)}
+  .ss-soon{background:rgba(13,27,46,0.07);color:var(--muted)}
+
+  /* 특강 카드 */
+  .special-card{
+    background:var(--navy);border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow-lg);border:1px solid rgba(200,169,106,0.35);
+  }
+  .special-head{padding:30px 28px 22px;border-bottom:1px solid rgba(255,255,255,0.1);
+    background:radial-gradient(circle at 85% 0%,rgba(200,169,106,0.16) 0%,transparent 55%)}
+  .special-head .sp-tag{display:inline-block;background:var(--mustard);color:var(--navy);font-size:11.5px;font-weight:900;letter-spacing:2px;padding:5px 14px;border-radius:999px;margin-bottom:12px}
+  .special-head h3{font-size:clamp(20px,2.8vw,27px);color:#fff;line-height:1.4;margin-bottom:6px}
+  .special-head .sp-sub{font-size:14px;color:rgba(255,255,255,0.65)}
+  .special-body{padding:26px 28px 30px}
+  .sp-info{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin-bottom:24px}
+  @media (min-width:760px){.sp-info{grid-template-columns:repeat(3,1fr)}}
+  .sp-info div{background:var(--navy-2);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:13px 15px}
+  .sp-info .k{font-size:11.5px;font-weight:800;letter-spacing:1.5px;color:var(--mustard-light);margin-bottom:3px}
+  .sp-info .v{font-size:14px;font-weight:700;color:#fff;line-height:1.5}
+  .sp-quote{border-left:3px solid var(--mustard);padding:4px 0 4px 16px;margin-bottom:24px;
+    font-size:14.5px;color:rgba(255,255,255,0.8);line-height:1.75}
+  .sp-weeks{display:grid;gap:12px;margin-bottom:20px}
+  @media (min-width:760px){.sp-weeks{grid-template-columns:repeat(3,1fr)}}
+  .sp-week{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:16px 17px}
+  .sp-week .w-num{font-size:11.5px;font-weight:900;letter-spacing:2px;color:var(--mustard);margin-bottom:5px}
+  .sp-week .w-title{font-size:15px;font-weight:800;color:#fff;margin-bottom:4px}
+  .sp-week .w-desc{font-size:12.5px;color:rgba(255,255,255,0.6);line-height:1.6}
+  .sp-details{border:1px solid rgba(255,255,255,0.12);border-radius:12px;margin-bottom:24px;overflow:hidden}
+  .sp-details summary{
+    cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;
+    padding:15px 18px;font-size:14.5px;font-weight:800;color:var(--mustard-light);
+    background:rgba(255,255,255,0.04);
+  }
+  .sp-details summary::-webkit-details-marker{display:none}
+  .sp-details summary::after{content:"▾";transition:transform 0.25s}
+  .sp-details[open] summary::after{transform:rotate(180deg)}
+  .sp-table{width:100%;border-collapse:collapse;font-size:13px}
+  .sp-table th{background:rgba(200,169,106,0.14);color:var(--mustard-light);font-size:12px;letter-spacing:1px;padding:9px 10px;text-align:left;white-space:nowrap}
+  .sp-table td{padding:9px 10px;border-top:1px solid rgba(255,255,255,0.07);color:rgba(255,255,255,0.82);line-height:1.55;vertical-align:top}
+  .sp-table td.c{white-space:nowrap;color:var(--mustard-light);font-weight:700}
+  .sp-table tr.wk td{background:rgba(255,255,255,0.05);color:var(--mustard);font-weight:900;font-size:12px;letter-spacing:1.5px}
+  .sp-manage{display:grid;gap:10px;margin-bottom:26px}
+  @media (min-width:760px){.sp-manage{grid-template-columns:1fr 1fr}}
+  .sp-manage div{font-size:13.5px;color:rgba(255,255,255,0.78);line-height:1.65;padding-left:22px;position:relative}
+  .sp-manage div::before{content:"✓";position:absolute;left:0;color:var(--mustard);font-weight:900}
+  .sp-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .sp-btn{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:999px;
+    padding:13px 24px;font-size:14.5px;font-weight:800;transition:transform 0.2s,filter 0.2s;
+  }
+  .sp-btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .sp-btn-gold{background:var(--mustard);color:var(--navy)}
+  .sp-btn-line{border:1.5px solid rgba(255,255,255,0.35);color:#fff}
+  .sci-note{text-align:center;font-size:13px;color:var(--muted);margin-top:22px;line-height:1.7}
 </style>
 </head>
 <body class="has-float">
@@ -963,15 +1061,19 @@
 <div class="topbar" id="topbar">
   <div class="topbar-inner">
     <a href="#top" class="topbar-logo">프라임<span class="accent">K</span>수학</a>
+    <a href="tel:01064087421" class="topbar-cta">📞 010-6408-7421</a>
+  </div>
+  <div class="topbar-navrow">
     <nav class="topbar-nav">
-      <a href="#why">왜 지금</a>
-      <a href="#points">차별화</a>
-      <a href="#system">시스템</a>
+      <a href="#intro">학원 소개</a>
       <a href="#space">공간</a>
+      <a href="#care">클리닉</a>
+      <a href="#science">과학·경제</a>
+      <a href="#kiosk">AI분석관리</a>
       <a href="#results">입시 결과</a>
+      <a href="#studio">갤러리</a>
       <a href="#enroll">모집·수강료</a>
     </nav>
-    <a href="tel:01064087421" class="topbar-cta">📞 010-6408-7421</a>
   </div>
 </div>
 
@@ -999,8 +1101,11 @@
   </div>
 </header>
 
+<!-- ========== 여름 특강 띠배너 (방학 종료 후 이 블록만 삭제) ========== -->
+<a href="#science" class="strip-banner" id="specialBanner">🔥 2026 여름 물리특강 <strong>「역학과 에너지 3주 완성」</strong> 7/27(월) 개강 · 월~금 15회 · 선착순 모집 중 <span class="sb-arrow">→</span></a>
+
 <!-- ========== 01. TEACHER ========== -->
-<section style="background:var(--bg);">
+<section style="background:var(--bg);" id="intro">
   <div class="container">
     <div class="section-divider reveal"><span>INTRO</span></div>
     <h2 class="reveal"><span class="num">01</span>K선생이 직접 안내합니다</h2>
@@ -1224,7 +1329,7 @@
 </section>
 
 <!-- ========== 06. CLINIC ========== -->
-<section style="background:var(--bg-warm);">
+<section style="background:var(--bg-warm);" id="care">
   <div class="container">
     <div class="section-divider reveal"><span>CARE</span></div>
     <h2 class="reveal"><span class="num">06</span>방치되지 않는 학원입니다</h2>
@@ -1240,11 +1345,123 @@
   </div>
 </section>
 
-<!-- ========== 07. KIOSK ========== -->
-<section class="axis-section kiosk-section">
+<!-- ========== 07. SCIENCE & ECONOMICS ========== -->
+<section style="background:var(--bg);" id="science">
+  <div class="container">
+    <div class="section-divider reveal"><span>SCIENCE · ECONOMICS</span></div>
+    <h2 class="reveal"><span class="num">07</span>수학을 넘어 — 과학·경제까지</h2>
+    <p class="section-sub reveal">수학의 관리 시스템 그대로, 한 곳에서 관리합니다</p>
+
+    <div class="sci-modes">
+      <div class="sci-mode reveal" data-delay="1">
+        <span class="sm-when">방학</span>
+        <h3>특강 — 메인 진도 완성</h3>
+        <p>방학마다 집중 특강으로 교재 한 권 단위의 메인 진도를 끝냅니다. 매일 이어지는 강의와 일일 과제·오답 점검으로 한 학기 분량을 방학 안에 선점합니다.</p>
+      </div>
+      <div class="sci-mode reveal" data-delay="2">
+        <span class="sm-when">학기 중</span>
+        <h3>3인 소수 과외식 — 주 1회</h3>
+        <p>학기 중에는 진도보다 내신에 집중합니다. 3인 이하 과외식 수업으로 학교 시험 범위에 맞춰 밀착 관리합니다. 시간은 상담 후 배정됩니다.</p>
+      </div>
+    </div>
+
+    <div class="sci-subjects">
+      <div class="sci-subject reveal" data-delay="1">
+        <div class="ss-icon">🔬</div>
+        <h4>과학</h4>
+        <div class="ss-detail">통합과학1 · 통합과학2<br>고1 내신 대비</div>
+        <span class="ss-status ss-soon">개설 준비 중</span>
+      </div>
+      <div class="sci-subject reveal" data-delay="2">
+        <div class="ss-icon">🧲</div>
+        <h4>물리</h4>
+        <div class="ss-detail">물리학 · 역학과 에너지<br>전자기와 양자</div>
+        <span class="ss-status ss-on">운영 중</span>
+      </div>
+      <div class="sci-subject reveal" data-delay="3">
+        <div class="ss-icon">📈</div>
+        <h4>경제</h4>
+        <div class="ss-detail">사회탐구 경제<br>고등부</div>
+        <span class="ss-status ss-soon">개설 준비 중</span>
+      </div>
+    </div>
+
+    <div class="special-card reveal" data-delay="1" id="specialCard">
+      <div class="special-head">
+        <span class="sp-tag">2026 SUMMER SPECIAL</span>
+        <h3>고2 물리특강 — 역학과 에너지 3주 완성</h3>
+        <p class="sp-sub">고교학점제 시대, 공대 진학에 물리 이수는 필수. 여름 3주에 교재 한 권을 끝내고 2학기 내신을 선점합니다.</p>
+      </div>
+      <div class="special-body">
+        <div class="sp-info">
+          <div><div class="k">기간</div><div class="v">7/27(월) ~ 8/14(금)<br>월~금 · 3주</div></div>
+          <div><div class="k">시간</div><div class="v">오전 10:30~12:00<br>회당 90분</div></div>
+          <div><div class="k">총 수업</div><div class="v">15회 · 22.5시간<br>휴강 시 주말 보강 보장</div></div>
+          <div><div class="k">교재</div><div class="v">완자 역학과 에너지<br>(2022 개정)</div></div>
+          <div><div class="k">대상</div><div class="v">고2 · 역학과 에너지 선택자<br>이공계 진학 희망자</div></div>
+          <div><div class="k">수강료</div><div class="v">550,000원<br>수학 동시 수강 시 360,000원</div></div>
+        </div>
+
+        <div class="sp-quote">"역학 문제는 <strong>'상황 그림'</strong>이 먼저다 — 문제를 읽으면 힘 화살표부터 그리는 습관을 15일간 훈련합니다."<br>매일 개념 강의 60분 + 문제풀이 트레이닝 30분 + 일일 과제 → 다음 날 오답 점검</div>
+
+        <div class="sp-weeks">
+          <div class="sp-week"><div class="w-num">WEEK 1</div><div class="w-title">Ⅰ. 시공간과 운동</div><div class="w-desc">힘의 합성 → 포물선·원운동 → 케플러·중력 → 상대성 이론</div></div>
+          <div class="sp-week"><div class="w-num">WEEK 2</div><div class="w-title">Ⅱ. 열과 에너지</div><div class="w-desc">단원평가 ① → 열평형·기체 법칙 → 열역학 제1·2법칙</div></div>
+          <div class="sp-week"><div class="w-num">WEEK 3</div><div class="w-title">Ⅲ. 탄성파와 소리</div><div class="w-desc">단진동·탄성파 → 도플러·간섭 → 전 범위 총정리 테스트</div></div>
+        </div>
+
+        <details class="sp-details">
+          <summary>15회 전체 커리큘럼 보기</summary>
+          <div style="overflow-x:auto">
+          <table class="sp-table">
+            <thead><tr><th>회차</th><th>날짜</th><th>주제</th><th>핵심 개념</th></tr></thead>
+            <tbody>
+            <tr class="wk"><td colspan="4">1주차 — Ⅰ. 시공간과 운동</td></tr>
+            <tr><td class="c">1회</td><td class="c">7/27(월)</td><td>힘의 합성</td><td>벡터의 합성·분해, 알짜힘, 힘의 평형</td></tr>
+            <tr><td class="c">2회</td><td class="c">7/28(화)</td><td>포물선 운동</td><td>수평·연직 방향 운동 분리, 등가속도 운동 적용</td></tr>
+            <tr><td class="c">3회</td><td class="c">7/29(수)</td><td>등속 원운동과 진자 운동</td><td>구심력·구심 가속도, 단진자의 주기</td></tr>
+            <tr><td class="c">4회</td><td class="c">7/30(목)</td><td>케플러 법칙과 중력</td><td>케플러 1·2·3법칙, 만유인력 법칙, 등가 원리</td></tr>
+            <tr><td class="c">5회</td><td class="c">7/31(금)</td><td>탈출 속도와 일반 상대성 이론</td><td>역학적 에너지와 탈출 속도, 중력에 의한 시공간 휘어짐</td></tr>
+            <tr class="wk"><td colspan="4">2주차 — Ⅰ단원 마무리 + Ⅱ. 열과 에너지</td></tr>
+            <tr><td class="c">6회</td><td class="c">8/3(월)</td><td>Ⅰ단원 총정리·단원평가 ①</td><td>1단원 통합 문제풀이, 취약 유형 진단</td></tr>
+            <tr><td class="c">7회</td><td class="c">8/4(화)</td><td>열과 일, 열평형</td><td>단열 과정, 열평형, 열의 이동과 일의 전환</td></tr>
+            <tr><td class="c">8회</td><td class="c">8/5(수)</td><td>이상 기체 법칙</td><td>보일·샤를 법칙, 이상 기체 상태 방정식, 내부 에너지</td></tr>
+            <tr><td class="c">9회</td><td class="c">8/6(목)</td><td>열역학 제1법칙</td><td>에너지 보존, 등압·등적·등온·단열 과정 분석</td></tr>
+            <tr><td class="c">10회</td><td class="c">8/7(금)</td><td>열역학 제2법칙과 열기관</td><td>열기관 효율, 엔트로피, 비가역 과정 + Ⅱ단원 정리</td></tr>
+            <tr class="wk"><td colspan="4">3주차 — Ⅲ. 탄성파와 소리 + 총정리</td></tr>
+            <tr><td class="c">11회</td><td class="c">8/10(월)</td><td>단진동</td><td>변위·속도·가속도의 위상, 복원력</td></tr>
+            <tr><td class="c">12회</td><td class="c">8/11(화)</td><td>탄성파</td><td>횡파·종파, 파동의 요소, 매질과 전파 속도</td></tr>
+            <tr><td class="c">13회</td><td class="c">8/12(수)</td><td>도플러 효과</td><td>파원·관찰자 운동에 따른 진동수 변화, 실생활 적용</td></tr>
+            <tr><td class="c">14회</td><td class="c">8/13(목)</td><td>음파의 간섭과 정상파</td><td>보강·상쇄 간섭, 정상파, 현·관에서의 공명</td></tr>
+            <tr><td class="c">15회</td><td class="c">8/14(금)</td><td>전 범위 총정리 테스트</td><td>모의 내신 테스트 + 해설, 2학기 학습 로드맵 제시</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </details>
+
+        <div class="sp-manage">
+          <div>평가 2회 — Ⅰ단원 평가 + 전 범위 총정리 테스트</div>
+          <div>일일 과제 + 익일 오답 점검, 하루도 공백 없이 관리</div>
+          <div>테스트 성적·수강 태도, 학부모께 문자로 공유</div>
+          <div>수료 후 희망자는 2학기 물리 정규반 연계</div>
+        </div>
+
+        <div class="sp-cta">
+          <a href="tel:01064087421" class="sp-btn sp-btn-gold">📞 특강 상담 · 010-6408-7421</a>
+          <a href="https://blog.naver.com/maximumk1010/224345088501" target="_blank" rel="noopener" class="sp-btn sp-btn-line">📝 블로그 안내글 보기</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="sci-note reveal">통합과학·경제도 같은 구조(방학 특강 + 학기 중 3인 과외식)로 순차 개설됩니다. 개설 일정은 전화로 문의해 주세요.</p>
+  </div>
+</section>
+
+<!-- ========== 08. KIOSK ========== -->
+<section class="axis-section kiosk-section" id="kiosk">
   <div class="container">
     <div class="section-divider reveal"><span>SMART SYSTEM</span></div>
-    <h2 class="reveal"><span class="num">07</span>자체 개발 키오스크 · AI 학습분석</h2>
+    <h2 class="reveal"><span class="num">08</span>자체 개발 키오스크 · AI 학습분석</h2>
     <p class="section-sub reveal">출결부터 집중도까지, 데이터로 관리합니다</p>
 
     <div class="kiosk-chips reveal" data-delay="1">
@@ -1297,11 +1514,11 @@
   </div>
 </section>
 
-<!-- ========== 08. RESULTS ========== -->
+<!-- ========== 09. RESULTS ========== -->
 <section style="background:var(--bg);" id="results">
   <div class="container">
     <div class="section-divider reveal"><span>RESULTS</span></div>
-    <h2 class="reveal"><span class="num">08</span>입시 결과</h2>
+    <h2 class="reveal"><span class="num">09</span>입시 결과</h2>
     <p class="section-sub reveal">"프라임K 수학은 결과로 말합니다"</p>
 
     <div class="result-box reveal" data-delay="1">
@@ -1318,11 +1535,11 @@
   </div>
 </section>
 
-<!-- ========== 09. STUDIO ========== -->
-<section style="background:var(--bg-warm);">
+<!-- ========== 10. STUDIO ========== -->
+<section style="background:var(--bg-warm);" id="studio">
   <div class="container">
     <div class="section-divider reveal"><span>STUDIO</span></div>
-    <h2 class="reveal"><span class="num">09</span>학원 한눈에 보기</h2>
+    <h2 class="reveal"><span class="num">10</span>학원 한눈에 보기</h2>
     <p class="section-sub reveal">공간·시설과 K선생 프로필을 한 장으로</p>
 
     <div class="studio-stack">
@@ -1362,11 +1579,11 @@
   </div>
 </section>
 
-<!-- ========== 10. RECRUIT + PRICE ========== -->
+<!-- ========== 11. RECRUIT + PRICE ========== -->
 <section style="background:var(--bg);" id="enroll">
   <div class="container">
     <div class="section-divider reveal"><span>ENROLLMENT</span></div>
-    <h2 class="reveal"><span class="num">10</span>모집 안내 · 수강료</h2>
+    <h2 class="reveal"><span class="num">11</span>모집 안내 · 수강료</h2>
     <p class="section-sub reveal">반편성은 무료 진단 후 안내드립니다</p>
 
     <div class="enroll-grid">
@@ -1397,6 +1614,13 @@
             <span class="pr-sub">평가원·사설 3개년 + 인강 풀이</span>
           </div>
           <div class="pr-value">월 39만원</div>
+        </div>
+        <div class="price-row">
+          <div>
+            <div class="pr-label">과학·경제 특강</div>
+            <span class="pr-sub">통합과학·물리·경제 — 방학 특강 + 학기 3인 과외식<br><a href="#science" class="pr-link">진행 중인 특강 보기 →</a></span>
+          </div>
+          <div class="pr-value">상담 문의</div>
         </div>
       </div>
     </div>
@@ -1436,6 +1660,16 @@
 
 <script>
 (function(){
+  /* 여름 특강 자동 마감 — 아래 날짜(포함)부터 배너·특강 카드 자동 숨김.
+     다음 특강 때는 날짜와 카드 내용만 교체해 재사용 */
+  var SPECIAL_HIDE_FROM = '2026-08-01';
+  if (new Date() >= new Date(SPECIAL_HIDE_FROM + 'T00:00:00+09:00')) {
+    var sb = document.getElementById('specialBanner');
+    var sc = document.getElementById('specialCard');
+    if (sb) sb.style.display = 'none';
+    if (sc) sc.style.display = 'none';
+  }
+
   /* 스크롤 등장 애니메이션 */
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var targets = document.querySelectorAll('.reveal');
@@ -1451,13 +1685,11 @@
     targets.forEach(function(el){ io.observe(el); });
   }
 
-  /* 상단바 + 모바일 하단 CTA — 히어로 지나면 표시 */
-  var topbar = document.getElementById('topbar');
+  /* 모바일 하단 CTA — 히어로 지나면 표시 (상단바는 상시 고정) */
   var floatCall = document.getElementById('floatCall');
   var hero = document.querySelector('.hero');
   function onScroll(){
     var passed = window.scrollY > (hero ? hero.offsetHeight * 0.65 : 400);
-    topbar.classList.toggle('show', passed);
     floatCall.classList.toggle('show', passed);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
