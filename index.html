@@ -1085,6 +1085,13 @@
   .price-table tbody{display:contents}
   .price-row td{display:block;padding:0;border:0;text-align:left}
   td.pr-value{text-align:right}
+
+  /* ===== SEO Phase 3: 모바일 내비 스크롤 힌트 + picture 보정 ===== */
+  picture{display:contents}
+  @media (max-width:760px){
+    .topbar-navrow{position:relative}
+    .topbar-navrow::after{content:"";position:absolute;top:0;right:0;bottom:0;width:34px;background:linear-gradient(90deg,rgba(13,27,46,0),#0d1b2e);pointer-events:none}
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -1542,7 +1549,7 @@
     </div>
 
     <figure class="kiosk-card kiosk-wide reveal" data-delay="1">
-      <a href="kiosk_ai.jpg" target="_blank" rel="noopener"><img src="kiosk_ai.jpg" alt="AI 학습분석 — 카메라 기반 집중 상태 판정 화면" width="1456" height="1280" loading="lazy" decoding="async"></a>
+      <a href="kiosk_ai.jpg" target="_blank" rel="noopener"><picture><source srcset="kiosk_ai.webp" type="image/webp"><img src="kiosk_ai.jpg" alt="AI 학습분석 — 카메라 기반 집중 상태 판정 화면" width="1456" height="1280" loading="lazy" decoding="async"></picture></a>
       <figcaption>
         <span class="kc-tag">AI 학습분석</span>
         <div class="kc-title">카메라가 학생의 집중 상태를 실시간 판정합니다</div>
@@ -1552,7 +1559,7 @@
 
     <div class="kiosk-grid">
       <figure class="kiosk-card reveal" data-delay="1">
-        <a href="kiosk_main.png" target="_blank" rel="noopener"><img src="kiosk_main.png" alt="키오스크 실시간 좌석 현황판" width="2560" height="1600" loading="lazy" decoding="async"></a>
+        <a href="kiosk_main.png" target="_blank" rel="noopener"><picture><source srcset="kiosk_main.webp" type="image/webp"><img src="kiosk_main.png" alt="키오스크 실시간 좌석 현황판" width="2560" height="1600" loading="lazy" decoding="async"></picture></a>
         <figcaption>
           <span class="kc-tag">KIOSK BOARD</span>
           <div class="kc-title">실시간 좌석 현황판</div>
@@ -1560,7 +1567,7 @@
         </figcaption>
       </figure>
       <figure class="kiosk-card reveal" data-delay="2">
-        <a href="kiosk_rank.png" target="_blank" rel="noopener"><img src="kiosk_rank.png" alt="이달의 공부왕 랭킹 화면" width="2560" height="1600" loading="lazy" decoding="async"></a>
+        <a href="kiosk_rank.png" target="_blank" rel="noopener"><picture><source srcset="kiosk_rank.webp" type="image/webp"><img src="kiosk_rank.png" alt="이달의 공부왕 랭킹 화면" width="2560" height="1600" loading="lazy" decoding="async"></picture></a>
         <figcaption>
           <span class="kc-tag">RANKING</span>
           <div class="kc-title">이달의 공부왕 TOP 10</div>
@@ -1576,7 +1583,7 @@
         <p>총 착석·순공시간·집중도·시간대별 분석까지. 학생 스스로 자기 기록을 확인하고, 학부모님도 아이의 공부를 투명하게 볼 수 있습니다.</p>
       </div>
       <figure class="kiosk-card">
-        <a href="kiosk_report.png" target="_blank" rel="noopener"><img src="kiosk_report.png" alt="맥시멈K스터디 학생앱 학습 리포트" width="780" height="2692" loading="lazy" decoding="async"></a>
+        <a href="kiosk_report.png" target="_blank" rel="noopener"><picture><source srcset="kiosk_report.webp" type="image/webp"><img src="kiosk_report.png" alt="맥시멈K스터디 학생앱 학습 리포트" width="780" height="2692" loading="lazy" decoding="async"></picture></a>
       </figure>
     </div>
 
@@ -1615,15 +1622,15 @@
     <div class="studio-stack">
       <div class="studio-card no-zoom reveal">
         <div class="img-wrap">
-          <a href="공부방홍보1_p1.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_p1.jpg" alt="프라임K수학 공간·시설 종합 안내 1" width="1720" height="1824" loading="lazy" decoding="async"></a>
-          <a href="공부방홍보1_p2.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_p2.jpg" alt="프라임K수학 공간·시설 종합 안내 2" width="1720" height="2982" loading="lazy" decoding="async"></a>
-          <a href="공부방홍보1_p3.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_p3.jpg" alt="프라임K수학 공간·시설 종합 안내 3" width="1720" height="1827" loading="lazy" decoding="async"></a>
-          <a href="공부방홍보1_p4.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_p4.jpg" alt="프라임K수학 공간·시설 종합 안내 4" width="1720" height="2591" loading="lazy" decoding="async"></a>
-          <a href="공부방홍보1_p5.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_p5.jpg" alt="프라임K수학 공간·시설 종합 안내 5" width="1720" height="2298" loading="lazy" decoding="async"></a>
-          <a href="공부방홍보1_p6.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_p6.jpg" alt="프라임K수학 공간·시설 종합 안내 6" width="1720" height="2558" loading="lazy" decoding="async"></a>
-          <a href="공부방홍보1_p7.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_p7.jpg" alt="프라임K수학 공간·시설 종합 안내 7" width="1720" height="3362" loading="lazy" decoding="async"></a>
-          <a href="공부방홍보1_p8.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_p8.jpg" alt="프라임K수학 공간·시설 종합 안내 8" width="1720" height="2320" loading="lazy" decoding="async"></a>
-          <a href="공부방홍보1_p9.jpg" target="_blank" rel="noopener"><img src="공부방홍보1_p9.jpg" alt="프라임K수학 공간·시설 종합 안내 9" width="1720" height="2238" loading="lazy" decoding="async"></a>
+          <a href="공부방홍보1_p1.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보1_p1.webp" type="image/webp"><img src="공부방홍보1_p1.jpg" alt="프라임K수학 공간·시설 종합 안내 1" width="1720" height="1824" loading="lazy" decoding="async"></picture></a>
+          <a href="공부방홍보1_p2.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보1_p2.webp" type="image/webp"><img src="공부방홍보1_p2.jpg" alt="프라임K수학 공간·시설 종합 안내 2" width="1720" height="2982" loading="lazy" decoding="async"></picture></a>
+          <a href="공부방홍보1_p3.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보1_p3.webp" type="image/webp"><img src="공부방홍보1_p3.jpg" alt="프라임K수학 공간·시설 종합 안내 3" width="1720" height="1827" loading="lazy" decoding="async"></picture></a>
+          <a href="공부방홍보1_p4.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보1_p4.webp" type="image/webp"><img src="공부방홍보1_p4.jpg" alt="프라임K수학 공간·시설 종합 안내 4" width="1720" height="2591" loading="lazy" decoding="async"></picture></a>
+          <a href="공부방홍보1_p5.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보1_p5.webp" type="image/webp"><img src="공부방홍보1_p5.jpg" alt="프라임K수학 공간·시설 종합 안내 5" width="1720" height="2298" loading="lazy" decoding="async"></picture></a>
+          <a href="공부방홍보1_p6.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보1_p6.webp" type="image/webp"><img src="공부방홍보1_p6.jpg" alt="프라임K수학 공간·시설 종합 안내 6" width="1720" height="2558" loading="lazy" decoding="async"></picture></a>
+          <a href="공부방홍보1_p7.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보1_p7.webp" type="image/webp"><img src="공부방홍보1_p7.jpg" alt="프라임K수학 공간·시설 종합 안내 7" width="1720" height="3362" loading="lazy" decoding="async"></picture></a>
+          <a href="공부방홍보1_p8.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보1_p8.webp" type="image/webp"><img src="공부방홍보1_p8.jpg" alt="프라임K수학 공간·시설 종합 안내 8" width="1720" height="2320" loading="lazy" decoding="async"></picture></a>
+          <a href="공부방홍보1_p9.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보1_p9.webp" type="image/webp"><img src="공부방홍보1_p9.jpg" alt="프라임K수학 공간·시설 종합 안내 9" width="1720" height="2238" loading="lazy" decoding="async"></picture></a>
         </div>
         <div class="studio-caption">
           <span class="sc-tag">SPACE · FACILITY</span>
@@ -1633,10 +1640,10 @@
       </div>
       <div class="studio-card no-zoom reveal" data-delay="1">
         <div class="img-wrap">
-          <a href="공부방홍보2_p1.jpg" target="_blank" rel="noopener"><img src="공부방홍보2_p1.jpg" alt="K선생 김범수 원장 프로필 1" width="1720" height="2600" loading="lazy" decoding="async"></a>
-          <a href="공부방홍보2_p2.jpg" target="_blank" rel="noopener"><img src="공부방홍보2_p2.jpg" alt="K선생 김범수 원장 프로필 2" width="1720" height="1316" loading="lazy" decoding="async"></a>
-          <a href="공부방홍보2_p3.jpg" target="_blank" rel="noopener"><img src="공부방홍보2_p3.jpg" alt="프라임K수학 입시 결과 1" width="1720" height="2682" loading="lazy" decoding="async"></a>
-          <a href="공부방홍보2_p4.jpg" target="_blank" rel="noopener"><img src="공부방홍보2_p4.jpg" alt="프라임K수학 입시 결과 2" width="1720" height="2086" loading="lazy" decoding="async"></a>
+          <a href="공부방홍보2_p1.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보2_p1.webp" type="image/webp"><img src="공부방홍보2_p1.jpg" alt="K선생 김범수 원장 프로필 1" width="1720" height="2600" loading="lazy" decoding="async"></picture></a>
+          <a href="공부방홍보2_p2.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보2_p2.webp" type="image/webp"><img src="공부방홍보2_p2.jpg" alt="K선생 김범수 원장 프로필 2" width="1720" height="1316" loading="lazy" decoding="async"></picture></a>
+          <a href="공부방홍보2_p3.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보2_p3.webp" type="image/webp"><img src="공부방홍보2_p3.jpg" alt="프라임K수학 입시 결과 1" width="1720" height="2682" loading="lazy" decoding="async"></picture></a>
+          <a href="공부방홍보2_p4.jpg" target="_blank" rel="noopener"><picture><source srcset="공부방홍보2_p4.webp" type="image/webp"><img src="공부방홍보2_p4.jpg" alt="프라임K수학 입시 결과 2" width="1720" height="2086" loading="lazy" decoding="async"></picture></a>
         </div>
         <div class="studio-caption">
           <span class="sc-tag">CHIEF · RESULTS</span>
