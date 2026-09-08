@@ -61,6 +61,43 @@
     *{animation:none !important;transition:none !important}
   }
 
+  /* ============ 10월 캠페인 (진단 시즌) ============ */
+  .campaign-strip{
+    display:inline-block;text-align:center;text-decoration:none;
+    background:var(--navy,#0d1b2e);color:#fff;
+    font-size:13.5px;font-weight:700;letter-spacing:0.2px;
+    padding:10px 22px;line-height:1.5;border-radius:999px;
+    box-shadow:var(--shadow-md);margin-bottom:26px;
+  }
+  .campaign-strip .cs-accent{color:var(--mustard-light)}
+  .campaign-strip .cs-arrow{margin-left:6px;color:var(--mustard-light)}
+  .campaign-strip:hover .cs-arrow{margin-left:10px}
+  @media (max-width:720px){.campaign-strip{font-size:12.5px;padding:9px 16px}}
+  .diag-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:18px;
+    margin:34px 0 30px;
+  }
+  @media (max-width:720px){.diag-grid{grid-template-columns:1fr}}
+  .diag-card{
+    background:var(--bg);border:1px solid var(--line-warm);border-radius:var(--radius);
+    box-shadow:var(--shadow-sm);padding:24px 24px 22px;
+  }
+  .diag-tag{
+    display:inline-block;background:rgba(200,169,106,0.18);color:var(--mustard-dark);
+    font-size:12px;font-weight:800;letter-spacing:1px;border-radius:999px;
+    padding:4px 12px;margin-bottom:12px;
+  }
+  .diag-copy{font-size:17.5px;font-weight:800;line-height:1.5;margin-bottom:8px;word-break:keep-all}
+  .diag-offer{font-size:14px;color:var(--text-2);line-height:1.7}
+  .diag-offer b{color:var(--mustard-dark)}
+  .diag-cta{text-align:center;margin-top:8px}
+  .sms-btn{
+    display:inline-block;margin-top:12px;padding:13px 26px;border-radius:999px;
+    border:1.5px solid var(--mustard-dark);color:var(--mustard-dark);
+    font-weight:800;font-size:15px;text-decoration:none;
+  }
+  .sms-btn:hover{background:rgba(200,169,106,0.12)}
+
   /* ============ TOPBAR (상시 고정 · 2단) ============ */
   .topbar{
     position:fixed;top:0;left:0;right:0;z-index:100;
@@ -933,28 +970,37 @@
   footer a:hover{color:var(--mustard-light)}
   .footer-copy{font-size:11.5px;color:rgba(255,255,255,0.4);margin-top:8px}
 
-  /* ============ 모바일 하단 고정 CTA ============ */
+  /* ============ 모바일 하단 고정 CTA (전화+문자) ============ */
   .float-call{
     position:fixed;
     left:14px;right:14px;bottom:14px;
     z-index:90;
     display:none;
-    align-items:center;
-    justify-content:center;
     gap:8px;
-    background:var(--navy);
-    color:var(--mustard-light);
-    padding:15px 20px;
-    border-radius:14px;
-    font-size:15.5px;
-    font-weight:800;
-    text-decoration:none;
-    box-shadow:0 8px 26px rgba(13,27,46,0.4);
-    border:1px solid rgba(200,169,106,0.35);
     transform:translateY(120%);
     transition:transform 0.4s var(--ease);
   }
   .float-call.show{transform:translateY(0)}
+  .float-call a{
+    flex:1;
+    display:flex;align-items:center;justify-content:center;gap:6px;
+    padding:15px 10px;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:800;
+    text-decoration:none;
+    box-shadow:0 8px 26px rgba(13,27,46,0.4);
+  }
+  .float-call .fc-tel{
+    background:var(--navy);
+    color:var(--mustard-light);
+    border:1px solid rgba(200,169,106,0.35);
+  }
+  .float-call .fc-sms{
+    background:var(--mustard);
+    color:var(--navy);
+    border:1px solid rgba(13,27,46,0.15);
+  }
   @media (max-width:760px){
     .float-call{display:flex}
     body.has-float{padding-bottom:74px}
@@ -1209,6 +1255,7 @@
   ]
 }
 </script>
+<!-- ANALYTICS: 방문자 측정 스니펫 자리 — GA4 또는 GoatCounter 계정 ID 확정 시 여기에 삽입 (2026-09 모집 전략 4-5 참조) -->
 </head>
 <body class="has-float">
 
@@ -1235,12 +1282,13 @@
 <!-- ========== HERO ========== -->
 <header class="hero" id="top">
   <div class="container hero-inner">
+    <a href="#diagnosis" class="campaign-strip">🎯 <span class="cs-accent">10월 무료 진단 시즌</span> — 중1 첫 시험 분석 · 예비고1 겨울 과학 특강 사전예약<span class="cs-arrow">→</span></a>
     <span class="hero-brand reveal">PRIME K MATH · MAXIMUM K CONSULTING</span>
     <h1 class="hero-logo reveal">프라임<span class="accent">K</span>수학</h1>
     <p class="hero-tagline reveal" data-delay="1"><span class="em">태도가 공부를</span> 완성한다</p>
     <p class="hero-sub reveal" data-delay="1">확실한 관리와 맞춤형 지도로<br>수학 자신감을 키우는 대전 중구 목동의 수학학원입니다.</p>
     <div class="reveal" data-delay="2">
-      <div class="hero-target"><span class="dot"></span>고1·중1 집중 모집 · 전 학년 상시</div>
+      <div class="hero-target"><span class="dot"></span>중1·중2·고1 집중 모집 · 예비고1 겨울 과학 특강</div>
     </div>
     <div class="reveal" data-delay="2">
       <a href="tel:01064087421" class="cta-btn"><span class="cta-main">📞 무료 진단 받기</span><span class="cta-phone">010-6408-7421</span><span class="arrow">→</span></a>
@@ -1256,6 +1304,45 @@
   </div>
 </header>
 
+
+<!-- ========== 10월 캠페인: 무료 진단 시즌 ========== -->
+<section style="background:var(--bg-warm);" id="diagnosis">
+  <div class="container">
+    <div class="section-divider reveal"><span>OCTOBER · FREE DIAGNOSIS</span></div>
+    <h2 class="reveal">10월 무료 진단 시즌</h2>
+    <p class="section-sub reveal">첫 성적표가 나오는 10월 — 점수보다 원인을 먼저 봐야 할 때입니다</p>
+
+    <div class="diag-grid">
+      <div class="diag-card reveal" data-delay="1">
+        <span class="diag-tag">중1</span>
+        <div class="diag-copy">첫 성적표, 점수 말고 원인을 보세요</div>
+        <p class="diag-offer"><b>첫 중간고사 분석 상담(무료)</b> — 시험지를 가져오시면 틀린 문제를 ①개념 ②연습 부족 ③시험 태도로 나눠 분석해 드립니다. 등록 전 <b>체험 1주</b>로 수업·자습·주간 리포트를 그대로 경험한 뒤 결정하세요.</p>
+      </div>
+      <div class="diag-card reveal" data-delay="1">
+        <span class="diag-tag">중2</span>
+        <div class="diag-copy">겨울에 달리려면, 10월에 진단이 끝나 있어야 합니다</div>
+        <p class="diag-offer"><b>예비 중3 겨울 로드맵 진단(무료)</b> — 중2 2학기 수학은 수포자 갈림길입니다. 겨울방학 1:3 정원은 한정되어 있어 <b>10월 등원생부터 우선 배정</b>됩니다.</p>
+      </div>
+      <div class="diag-card reveal" data-delay="2">
+        <span class="diag-tag">고1</span>
+        <div class="diag-copy">고2 선택과목, 감으로 고르실 건가요?</div>
+        <p class="diag-offer"><b>선택과목 전략 상담 + 수학 트랙 진단(무료)</b> — 이번 학기 수강신청이 사실상 대입 트랙을 결정합니다. 자체 대입 데이터 시스템으로 과목 조합과 현재 수학 위치를 함께 점검합니다.</p>
+      </div>
+      <div class="diag-card reveal" data-delay="2">
+        <span class="diag-tag">예비 고1</span>
+        <div class="diag-copy">겨울에 과학을 끝내고, 그 시간을 수학에 쓰세요</div>
+        <p class="diag-offer"><b>공통과학1·2 겨울방학 완성 특강 — 사전예약 접수 중</b> — 고1 내신은 재시험 없는 원샷, 공통과학은 전원 필수입니다. 특강 기간 자습실 이용이 포함됩니다. 일정·정원은 상담 시 안내드립니다.</p>
+      </div>
+    </div>
+
+    <div class="diag-cta reveal">
+      <a href="tel:01064087421" class="cta-btn"><span class="cta-main">📞 무료 진단 예약</span><span class="cta-phone">010-6408-7421</span><span class="arrow">→</span></a>
+      <br>
+      <a href="sms:01064087421?body=%ED%94%84%EB%9D%BC%EC%9E%84K%20%EB%AC%B4%EB%A3%8C%EC%A7%84%EB%8B%A8%20%EC%98%88%EC%95%BD%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.%20%ED%95%99%EC%83%9D%20%EC%9D%B4%EB%A6%84/%ED%95%99%EB%85%84/%ED%95%99%EA%B5%90%3A%20" class="sms-btn">💬 문자로 예약하기</a>
+      <p class="cta-note">진단·상담은 무료입니다 · 낮 시간 통화가 어려우시면 문자를 남겨주세요</p>
+    </div>
+  </div>
+</section>
 
 <!-- ========== 01. TEACHER ========== -->
 <section style="background:var(--bg);" id="intro">
@@ -1530,8 +1617,8 @@
       <div class="sci-subject reveal" data-delay="1">
         <div class="ss-icon">🔬</div>
         <h4>과학</h4>
-        <div class="ss-detail">통합과학1 · 통합과학2<br>고1 내신 대비</div>
-        <span class="ss-status ss-soon">개설 준비 중</span>
+        <div class="ss-detail">공통과학1 · 공통과학2<br>겨울방학 완성 특강 (예비 고1)</div>
+        <span class="ss-status ss-on">사전예약 접수 중</span>
       </div>
       <div class="sci-subject reveal" data-delay="2">
         <div class="ss-icon">🧲</div>
@@ -1549,7 +1636,7 @@
 
 
 
-    <p class="sci-note reveal">통합과학·경제도 같은 구조(방학 특강 + 학기 중 3인 과외식)로 순차 개설됩니다. 개설 일정은 전화로 문의해 주세요.</p>
+    <p class="sci-note reveal">이번 겨울방학, 예비 고1 대상 <b>공통과학1·2 완성 특강</b>이 열립니다 — 겨울에 과학을 끝내면 고1 1학기의 그 시간을 수학에 쓸 수 있습니다. 경제도 같은 구조(방학 특강 + 학기 중 3인 과외식)로 순차 개설됩니다. 일정·정원은 전화로 문의해 주세요.</p>
   </div>
 </section>
 
@@ -1685,8 +1772,8 @@
     <div class="enroll-grid">
       <div class="recruit-box reveal">
         <div><span class="recruit-tag">🎯 NOW RECRUITING</span></div>
-        <div class="recruit-headline">고1·중1 집중 모집<br>전 학년 상시 모집</div>
-        <p class="recruit-sub">중장기 재원을 위한 최적 진입 시점.<br>다른 학년도 결원 발생 시 상시 진입 가능합니다.</p>
+        <div class="recruit-headline">중1·중2·고1 집중 모집<br>예비 고1 겨울 과학 특강</div>
+        <p class="recruit-sub">10월 무료 진단 시즌 — 등록 전 체험 1주로 결정하세요.<br>다른 학년도 결원 발생 시 상시 진입 가능합니다.</p>
       </div>
 
       <table class="price-table reveal" data-delay="1"><tbody>
@@ -1714,7 +1801,7 @@
         <tr class="price-row">
           <td class="pr-cell">
             <div class="pr-label">과학·경제 특강</div>
-            <span class="pr-sub">통합과학·물리·경제 — 방학 특강 + 학기 3인 과외식<br><a href="#science" class="pr-link">진행 중인 특강 보기 →</a></span>
+            <span class="pr-sub">공통과학1·2 겨울 완성 특강(예비 고1, 사전예약 중) · 물리 · 경제<br><a href="#science" class="pr-link">특강 안내 보기 →</a></span>
           </td>
           <td class="pr-value">상담 문의</td>
         </tr>
@@ -1776,7 +1863,10 @@
 </footer>
 
 <!-- ========== 모바일 하단 고정 통화 버튼 ========== -->
-<a href="tel:01064087421" class="float-call" id="floatCall">📞 무료 진단 전화 · 010-6408-7421</a>
+<div class="float-call" id="floatCall">
+  <a href="tel:01064087421" class="fc-tel">📞 무료 진단 전화</a>
+  <a href="sms:01064087421?body=%ED%94%84%EB%9D%BC%EC%9E%84K%20%EB%AC%B4%EB%A3%8C%EC%A7%84%EB%8B%A8%20%EC%98%88%EC%95%BD%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.%20%ED%95%99%EC%83%9D%20%EC%9D%B4%EB%A6%84/%ED%95%99%EB%85%84/%ED%95%99%EA%B5%90%3A%20" class="fc-sms">💬 문자 예약</a>
+</div>
 
 <script>
 (function(){
