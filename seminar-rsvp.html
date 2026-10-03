@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>설명회 날짜 고르기 | 프라임K수학</title>
+<meta property="og:title" content="프라임K수학 10월 학부모 설명회 — 참석 날짜 고르기">
+<meta property="og:description" content="10/15(목) 오전 10:30 · 10/17(토) 오후 1:30 · 프라임K수학 강의실">
+<meta property="og:image" content="https://trmaximumk-afk.github.io/prime-k-math/seminar_cards/01.jpg">
+<style>
+  :root{
+    --navy:#0d1b2e; --navy2:#1a2a44; --navy3:#243553;
+    --gold:#a88a4a; --gold2:#c8a96a; --gold3:#dcc188;
+    --bg:#faf6ee; --bg-warm:#f3eee0; --line:#eadfc4;
+    --ink:#1a1a1a; --ink2:#3a3a3a; --mut:#6b6b6b; --err:#b3261e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Pretendard','Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all}
+  .top-rule{height:4px;background:linear-gradient(90deg,var(--gold),var(--gold3))}
+  .wrap{max-width:520px;margin:0 auto;padding:26px 20px 56px}
+  .brand{font-size:19px;font-weight:900;color:var(--navy);letter-spacing:-0.5px;margin-bottom:22px}
+  .brand span{color:var(--gold)}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:700;color:var(--gold);border:1.5px solid var(--gold2);border-radius:999px;padding:4px 14px;letter-spacing:2px}
+  h1{font-size:25px;font-weight:900;color:var(--navy);letter-spacing:-0.8px;line-height:1.35;margin:14px 0 6px}
+  .lede{font-size:14px;color:var(--mut)}
+
+  .choices{display:grid;gap:10px;margin-top:22px}
+  .ch{display:flex;align-items:center;gap:14px;width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:16px;
+      padding:16px 18px;cursor:pointer;font-family:inherit;color:var(--ink);transition:.15s}
+  .ch .no{flex:none;width:52px;height:52px;border-radius:12px;background:var(--bg-warm);color:var(--gold);font-weight:900;font-size:13px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.15}
+  .ch .no b{font-size:20px;color:var(--navy)}
+  .ch .tx{font-size:17px;font-weight:800;color:var(--navy);line-height:1.35}
+  .ch .tx small{display:block;font-size:13.5px;font-weight:600;color:var(--mut)}
+  .ch.on{border-color:var(--navy);background:var(--navy)}
+  .ch.on .tx,.ch.on .tx small{color:#f3eee0}
+  .ch.on .no{background:var(--gold3)}
+  .ch.no-go{padding:13px 18px}
+  .ch.no-go .tx{font-size:15px;font-weight:700;color:var(--ink2)}
+  .ch:disabled{opacity:.4;cursor:not-allowed}
+  .ch .cl{font-size:12px;color:var(--err);font-weight:700}
+
+  .more{display:none;margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+  .more.show{display:block}
+  .q{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:8px}
+  .q span{font-weight:500;color:var(--mut);font-size:12px;margin-left:4px}
+  .pills{display:flex;gap:8px;flex-wrap:wrap}
+  .pill{border:1.5px solid var(--line);background:var(--bg);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;color:var(--ink2);cursor:pointer;font-family:inherit}
+  .pill.on{background:var(--navy);border-color:var(--navy);color:#f3eee0}
+  textarea{width:100%;min-height:70px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 12px;font-size:16px;font-family:inherit;color:var(--ink);resize:vertical}
+  textarea:focus{outline:none;border-color:var(--gold2);background:#fff}
+  details{margin-top:16px} summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--navy)}
+
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:none;cursor:pointer;border-radius:12px;padding:16px;font-size:16px;font-weight:800;font-family:inherit;text-decoration:none}
+  .btn-go{background:var(--navy);color:#f3eee0;margin-top:18px}
+  .btn-go:disabled{opacity:.5}
+  .btn-line{background:#fff;color:var(--navy);border:1.5px solid var(--line);margin-top:10px}
+  .err{display:none;margin-top:12px;color:var(--err);font-size:13.5px;font-weight:700}
+  .err.show{display:block}
+  .note{margin-top:14px;font-size:12.5px;color:var(--mut);text-align:center}
+
+  .done{display:none;margin-top:6px}
+  .done.show{display:block}
+  .done .check{width:56px;height:56px;border-radius:50%;background:var(--navy);color:var(--gold3);font-size:28px;display:flex;align-items:center;justify-content:center;margin:8px auto 14px}
+  .done h2{font-size:21px;font-weight:900;color:var(--navy);text-align:center;letter-spacing:-0.5px;line-height:1.4}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-top:16px;font-size:14px;color:var(--ink2)}
+  .card b{color:var(--navy)}
+  .card a{color:var(--navy);font-weight:700;font-size:13px}
+  .foot{margin-top:28px;text-align:center;font-size:11.5px;color:var(--mut);line-height:1.8}
+</style>
+</head>
+<body>
+<div class="top-rule"></div>
+<div class="wrap">
+  <div class="brand">프라임<span>K</span>수학</div>
+
+  <div id="pick">
+    <span class="eyebrow">10월 학부모 설명회</span>
+    <h1 id="hello">학부모님,<br>참석하실 날짜를 골라 주세요</h1>
+    <p class="lede">고교학점제·5등급제 시대, 수학은 무엇이 달라졌나<br>두 날은 같은 내용입니다 · 프라임K수학 강의실</p>
+
+    <div class="choices" id="choices">
+      <button type="button" class="ch" data-v="2026-10-15"><span class="no">1회차<b>15</b></span><span class="tx">10월 15일 (목)<small>오전 10시 30분</small></span></button>
+      <button type="button" class="ch" data-v="2026-10-17"><span class="no">2회차<b>17</b></span><span class="tx">10월 17일 (토)<small>오후 1시 30분</small></span></button>
+      <button type="button" class="ch no-go" data-v="불참"><span class="tx">이번에는 참석이 어려워요</span></button>
+    </div>
+
+    <div class="more" id="more">
+      <div class="q">참석 인원 <span>지인분과 함께 오시면 인원에 넣어 주세요</span></div>
+      <div class="pills" id="cnt">
+        <button type="button" class="pill on" data-v="1">1명</button>
+        <button type="button" class="pill" data-v="2">2명</button>
+        <button type="button" class="pill" data-v="3">3명</button>
+        <button type="button" class="pill" data-v="4">4명</button>
+      </div>
+      <details id="qbox">
+        <summary>미리 궁금한 점 남기기 (선택)</summary>
+        <textarea id="question" maxlength="500" placeholder="설명회에서 다뤄 드립니다" style="margin-top:8px"></textarea>
+      </details>
+    </div>
+
+    <div class="err" id="err"></div>
+    <button type="button" class="btn btn-go" id="go" disabled>날짜를 골라 주세요</button>
+    <p class="note">응답은 설명회 안내에만 쓰입니다 · 문의 010-6408-7421</p>
+  </div>
+
+  <div class="done" id="done">
+    <div class="check">✓</div>
+    <h2 id="doneTitle"></h2>
+    <div class="card" id="doneInfo"></div>
+    <button type="button" class="btn btn-go" id="share">💬 지인에게 신청서 보내기</button>
+    <button type="button" class="btn btn-line" id="change">날짜 다시 고르기</button>
+  </div>
+
+  <div class="foot">프라임K수학 · 대전 중구 목동 금호한사랑아파트 106동 401호<br>개인과외교습자 신고번호 제5동4126호 · 교습과목 수학</div>
+</div>
+
+<script>
+(function(){
+  var SB_URL='https://szyexqqofdtlfgeuvsub.supabase.co', SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6eWV4cXFvZmR0bGZnZXV2c3ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxMjQyMzMsImV4cCI6MjA5NzcwMDIzM30.iTz8HPo-qEGSKRQHQObkKeu5OuveJtldzKtciqxpZTI';
+  var START={'2026-10-15':new Date('2026-10-15T10:30:00+09:00'),'2026-10-17':new Date('2026-10-17T13:30:00+09:00')};
+  var LABEL={'2026-10-15':'10월 15일(목) 오전 10시 30분','2026-10-17':'10월 17일(토) 오후 1시 30분'};
+  var SHARE_URL='https://trmaximumk-afk.github.io/prime-k-math/seminar.html?utm_source=parent_share';
+  var $=function(id){return document.getElementById(id)};
+  var token='', name='', pick='', cnt=1;
+  try{ token=(new URLSearchParams(location.search).get('t')||'').replace(/[^A-Za-z0-9]/g,'').slice(0,16); }catch(e){}
+
+  function rpc(fn,body){
+    return fetch(SB_URL+'/rest/v1/rpc/'+fn,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json()});
+  }
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function showErr(m){$('err').textContent=m;$('err').classList.add('show')}
+
+  var now=new Date();
+  $('choices').querySelectorAll('.ch[data-v^="2026"]').forEach(function(b){
+    if(now>=START[b.dataset.v]){ b.disabled=true; b.querySelector('.tx').insertAdjacentHTML('beforeend','<span class="cl">마감되었습니다</span>'); }
+  });
+
+  function select(v){
+    pick=v;
+    $('choices').querySelectorAll('.ch').forEach(function(b){b.classList.toggle('on',b.dataset.v===v)});
+    $('more').classList.toggle('show',v!=='불참');
+    $('go').disabled=false; $('go').textContent= v==='불참' ? '이렇게 알리기' : '이 날짜로 참석하기';
+    $('err').classList.remove('show');
+  }
+  $('choices').addEventListener('click',function(e){var b=e.target.closest('.ch'); if(b&&!b.disabled) select(b.dataset.v)});
+  $('cnt').addEventListener('click',function(e){
+    var b=e.target.closest('.pill'); if(!b) return;
+    $('cnt').querySelectorAll('.pill').forEach(function(p){p.classList.remove('on')}); b.classList.add('on'); cnt=+b.dataset.v;
+  });
+
+  function setCnt(n){ cnt=n||1; $('cnt').querySelectorAll('.pill').forEach(function(p){p.classList.toggle('on',+p.dataset.v===cnt)}); }
+
+  function invalid(){
+    $('hello').innerHTML='링크를 다시 확인해 주세요';
+    $('choices').style.display='none'; $('go').style.display='none';
+    $('err').innerHTML='문자로 받으신 링크 전체가 열렸는지 확인해 주세요.<br><a href="seminar.html?utm_source=parent_msg" style="color:var(--navy)">일반 신청서로 신청하기 →</a>';
+    $('err').classList.add('show');
+  }
+
+  if(!token){ invalid(); }
+  else rpc('primek_seminar_invite_get',{p_token:token}).then(function(r){
+    if(!r||!r.ok) return invalid();
+    name=r.label;
+    $('hello').innerHTML=esc(name)+' 학부모님,<br>'+(r.response?'선택하신 날짜를 바꾸실 수 있어요':'참석하실 날짜를 골라 주세요');
+    if(r.question) $('question').value=r.question;
+    if(r.response){ setCnt(r.attendees); select(r.response); $('go').textContent='이대로 저장하기'; }
+  }).catch(function(){ showErr('인터넷 연결을 확인한 뒤 다시 열어 주세요.'); });
+
+  $('go').addEventListener('click',function(){
+    if(!pick) return;
+    var go=$('go'); go.disabled=true; var keep=go.textContent; go.textContent='저장하는 중…';
+    rpc('primek_seminar_invite_reply',{p_token:token,p_response:pick,p_attendees:pick==='불참'?null:cnt,p_question:$('question').value.trim()})
+    .then(function(r){
+      if(r&&r.ok) return done();
+      showErr(r&&r.error==='closed'?'그 회차는 마감되었습니다. 다른 날을 골라 주세요.':'저장하지 못했습니다. 잠시 후 다시 누르시거나 010-6408-7421로 알려 주세요.');
+    })
+    .catch(function(){ showErr('인터넷 연결이 불안정합니다. 잠시 후 다시 눌러 주세요.'); })
+    .finally(function(){ go.disabled=false; go.textContent=keep; });
+  });
+
+  function done(){
+    if(pick==='불참'){
+      $('doneTitle').innerHTML='알려 주셔서 감사합니다';
+      $('doneInfo').innerHTML='다음에 뵐 기회를 만들겠습니다.<br>주변에 같은 고민을 하시는 분이 계시면 아래 버튼으로 신청서를 전해 주세요.';
+    }else{
+      $('doneTitle').innerHTML=esc(name)+' 학부모님,<br>'+LABEL[pick]+'에 뵙겠습니다';
+      $('doneInfo').innerHTML='<b>장소</b> 프라임K수학 강의실 (금호한사랑아파트 106동 401호)<br>단지 내 주차 가능 · '+cnt+'명 참석<br>'+
+        '<a href="https://naver.me/Gxk8xgkv" target="_blank" rel="noopener">네이버 지도에서 위치 보기 →</a>'+
+        '<div style="margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--mut)">신청 인원에 따라 온라인(구글 미트)으로 바뀌면 10월 13일(화)에 문자로 접속 링크를 보내 드립니다.</div>';
+    }
+    $('pick').style.display='none'; $('done').classList.add('show'); window.scrollTo(0,0);
+  }
+  $('change').addEventListener('click',function(){ $('done').classList.remove('show'); $('pick').style.display=''; window.scrollTo(0,0); });
+  $('share').addEventListener('click',function(){
+    var text='프라임K수학 10월 학부모 설명회 — 고교학점제·5등급제 시대, 수학은 무엇이 달라졌나\n10/15(목) 오전 10:30 · 10/17(토) 오후 1:30 · 프라임K수학 강의실\n신청서: '+SHARE_URL;
+    if(navigator.share){ navigator.share({text:text}).catch(function(){}); return; }
+    (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(function(){ $('share').textContent='✓ 신청서 안내가 복사되었습니다'; })
+      .catch(function(){ location.href=SHARE_URL; });
+  });
+})();
+</script>
+</body>
+</html>
