@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>설명회 신청 확인 | 프라임K수학</title>
+<style>
+  :root{
+    --navy:#0d1b2e; --navy2:#1a2a44; --navy3:#243553;
+    --gold:#a88a4a; --gold2:#c8a96a; --gold3:#dcc188;
+    --bg:#faf6ee; --bg-warm:#f3eee0; --line:#eadfc4;
+    --ink:#1a1a1a; --ink2:#3a3a3a; --mut:#6b6b6b; --err:#b3261e; --ok:#2e6b45;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Pretendard','Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;word-break:keep-all}
+  .top-rule{height:4px;background:linear-gradient(90deg,var(--gold),var(--gold3))}
+  .wrap{max-width:640px;margin:0 auto;padding:20px 16px 60px}
+  header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  h1{font-size:20px;font-weight:900;color:var(--navy);letter-spacing:-0.5px}
+  .upd{font-size:11.5px;color:var(--mut)}
+  button{font-family:inherit}
+  .ghost{border:1.5px solid var(--line);background:#fff;color:var(--navy);border-radius:10px;padding:8px 12px;font-size:13px;font-weight:700;cursor:pointer}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .st{background:var(--navy);color:#f3eee0;border-radius:12px;padding:12px 12px 10px}
+  .st .l{font-size:11.5px;color:var(--gold3);font-weight:700}
+  .st .n{font-size:24px;font-weight:900;line-height:1.2}
+  .st .n small{font-size:12px;font-weight:600;opacity:.8;margin-left:2px}
+  .st .s{font-size:11.5px;opacity:.85}
+  .mix{margin-top:8px;font-size:12.5px;color:var(--ink2);background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+  .mix b{color:var(--navy)}
+  .decide{margin-top:10px;background:var(--bg-warm);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:10px 12px;font-size:13px;color:var(--ink2)}
+
+  .bar{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 10px;align-items:center}
+  .tab{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;color:var(--ink2);cursor:pointer}
+  .tab.on{background:var(--navy);border-color:var(--navy);color:#f3eee0}
+  .sp{flex:1}
+
+  .box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:10px}
+  .box h2{font-size:14px;font-weight:900;color:var(--navy);margin-bottom:8px}
+  select,input[type=text],input[type=tel],textarea{width:100%;border:1.5px solid var(--line);border-radius:9px;background:var(--bg);padding:9px 11px;font-size:15px;font-family:inherit;color:var(--ink)}
+  textarea{min-height:120px;font-size:13.5px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+  .btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .solid{border:none;background:var(--navy);color:#f3eee0;border-radius:10px;padding:9px 14px;font-size:13.5px;font-weight:800;cursor:pointer}
+
+  .item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-top:8px}
+  .item.cancel{opacity:.5}
+  .item .top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .item .nm{font-size:16px;font-weight:900;color:var(--navy)}
+  .item .nm small{font-size:12.5px;font-weight:600;color:var(--mut);margin-left:6px}
+  .badge{font-size:11.5px;font-weight:800;border-radius:999px;padding:2px 9px;white-space:nowrap}
+  .b-신청{background:var(--bg-warm);color:var(--gold)}
+  .b-확정{background:#e3efe7;color:var(--ok)}
+  .b-취소{background:#f5e3e1;color:var(--err)}
+  .meta{font-size:12.5px;color:var(--ink2);margin-top:4px}
+  .meta span{white-space:nowrap}
+  .qa{margin-top:6px;font-size:13px;background:var(--bg);border-radius:8px;padding:6px 10px;color:var(--ink2)}
+  .memo{margin-top:6px;font-size:12.5px;color:var(--gold)}
+  .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .acts a,.acts button{border:1.5px solid var(--line);background:var(--bg);color:var(--navy);border-radius:9px;padding:6px 10px;font-size:12.5px;font-weight:700;text-decoration:none;cursor:pointer}
+  .empty{text-align:center;color:var(--mut);font-size:13.5px;padding:26px 0}
+  .msg{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--navy);color:#f3eee0;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:700;opacity:0;transition:.2s;pointer-events:none}
+  .msg.show{opacity:1}
+  .login{max-width:360px;margin:60px auto 0;text-align:center}
+  .login p{font-size:13.5px;color:var(--ink2);margin:10px 0 14px}
+  .err{color:var(--err);font-size:13px;font-weight:700;margin-top:8px}
+  details summary{cursor:pointer;font-size:14px;font-weight:900;color:var(--navy)}
+</style>
+</head>
+<body>
+<div class="top-rule"></div>
+<div class="wrap">
+
+  <div id="loginView" class="login" style="display:none">
+    <h1>설명회 신청 확인</h1>
+    <p>원장님 전용 페이지입니다. 받으신 확인 키를 넣어 주세요.<br>이 기기에 한 번만 저장됩니다.</p>
+    <input type="text" id="keyIn" autocomplete="off" placeholder="확인 키">
+    <div class="btns" style="justify-content:center"><button class="solid" id="keyGo">열기</button></div>
+    <div class="err" id="keyErr"></div>
+  </div>
+
+  <div id="mainView" style="display:none">
+    <header>
+      <div><h1>설명회 신청 확인</h1><div class="upd" id="upd"></div></div>
+      <button class="ghost" id="reload">새로고침</button>
+    </header>
+
+    <div class="stats" id="stats"></div>
+    <div class="mix" id="mix"></div>
+    <div class="decide" id="decide"></div>
+
+    <div class="bar" id="tabs">
+      <button class="tab on" data-f="all">전체</button>
+      <button class="tab" data-f="2026-10-15">1회차 10/15</button>
+      <button class="tab" data-f="2026-10-17">2회차 10/17</button>
+      <button class="tab" data-f="취소">취소</button>
+      <span class="sp"></span>
+      <button class="ghost" id="copyNums">번호 복사</button>
+    </div>
+
+    <div class="box">
+      <h2>문자 문안 <span style="font-weight:500;font-size:12px;color:var(--mut)">— 고른 문안이 각 신청자의 [💬 문자] 버튼에 이름과 회차를 넣어 채워집니다</span></h2>
+      <select id="tpl">
+        <option value="confirm">신청 확인 감사</option>
+        <option value="eve">하루 전 안내</option>
+        <option value="meet">구글 미트 전환 안내</option>
+      </select>
+      <input type="text" id="meetLink" placeholder="구글 미트 링크 (전환 안내일 때만)" style="display:none;margin-top:8px">
+      <textarea id="tplText" style="margin-top:8px"></textarea>
+    </div>
+
+    <div id="list"></div>
+
+    <div class="box" style="margin-top:16px">
+      <details>
+        <summary>＋ 전화로 받은 신청 추가</summary>
+        <div class="row2">
+          <select id="aSes"><option value="2026-10-15">1회차 10/15 (목)</option><option value="2026-10-17">2회차 10/17 (토)</option></select>
+          <select id="aGrade"><option>초6</option><option>중1</option><option>중2</option><option>중3</option><option>고1</option><option>고2</option><option>고3</option><option>기타</option></select>
+        </div>
+        <div class="row2">
+          <input type="text" id="aName" placeholder="성함">
+          <input type="tel" id="aPhone" placeholder="연락처" inputmode="numeric">
+        </div>
+        <div class="row2">
+          <select id="aCnt"><option value="1">1명</option><option value="2">2명</option><option value="3">3명</option><option value="4">4명</option></select>
+          <select id="aRel"><option value="기타">처음</option><option value="소개">지인 소개</option><option value="재원생">재원생 학부모</option></select>
+        </div>
+        <input type="text" id="aMemo" placeholder="메모 (선택)" style="margin-top:8px">
+        <div class="btns"><button class="solid" id="aGo">추가</button></div>
+        <p style="font-size:12px;color:var(--mut);margin-top:6px">전화로 받을 때 "설명회 안내 문자를 위해 번호를 받아 두겠다"고 말씀해 주세요(개인정보 동의).</p>
+      </details>
+    </div>
+
+    <p style="font-size:12px;color:var(--mut);margin-top:18px;text-align:center">신청 정보는 2026년 11월 17일까지 보관 후 파기합니다(신청서 안내 문구).</p>
+  </div>
+</div>
+<div class="msg" id="toast"></div>
+
+<script>
+(function(){
+  var SB_URL='https://szyexqqofdtlfgeuvsub.supabase.co', SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6eWV4cXFvZmR0bGZnZXV2c3ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxMjQyMzMsImV4cCI6MjA5NzcwMDIzM30.iTz8HPo-qEGSKRQHQObkKeu5OuveJtldzKtciqxpZTI';
+  var LS='primek_seminar_key';
+  var SES={'2026-10-15':{no:'1회차',lb:'10월 15일(목) 오전 10시 30분',sh:'10/15(목)'},'2026-10-17':{no:'2회차',lb:'10월 17일(토) 오후 1시 30분',sh:'10/17(토)'}};
+  var REL={'재원생':'재원생 학부모','소개':'지인 소개','기타':'처음'};
+  var SRC={card:'카드뉴스',parent_msg:'재원생 문자',daangn_news:'당근 소식',daangn_ad:'당근 광고',daangn_profile:'당근 프로필',place:'네이버 플레이스',clip:'네이버 클립',blog:'블로그',phone:'전화 접수'};
+  var TPL={
+    confirm:'[프라임K수학] {이름}님, 설명회 신청 감사합니다.\n\n{회차}\n프라임K수학 강의실 (금호한사랑아파트 106동 401호)\n단지 내 주차 가능합니다.\n\n궁금한 점은 이 번호로 편하게 문자 주세요.\n\n- 프라임K수학 원장 드림',
+    eve:'[프라임K수학] {이름}님, 내일 {회차} 설명회에서 뵙겠습니다.\n\n장소: 프라임K수학 강의실 (금호한사랑아파트 106동 401호)\n단지 내 주차 가능합니다.\n오시는 길: https://naver.me/Gxk8xgkv\n\n- 프라임K수학 원장 드림',
+    meet:'[프라임K수학] {이름}님, 신청해 주신 {회차} 설명회는 온라인(구글 미트)으로 진행합니다.\n\n같은 시간에 아래 링크로 들어오시면 됩니다.\n{미트}\n\n휴대폰은 구글 미트 앱, 컴퓨터는 크롬에서 열립니다.\n\n- 프라임K수학 원장 드림'
+  };
+  var $=function(id){return document.getElementById(id)};
+  var KEY='', ROWS=[], FILTER='all';
+
+  function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show')},1800)}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function fmtPhone(d){return d.slice(0,3)+'-'+d.slice(3,d.length-4)+'-'+d.slice(-4)}
+  function fmtTime(iso){var d=new Date(iso);return (d.getMonth()+1)+'/'+d.getDate()+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')}
+  function rpc(fn,body){
+    return fetch(SB_URL+'/rest/v1/rpc/'+fn,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json()});
+  }
+  function copy(text){
+    if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(text).then(function(){toast('복사했습니다')})}
+    var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast('복사했습니다');
+  }
+
+  // 키: 링크의 #k=... → 이 기기에 저장 후 주소창에서 지움
+  try{
+    var m=location.hash.match(/k=([A-Za-z0-9]+)/);
+    if(m){ localStorage.setItem(LS,m[1]); history.replaceState(null,'',location.pathname); }
+    KEY=localStorage.getItem(LS)||'';
+  }catch(e){}
+
+  function showLogin(msg){ $('mainView').style.display='none'; $('loginView').style.display='block'; $('keyErr').textContent=msg||''; }
+  $('keyGo').addEventListener('click',function(){
+    KEY=$('keyIn').value.trim(); if(!KEY) return;
+    try{localStorage.setItem(LS,KEY)}catch(e){} load();
+  });
+
+  function load(){
+    if(!KEY) return showLogin('');
+    rpc('primek_seminar_admin_list',{p_key:KEY}).then(function(res){
+      if(res&&res.error==='auth'){ try{localStorage.removeItem(LS)}catch(e){} KEY=''; return showLogin('키가 맞지 않습니다.'); }
+      if(!res||!res.ok){ toast('불러오지 못했습니다. 새로고침을 눌러 주세요'); return; }
+      ROWS=res.rows||[]; $('loginView').style.display='none'; $('mainView').style.display='block';
+      $('upd').textContent='마지막 확인 '+fmtTime(res.now); render();
+    }).catch(function(){ toast('인터넷 연결을 확인해 주세요'); });
+  }
+
+  function render(){
+    var act=ROWS.filter(function(r){return r.status!=='취소'});
+    function agg(s){var a=act.filter(function(r){return r.session===s});return {f:a.length,p:a.reduce(function(n,r){return n+r.attendees},0)}}
+    var a1=agg('2026-10-15'), a2=agg('2026-10-17');
+    $('stats').innerHTML=
+      '<div class="st"><div class="l">1회차 10/15(목)</div><div class="n">'+a1.f+'<small>가정</small></div><div class="s">참석 '+a1.p+'명</div></div>'+
+      '<div class="st"><div class="l">2회차 10/17(토)</div><div class="n">'+a2.f+'<small>가정</small></div><div class="s">참석 '+a2.p+'명</div></div>'+
+      '<div class="st"><div class="l">합계</div><div class="n">'+act.length+'<small>가정</small></div><div class="s">참석 '+(a1.p+a2.p)+'명 · 취소 '+(ROWS.length-act.length)+'</div></div>';
+    function count(key,map){var c={};act.forEach(function(r){var k=(map?map[r[key]]:r[key])||r[key]||'직접 접속';c[k]=(c[k]||0)+1});return Object.keys(c).map(function(k){return k+' <b>'+c[k]+'</b>'}).join(' · ')||'-'}
+    var grades=count('grade');
+    $('mix').innerHTML='관계: '+count('relation',REL)+'<br>유입: '+count('source',SRC)+'<br>학년: '+grades;
+    var today=new Date(), dl=new Date('2026-10-12T00:00:00+09:00');
+    var days=Math.ceil((dl-today)/86400000);
+    $('decide').innerHTML = days>0 ? '구글 미트 전환 결정일 <b>10/12(월)</b>까지 '+days+'일 남았습니다. 그날 이 숫자를 보고 정하시면 됩니다.'
+      : '10/12 결정일이 지났습니다. 구글 미트로 바꾸셨다면 위 문안에서 <b>구글 미트 전환 안내</b>를 골라 신청자에게 보내 주세요.';
+
+    var list=ROWS.filter(function(r){
+      if(FILTER==='취소') return r.status==='취소';
+      if(r.status==='취소') return false;
+      return FILTER==='all'||r.session===FILTER;
+    }).sort(function(a,b){return a.session<b.session?-1:a.session>b.session?1:(a.created_at<b.created_at?-1:1)});
+    if(!list.length){ $('list').innerHTML='<div class="empty">'+(ROWS.length?'이 조건의 신청이 없습니다.':'아직 신청이 없습니다.')+'</div>'; return; }
+    $('list').innerHTML=list.map(function(r){
+      var s=SES[r.session]||{no:'',sh:r.session};
+      return '<div class="item'+(r.status==='취소'?' cancel':'')+'" data-id="'+r.id+'">'+
+        '<div class="top"><div class="nm">'+esc(r.parent_name)+'<small>'+s.no+' '+s.sh+'</small></div><span class="badge b-'+esc(r.status)+'">'+esc(r.status)+'</span></div>'+
+        '<div class="meta"><span>'+esc(r.grade)+(r.school?' · '+esc(r.school):'')+'</span> · <span>'+r.attendees+'명</span> · <span>'+esc(REL[r.relation]||r.relation)+(r.referrer?' ('+esc(r.referrer)+')':'')+'</span> · <span>'+esc(SRC[r.source]||r.source||'직접 접속')+'</span> · <span>'+fmtTime(r.created_at)+'</span></div>'+
+        '<div class="meta"><a href="tel:'+r.phone+'" style="color:var(--navy);font-weight:700;text-decoration:none">'+fmtPhone(r.phone)+'</a></div>'+
+        (r.question?'<div class="qa">❓ '+esc(r.question)+'</div>':'')+
+        (r.admin_memo?'<div class="memo">📝 '+esc(r.admin_memo)+'</div>':'')+
+        '<div class="acts">'+
+          '<a href="tel:'+r.phone+'">📞 전화</a>'+
+          '<a href="#" data-act="sms">💬 문자</a>'+
+          (r.status!=='확정'?'<button data-act="st" data-v="확정">확정</button>':'<button data-act="st" data-v="신청">확정 풀기</button>')+
+          (r.status!=='취소'?'<button data-act="st" data-v="취소">취소</button>':'<button data-act="st" data-v="신청">취소 되돌리기</button>')+
+          '<button data-act="ses">회차 바꾸기</button>'+
+          '<button data-act="memo">메모</button>'+
+        '</div></div>';
+    }).join('');
+  }
+
+  function fill(r){
+    var s=SES[r.session]||{lb:r.session};
+    return $('tplText').value.split('{이름}').join(r.parent_name).split('{회차}').join(s.lb).split('{미트}').join($('meetLink').value.trim()||'(미트 링크)');
+  }
+  function setTpl(){ $('meetLink').style.display=$('tpl').value==='meet'?'block':'none'; $('tplText').value=TPL[$('tpl').value]; }
+  $('tpl').addEventListener('change',setTpl); setTpl();
+
+  $('list').addEventListener('click',function(e){
+    var b=e.target.closest('[data-act]'); if(!b) return; e.preventDefault();
+    var id=+b.closest('.item').dataset.id, r=ROWS.find(function(x){return x.id===id}); if(!r) return;
+    var act=b.dataset.act;
+    if(act==='sms'){
+      var body=fill(r), ios=/iPhone|iPad|iPod/.test(navigator.userAgent);
+      if($('tpl').value==='meet'&&!$('meetLink').value.trim()){ toast('미트 링크를 먼저 넣어 주세요'); return; }
+      location.href='sms:'+r.phone+(ios?'&':'?')+'body='+encodeURIComponent(body); return;
+    }
+    var p={p_key:KEY,p_id:id,p_status:null,p_session:null,p_memo:null};
+    if(act==='st'){ if(b.dataset.v==='취소'&&!confirm(r.parent_name+'님 신청을 취소로 바꿀까요?')) return; p.p_status=b.dataset.v; }
+    if(act==='ses'){ p.p_session=r.session==='2026-10-15'?'2026-10-17':'2026-10-15'; if(!confirm(r.parent_name+'님을 '+SES[p.p_session].no+' '+SES[p.p_session].sh+'로 옮길까요?')) return; }
+    if(act==='memo'){ var v=prompt('메모 (비우면 지워집니다)',r.admin_memo||''); if(v===null) return; p.p_memo=v; }
+    rpc('primek_seminar_admin_update',p).then(function(res){ if(res&&res.ok){ toast('저장했습니다'); load(); } else toast('저장하지 못했습니다'); });
+  });
+
+  $('tabs').addEventListener('click',function(e){
+    var b=e.target.closest('.tab'); if(!b) return;
+    $('tabs').querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')}); b.classList.add('on');
+    FILTER=b.dataset.f; render();
+  });
+  $('copyNums').addEventListener('click',function(){
+    var list=ROWS.filter(function(r){return r.status!=='취소'&&(FILTER==='all'||FILTER==='취소'||r.session===FILTER)});
+    if(!list.length) return toast('복사할 번호가 없습니다');
+    copy(list.map(function(r){return r.phone}).join(','));
+  });
+  $('reload').addEventListener('click',load);
+  $('aGo').addEventListener('click',function(){
+    var name=$('aName').value.trim(), ph=$('aPhone').value.replace(/\D/g,'');
+    if(!name||!/^01\d{8,9}$/.test(ph)) return toast('성함과 연락처를 확인해 주세요');
+    rpc('primek_seminar_admin_add',{p_key:KEY,p_session:$('aSes').value,p_parent_name:name,p_phone:ph,p_grade:$('aGrade').value,p_attendees:+$('aCnt').value,p_relation:$('aRel').value,p_memo:$('aMemo').value.trim()})
+      .then(function(res){ if(res&&res.ok){ toast('추가했습니다'); ['aName','aPhone','aMemo'].forEach(function(i){$(i).value=''}); load(); } else toast('추가하지 못했습니다'); });
+  });
+
+  load();
+  setInterval(function(){ if(KEY&&document.visibilityState==='visible') load(); },60000);
+})();
+</script>
+</body>
+</html>
