@@ -95,8 +95,8 @@
 
     <div class="bar" id="tabs">
       <button class="tab on" data-f="all">전체</button>
-      <button class="tab" data-f="2026-10-15">1회차 10/15</button>
-      <button class="tab" data-f="2026-10-17">2회차 10/17</button>
+      <button class="tab" data-f="2026-10-22">1회차 10/22</button>
+      <button class="tab" data-f="2026-10-24">2회차 10/24</button>
       <button class="tab" data-f="취소">취소</button>
       <span class="sp"></span>
       <button class="ghost" id="copyNums">번호 복사</button>
@@ -105,9 +105,10 @@
     <div class="box">
       <h2>문자 문안 <span style="font-weight:500;font-size:12px;color:var(--mut)">— 고른 문안이 각 신청자의 [💬 문자] 버튼에 이름과 회차를 넣어 채워집니다</span></h2>
       <select id="tpl">
+        <option value="postpone">일정 변경 안내 (1주 연기, 10/13)</option>
         <option value="confirm">신청 확인 감사</option>
-        <option value="stay">10/13 강의실 진행 확정 안내</option>
-        <option value="meet">10/13 구글 미트 전환 안내</option>
+        <option value="stay">10/20 강의실 진행 확정 안내</option>
+        <option value="meet">10/20 구글 미트 전환 안내</option>
         <option value="eve">하루 전 안내</option>
       </select>
       <input type="text" id="meetLink" placeholder="구글 미트 링크 (전환 안내일 때만)" style="display:none;margin-top:8px">
@@ -120,7 +121,7 @@
       <details>
         <summary>＋ 전화로 받은 신청 추가</summary>
         <div class="row2">
-          <select id="aSes"><option value="2026-10-15">1회차 10/15 (목)</option><option value="2026-10-17">2회차 10/17 (토)</option></select>
+          <select id="aSes"><option value="2026-10-22">1회차 10/22 (목)</option><option value="2026-10-24">2회차 10/24 (토)</option></select>
           <select id="aGrade"><option>초6</option><option>중1</option><option>중2</option><option>중3</option><option>고1</option><option>고2</option><option>고3</option><option>기타</option></select>
         </div>
         <div class="row2">
@@ -137,7 +138,7 @@
       </details>
     </div>
 
-    <p style="font-size:12px;color:var(--mut);margin-top:18px;text-align:center">신청 정보는 2026년 11월 17일까지 보관 후 파기합니다(신청서 안내 문구).</p>
+    <p style="font-size:12px;color:var(--mut);margin-top:18px;text-align:center">신청 정보는 2026년 11월 24일까지 보관 후 파기합니다(신청서 안내 문구).</p>
   </div>
 </div>
 <div class="msg" id="toast"></div>
@@ -146,11 +147,12 @@
 (function(){
   var SB_URL='https://szyexqqofdtlfgeuvsub.supabase.co', SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6eWV4cXFvZmR0bGZnZXV2c3ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxMjQyMzMsImV4cCI6MjA5NzcwMDIzM30.iTz8HPo-qEGSKRQHQObkKeu5OuveJtldzKtciqxpZTI';
   var LS='primek_seminar_key';
-  var SES={'2026-10-15':{no:'1회차',lb:'10월 15일(목) 오전 10시 30분',sh:'10/15(목)'},'2026-10-17':{no:'2회차',lb:'10월 17일(토) 오후 1시 30분',sh:'10/17(토)'}};
+  var SES={'2026-10-22':{no:'1회차',lb:'10월 22일(목) 오전 10시 30분',sh:'10/22(목)'},'2026-10-24':{no:'2회차',lb:'10월 24일(토) 오후 1시 30분',sh:'10/24(토)'}};
   var REL={'재원생':'재원생 학부모','소개':'지인 소개','기타':'처음'};
   var SRC={card:'카드뉴스',parent_msg:'재원생 문자',parent_rsvp:'재원생 날짜 선택',parent_share:'재원생 지인 공유',daangn_news:'당근 소식',daangn_ad:'당근 광고',daangn_profile:'당근 프로필',place:'네이버 플레이스',clip:'네이버 클립',blog:'블로그',phone:'전화 접수'};
   var TPL={
-    confirm:'[프라임K수학] {이름}님, 설명회 신청 감사합니다.\n\n{회차}\n프라임K수학 강의실 (금호한사랑아파트 106동 401호)\n단지 내 주차 가능합니다.\n\n신청 인원에 따라 온라인(구글 미트)으로 바뀌면\n10월 13일(화)에 이 번호로 접속 링크를 보내 드리겠습니다.\n\n궁금한 점은 이 번호로 편하게 문자 주세요.\n\n- 프라임K수학 원장 드림',
+    postpone:'[프라임K수학] {이름}님, 설명회 일정 변경을 안내드립니다.\n\n먼저 진심으로 죄송하다는 말씀부터 드립니다. 부득이한 사정으로 10월 학부모 설명회를 일주일 뒤로 미루게 되었습니다. 바쁘신 중에 시간을 내어 신청해 주셨는데 일정을 바꿔 드리게 되어 정말 송구합니다.\n\n▶ 변경된 일정 (시간·장소 동일)\n· 1회차 10월 22일(목) 오전 10시 30분 (기존 10/15)\n· 2회차 10월 24일(토) 오후 1시 30분 (기존 10/17)\n· 프라임K수학 강의실 (금호한사랑아파트 106동 401호)\n\n신청해 주신 회차는 같은 요일·같은 시간으로 그대로 옮겨 두었습니다.\n→ {회차}\n\n바뀐 날짜에 오시기 어려우시면 이 번호로 편하게 답장 주세요. 다른 회차로 옮겨 드리겠습니다.\n\n미뤄진 일주일 동안 더 꼼꼼히 준비해, 고교학점제 체계를 완벽하게 분석한 소중한 정보로 꼭 보답하겠습니다. 다시 한번 깊이 사과드립니다.\n\n- 프라임K수학 원장 드림',
+    confirm:'[프라임K수학] {이름}님, 설명회 신청 감사합니다.\n\n{회차}\n프라임K수학 강의실 (금호한사랑아파트 106동 401호)\n단지 내 주차 가능합니다.\n\n신청 인원에 따라 온라인(구글 미트)으로 바뀌면\n10월 20일(화)에 이 번호로 접속 링크를 보내 드리겠습니다.\n\n궁금한 점은 이 번호로 편하게 문자 주세요.\n\n- 프라임K수학 원장 드림',
     stay:'[프라임K수학] {이름}님, 신청해 주신 설명회는 예정대로 강의실에서 진행합니다.\n\n{회차}\n프라임K수학 강의실 (금호한사랑아파트 106동 401호)\n단지 내 주차 가능합니다.\n오시는 길: https://naver.me/Gxk8xgkv\n\n- 프라임K수학 원장 드림',
     eve:'[프라임K수학] {이름}님, 내일 {회차} 설명회에서 뵙겠습니다.\n\n장소: 프라임K수학 강의실 (금호한사랑아파트 106동 401호)\n단지 내 주차 가능합니다.\n오시는 길: https://naver.me/Gxk8xgkv\n\n- 프라임K수학 원장 드림',
     meet:'[프라임K수학] {이름}님, 신청해 주신 {회차} 설명회는 온라인(구글 미트)으로 진행합니다.\n\n같은 시간에 아래 링크로 들어오시면 됩니다.\n{미트}\n\n휴대폰은 구글 미트 앱, 컴퓨터는 크롬에서 열립니다.\n\n- 프라임K수학 원장 드림'
@@ -198,18 +200,18 @@
   function render(){
     var act=ROWS.filter(function(r){return r.status!=='취소'});
     function agg(s){var a=act.filter(function(r){return r.session===s});return {f:a.length,p:a.reduce(function(n,r){return n+r.attendees},0)}}
-    var a1=agg('2026-10-15'), a2=agg('2026-10-17');
+    var a1=agg('2026-10-22'), a2=agg('2026-10-24');
     $('stats').innerHTML=
-      '<div class="st"><div class="l">1회차 10/15(목)</div><div class="n">'+a1.f+'<small>가정</small></div><div class="s">참석 '+a1.p+'명</div></div>'+
-      '<div class="st"><div class="l">2회차 10/17(토)</div><div class="n">'+a2.f+'<small>가정</small></div><div class="s">참석 '+a2.p+'명</div></div>'+
+      '<div class="st"><div class="l">1회차 10/22(목)</div><div class="n">'+a1.f+'<small>가정</small></div><div class="s">참석 '+a1.p+'명</div></div>'+
+      '<div class="st"><div class="l">2회차 10/24(토)</div><div class="n">'+a2.f+'<small>가정</small></div><div class="s">참석 '+a2.p+'명</div></div>'+
       '<div class="st"><div class="l">합계</div><div class="n">'+act.length+'<small>가정</small></div><div class="s">참석 '+(a1.p+a2.p)+'명 · 취소 '+(ROWS.length-act.length)+'</div></div>';
     function count(key,map){var c={};act.forEach(function(r){var k=(map?map[r[key]]:r[key])||r[key]||'직접 접속';c[k]=(c[k]||0)+1});return Object.keys(c).map(function(k){return k+' <b>'+c[k]+'</b>'}).join(' · ')||'-'}
     var grades=count('grade');
     $('mix').innerHTML='관계: '+count('relation',REL)+'<br>유입: '+count('source',SRC)+'<br>학년: '+grades;
-    var today=new Date(), dl=new Date('2026-10-12T00:00:00+09:00');
+    var today=new Date(), dl=new Date('2026-10-19T00:00:00+09:00');
     var days=Math.ceil((dl-today)/86400000);
-    $('decide').innerHTML = days>0 ? '구글 미트 전환 결정일 <b>10/12(월)</b>까지 '+days+'일 남았습니다. 그날 이 숫자를 보고 정하시면 됩니다.'
-      : '10/12 결정일이 지났습니다. <b>10/13(화)</b>에 위 문안에서 <b>강의실 진행 확정</b> 또는 <b>구글 미트 전환</b>을 골라 신청자 전원에게 보내 주세요.';
+    $('decide').innerHTML = days>0 ? '구글 미트 전환 결정일 <b>10/19(월)</b>까지 '+days+'일 남았습니다. 그날 이 숫자를 보고 정하시면 됩니다.'
+      : '10/19 결정일이 지났습니다. <b>10/20(화)</b>에 위 문안에서 <b>강의실 진행 확정</b> 또는 <b>구글 미트 전환</b>을 골라 신청자 전원에게 보내 주세요.';
 
     var list=ROWS.filter(function(r){
       if(FILTER==='취소') return r.status==='취소';
@@ -238,12 +240,12 @@
 
   function renderInv(){
     if(!INV.length){ $('inv').style.display='none'; return; }
-    var c={'2026-10-15':0,'2026-10-17':0,'불참':0}, none=[];
+    var c={'2026-10-22':0,'2026-10-24':0,'불참':0}, none=[];
     INV.forEach(function(r){ if(r.response) c[r.response]++; else none.push(r); });
-    var ST={'2026-10-15':'1회차 10/15','2026-10-17':'2회차 10/17','불참':'불참'};
+    var ST={'2026-10-22':'1회차 10/22','2026-10-24':'2회차 10/24','불참':'불참'};
     var order=function(r){return r.response?(r.response==='불참'?2:1):0};
     var h='<h2>재원생 학부모 응답 '+(INV.length-none.length)+'/'+INV.length+'</h2>'+
-      '<div style="font-size:12.5px;color:var(--ink2)">1회차 <b>'+c['2026-10-15']+'</b> · 2회차 <b>'+c['2026-10-17']+'</b> · 불참 <b>'+c['불참']+'</b> · 아직 <b>'+none.length+'</b>'+
+      '<div style="font-size:12.5px;color:var(--ink2)">1회차 <b>'+c['2026-10-22']+'</b> · 2회차 <b>'+c['2026-10-24']+'</b> · 불참 <b>'+c['불참']+'</b> · 아직 <b>'+none.length+'</b>'+
       (none.length?' <button class="ghost" id="invCopy" style="padding:4px 9px;font-size:12px;margin-left:6px">아직인 가정 번호 복사</button>':'')+'</div>'+
       '<details style="margin-top:8px"'+(none.length?' open':'')+'><summary style="font-size:13px">가정별 보기</summary>'+
       INV.slice().sort(function(a,b){return order(a)-order(b)}).map(function(r){
@@ -259,7 +261,7 @@
   $('inv').addEventListener('click',function(e){
     var a=e.target.closest('[data-remind]'); if(!a) return; e.preventDefault();
     var r=INV.find(function(x){return String(x.id)===a.dataset.remind}); if(!r) return;
-    var body='[프라임K수학] '+r.label+' 학부모님, 10월 학부모 설명회 참석 날짜를 아직 고르지 않으셨다면 아래 링크에서 골라 주세요. 날짜만 누르시면 됩니다.\n\n'+RSVP+r.token+'\n\n10월 15일(목) 오전 10시 30분 · 10월 17일(토) 오후 1시 30분\n프라임K수학 강의실\n\n- 프라임K수학 원장 드림';
+    var body='[프라임K수학] '+r.label+' 학부모님, 10월 학부모 설명회 참석 날짜를 아직 고르지 않으셨다면 아래 링크에서 골라 주세요. 날짜만 누르시면 됩니다.\n\n'+RSVP+r.token+'\n\n10월 22일(목) 오전 10시 30분 · 10월 24일(토) 오후 1시 30분\n프라임K수학 강의실\n\n- 프라임K수학 원장 드림';
     var ios=/iPhone|iPad|iPod/.test(navigator.userAgent);
     location.href='sms:'+r.phone+(ios?'&':'?')+'body='+encodeURIComponent(body);
   });
@@ -282,7 +284,7 @@
     }
     var p={p_key:KEY,p_id:id,p_status:null,p_session:null,p_memo:null};
     if(act==='st'){ if(b.dataset.v==='취소'&&!confirm(r.parent_name+'님 신청을 취소로 바꿀까요?')) return; p.p_status=b.dataset.v; }
-    if(act==='ses'){ p.p_session=r.session==='2026-10-15'?'2026-10-17':'2026-10-15'; if(!confirm(r.parent_name+'님을 '+SES[p.p_session].no+' '+SES[p.p_session].sh+'로 옮길까요?')) return; }
+    if(act==='ses'){ p.p_session=r.session==='2026-10-22'?'2026-10-24':'2026-10-22'; if(!confirm(r.parent_name+'님을 '+SES[p.p_session].no+' '+SES[p.p_session].sh+'로 옮길까요?')) return; }
     if(act==='memo'){ var v=prompt('메모 (비우면 지워집니다)',r.admin_memo||''); if(v===null) return; p.p_memo=v; }
     rpc('primek_seminar_admin_update',p).then(function(res){ if(res&&res.ok){ toast('저장했습니다'); load(); } else toast('저장하지 못했습니다'); });
   });
