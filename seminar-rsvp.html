@@ -80,6 +80,12 @@
     <span class="eyebrow">10월 학부모 설명회</span>
     <h1 id="hello">학부모님,<br>참석하실 날짜를 골라 주세요</h1>
     <p class="lede">고교학점제·5등급제 시대, 수학은 무엇이 달라졌나<br>두 날은 같은 내용입니다 · 목요일은 유튜브 라이브, 토요일은 강의실</p>
+    <div style="margin:18px 0 6px;background:#fff6f2;border:2px solid #c0573f;border-radius:14px;padding:16px 18px;font-size:14.5px;line-height:1.7;color:#3a2a25">
+      <b style="color:#a3402b">토요일 강의실 설명회 취소 안내</b><br>
+      10월 24일(토) 강의실 설명회는 부득이한 사정으로 열지 않습니다. 죄송합니다.<br>
+      대신 10월 22일(목) 라이브 영상(35분)을 보실 수 있습니다.<br>
+      <a href="https://youtu.be/OIf31tIFTQY" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font-weight:800;color:#1f2a44">▶ 설명회 영상 보기</a>
+    </div>
 
     <div class="choices" id="choices">
       <button type="button" class="ch" data-v="2026-10-22"><span class="no">1회차<b>22</b></span><span class="tx">10월 22일 (목)<small>오전 10시 30분 · 유튜브 라이브</small></span></button>
@@ -121,6 +127,7 @@
 (function(){
   var SB_URL='https://szyexqqofdtlfgeuvsub.supabase.co', SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6eWV4cXFvZmR0bGZnZXV2c3ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxMjQyMzMsImV4cCI6MjA5NzcwMDIzM30.iTz8HPo-qEGSKRQHQObkKeu5OuveJtldzKtciqxpZTI';
   var START={'2026-10-22':new Date('2026-10-22T10:30:00+09:00'),'2026-10-24':new Date('2026-10-24T13:30:00+09:00')};
+  var CANCELLED={'2026-10-24':true}; // 10/23 원장 결정: 토요일 강의실 회차 취소, 목요일 라이브 영상으로 대체
   var LIVE='https://www.youtube.com/channel/UCFk5hgLddhNk5WYTLZJx-Lg/live';
   var LABEL={'2026-10-22':'10월 22일(목) 오전 10시 30분','2026-10-24':'10월 24일(토) 오후 1시 30분'};
   var SHARE_URL='https://trmaximumk-afk.github.io/prime-k-math/seminar.html?utm_source=parent_share';
@@ -136,7 +143,7 @@
 
   var now=new Date();
   $('choices').querySelectorAll('.ch[data-v^="2026"]').forEach(function(b){
-    if(now>=START[b.dataset.v]){ b.disabled=true; b.querySelector('.tx').insertAdjacentHTML('beforeend','<span class="cl">마감되었습니다</span>'); }
+    if(now>=START[b.dataset.v]||CANCELLED[b.dataset.v]){ b.disabled=true; b.querySelector('.tx').insertAdjacentHTML('beforeend','<span class="cl">'+(CANCELLED[b.dataset.v]?'취소되었습니다':'마감되었습니다')+'</span>'); }
   });
 
   function select(v){

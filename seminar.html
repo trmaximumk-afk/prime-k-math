@@ -127,6 +127,13 @@
   <h1>고교학점제·5등급제 시대,<br>수학은 무엇이 달라졌나</h1>
   <p class="lede">초6~고2 자녀를 둔 학부모님께, 바뀐 내신·선택과목과 학년별 수학 준비를 원장이 직접 정리해 드립니다.</p>
 
+  <div style="margin:18px 0 6px;background:#fff6f2;border:2px solid #c0573f;border-radius:14px;padding:16px 18px;font-size:14.5px;line-height:1.7;color:#3a2a25">
+    <b style="color:#a3402b">토요일 강의실 설명회 취소 안내</b><br>
+    10월 24일(토) 오후 1시 30분 강의실 설명회는 부득이한 사정으로 열지 않습니다. 기다려 주신 분들께 죄송합니다.<br>
+    대신 10월 22일(목) 유튜브 라이브로 진행한 설명회 영상(35분)을 보실 수 있습니다.
+    <a class="btn btn-go" href="https://youtu.be/OIf31tIFTQY" target="_blank" rel="noopener" style="margin-top:10px">▶ 설명회 영상 보기</a>
+  </div>
+
   <div class="sessions">
     <div class="ses" id="ses1"><div class="no">1회차 · 유튜브 라이브</div><div class="d">10월 22일 (목)</div><div class="t">오전 10시 30분</div></div>
     <div class="ses" id="ses2"><div class="no">2회차 · 강의실</div><div class="d">10월 24일 (토)</div><div class="t">오후 1시 30분</div></div>
@@ -261,6 +268,7 @@
 (function(){
   var SB_URL='https://szyexqqofdtlfgeuvsub.supabase.co', SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6eWV4cXFvZmR0bGZnZXV2c3ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxMjQyMzMsImV4cCI6MjA5NzcwMDIzM30.iTz8HPo-qEGSKRQHQObkKeu5OuveJtldzKtciqxpZTI';
   var START={'2026-10-22':new Date('2026-10-22T10:30:00+09:00'),'2026-10-24':new Date('2026-10-24T13:30:00+09:00')};
+  var CANCELLED={'2026-10-24':true}; // 10/23 원장 결정: 토요일 강의실 회차 취소, 목요일 라이브 영상으로 대체
   var LABEL={'2026-10-22':'10월 22일 (목) 오전 10:30','2026-10-24':'10월 24일 (토) 오후 1:30'};
   var REL={'재원생':'재원생 학부모','소개':'지인 소개','기타':'처음'};
   var st={session:'',grade:'',cnt:1,rel:''};
@@ -271,12 +279,12 @@
   // 지난 회차 닫기
   var now=new Date();
   [['2026-10-22','ses1'],['2026-10-24','ses2']].forEach(function(a){
-    if(now>=START[a[0]]){
-      $(a[1]).classList.add('closed'); $(a[1]).insertAdjacentHTML('beforeend','<div class="cl">신청 마감</div>');
+    if(now>=START[a[0]]||CANCELLED[a[0]]){
+      $(a[1]).classList.add('closed'); $(a[1]).insertAdjacentHTML('beforeend','<div class="cl">'+(CANCELLED[a[0]]?'취소되었습니다':'신청 마감')+'</div>');
       var b=document.querySelector('#sesPills [data-v="'+a[0]+'"]'); if(b) b.disabled=true;
     }
   });
-  if(now>=START['2026-10-24']){
+  if(now>=START['2026-10-24']||(now>=START['2026-10-22']&&CANCELLED['2026-10-24'])){
     $('go').disabled=true; $('go').textContent='설명회 신청이 마감되었습니다';
   }
 
