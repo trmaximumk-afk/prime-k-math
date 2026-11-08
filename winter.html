@@ -101,7 +101,7 @@ td.big{font-size:17px;font-weight:900;color:var(--navy)}
 /* 시스템 */
 .sys{display:grid;gap:18px;margin-top:14px}
 .sy{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.sy .tx{padding:14px 16px 16px}
+.sy .tx{padding:14px 16px 16px} .zoom{display:block;position:relative} .zoom::after{content:'누르면 크게';position:absolute;right:10px;bottom:10px;background:rgba(13,27,46,.78);color:#fff;font-size:12px;font-weight:700;padding:4px 9px;border-radius:12px}
 .sy .tx small{font-size:12.5px;font-weight:800;color:var(--amber);letter-spacing:.5px}
 .sy .tx b{display:block;font-size:18px;font-weight:900;color:var(--navy);letter-spacing:-.4px;margin:2px 0 4px}
 .sy .tx p{font-size:14.5px;color:var(--ink2)}
@@ -242,14 +242,14 @@ body{padding-bottom:70px}
 
   <h3>하루는 이렇게 관리합니다</h3>
   <div class="sys">
-    <div class="sy"><img src="winter/mr_kiosk.jpg" alt="출결 키오스크 화면" loading="lazy"><div class="tx"><small>01 · 출석</small><b>키오스크에서 자리 터치, PIN 4자리</b><p>빈 자리를 터치하고 이름을 고른 뒤 PIN을 넣으면 그 순간부터 공부시간이 자동으로 쌓입니다. 나갈 때도 터치 한 번입니다.</p></div></div>
-    <div class="sy"><img src="winter/mr_app.jpg" alt="학생앱 첫 화면" loading="lazy"><div class="tx"><small>02 · 학생앱</small><b>내 휴대폰이 AI 학습 코치</b><p>키오스크의 QR을 찍어 홈 화면에 추가하면 끝. 지금 앉은 자리, 공부 시작 버튼, 이번 주·이번 달 리포트와 랭킹을 봅니다.</p></div></div>
-    <div class="sy"><img src="winter/mr_cam.jpg" alt="AI 학습태도 체크 공부 화면" loading="lazy"><div class="tx"><small>03 · AI 학습태도 체크 · 모든 학생 필수</small><b>5초마다 분석, 사진은 저장하지 않습니다</b><p>공부하는 동안 스마트폰을 거치대에 세워 두면 5초마다 소리 없이 집중 · 딴짓 · 졸음 · 자리비움을 분석합니다. 엎드린 채 움직임 없는 상태가 5분 넘게 이어지면 선생님께 알림이 갑니다. 실시간 화면은 선생님 확인용으로만 보이며 저장 · 녹화하지 않습니다.</p></div></div>
-    <div class="sy"><img src="winter/mr_admin.jpg" alt="선생님 현황판" loading="lazy"><div class="tx"><small>04 · 선생님 현황판</small><b>전체 자리를 한 화면에서</b><p>지금 집중 · 딴짓 · 졸음 · 이탈이 몇 명인지, 자리마다 누가 얼마나 공부하는지 7초마다 새로 고쳐집니다. 카메라 신호가 끊기면 바로 경고가 뜹니다.</p></div></div>
-    <div class="sy"><img src="winter/mr_rep.jpg" alt="학생 리포트" loading="lazy"><div class="tx"><small>05 · 리포트</small><b>공부한 기록이 숫자로</b><p>총 착석 · 순수 공부 · 자리 비운 시간, 집중도, 시간대별 집중도와 요일별 공부시간까지. 몇 시에 집중이 무너지는지 스스로 확인합니다.</p></div></div>
-    <div class="sy"><img src="winter/mr_adrep.jpg" alt="학습 현황 보고서 발행 화면" loading="lazy"><div class="tx"><small>06 · 학습 현황 보고서</small><b>선생님 코멘트를 붙여 발행</b><p>학생과 기간을 고르면 순수 학습시간과 집중도가 자동으로 계산되고, 선생님 코멘트를 붙여 학습 현황 보고서로 발행합니다.</p></div></div>
-    <div class="sy"><img src="winter/mr_board.jpg" alt="시간표 전광판" loading="lazy"><div class="tx"><small>07 · 시간표 전광판</small><b>지금 몇 교시인지, 종은 자동으로</b><p>현재 교시가 화면에 표시되고, 교시가 시작하고 끝날 때 종이 자동으로 울립니다.</p></div></div>
-    <div class="sy"><img src="winter/mr_week.jpg" alt="맥시멈K 스케줄러 한 주 펼침면" loading="lazy"><div class="tx"><small>08 · 맥시멈K 스케줄러</small><b>7주용 종이 플래너, 매일 선생님 확인</b><p>미라클 7 학생에게 7주용 A5 스케줄러를 한 권씩 드립니다. 왼쪽은 월 · 화 · 수, 오른쪽은 목 · 금 · 토 · 일로 일주일을 2주일처럼 씁니다. 하루 할 일은 7개까지, 공부한 구간은 화살표로 기록하고 선생님이 매일 확인합니다. 7주가 끝나면 맥시멈K 플래너 앱으로 이어서 관리합니다.</p></div></div>
+    <div class="sy"><a href="winter/mr_kiosk.jpg" target="_blank" rel="noopener" class="zoom"><img src="winter/mr_kiosk.jpg" alt="출결 키오스크 화면" loading="lazy"></a><div class="tx"><small>01 · 출석</small><b>키오스크에서 자리 터치, PIN 4자리</b><p>빈 자리를 터치하고 이름을 고른 뒤 PIN을 넣으면 그 순간부터 공부시간이 자동으로 쌓입니다. 나갈 때도 터치 한 번입니다.</p></div></div>
+    <div class="sy"><a href="winter/mr_app.jpg" target="_blank" rel="noopener" class="zoom"><img src="winter/mr_app.jpg" alt="학생앱 첫 화면" loading="lazy"></a><div class="tx"><small>02 · 학생앱</small><b>내 휴대폰이 AI 학습 코치</b><p>키오스크의 QR을 찍어 홈 화면에 추가하면 끝. 지금 앉은 자리, 공부 시작 버튼, 이번 주·이번 달 리포트와 랭킹을 봅니다.</p></div></div>
+    <div class="sy"><a href="winter/mr_cam.jpg" target="_blank" rel="noopener" class="zoom"><img src="winter/mr_cam.jpg" alt="AI 학습태도 체크 공부 화면" loading="lazy"></a><div class="tx"><small>03 · AI 학습태도 체크 · 모든 학생 필수</small><b>5초마다 분석, 사진은 저장하지 않습니다</b><p>공부하는 동안 스마트폰을 거치대에 세워 두면 5초마다 소리 없이 집중 · 딴짓 · 졸음 · 자리비움을 분석합니다. 엎드린 채 움직임 없는 상태가 5분 넘게 이어지면 선생님께 알림이 갑니다. 실시간 화면은 선생님 확인용으로만 보이며 저장 · 녹화하지 않습니다.</p></div></div>
+    <div class="sy"><a href="winter/mr_admin.jpg" target="_blank" rel="noopener" class="zoom"><img src="winter/mr_admin.jpg" alt="선생님 현황판" loading="lazy"></a><div class="tx"><small>04 · 선생님 현황판</small><b>전체 자리를 한 화면에서</b><p>지금 집중 · 딴짓 · 졸음 · 이탈이 몇 명인지, 자리마다 누가 얼마나 공부하는지 7초마다 새로 고쳐집니다. 카메라 신호가 끊기면 바로 경고가 뜹니다.</p></div></div>
+    <div class="sy"><a href="winter/mr_rep.jpg" target="_blank" rel="noopener" class="zoom"><img src="winter/mr_rep.jpg" alt="학생 리포트" loading="lazy"></a><div class="tx"><small>05 · 리포트</small><b>공부한 기록이 숫자로</b><p>총 착석 · 순수 공부 · 자리 비운 시간, 집중도, 시간대별 집중도와 요일별 공부시간까지. 몇 시에 집중이 무너지는지 스스로 확인합니다.</p></div></div>
+    <div class="sy"><a href="winter/mr_adrep.jpg" target="_blank" rel="noopener" class="zoom"><img src="winter/mr_adrep.jpg" alt="학습 현황 보고서 발행 화면" loading="lazy"></a><div class="tx"><small>06 · 학습 현황 보고서</small><b>선생님 코멘트를 붙여 발행</b><p>학생과 기간을 고르면 순수 학습시간과 집중도가 자동으로 계산되고, 선생님 코멘트를 붙여 학습 현황 보고서로 발행합니다.</p></div></div>
+    <div class="sy"><a href="winter/mr_board.jpg" target="_blank" rel="noopener" class="zoom"><img src="winter/mr_board.jpg" alt="시간표 전광판" loading="lazy"></a><div class="tx"><small>07 · 시간표 전광판</small><b>지금 몇 교시인지, 종은 자동으로</b><p>현재 교시가 화면에 표시되고, 교시가 시작하고 끝날 때 종이 자동으로 울립니다.</p></div></div>
+    <div class="sy"><a href="winter/mr_week.jpg" target="_blank" rel="noopener" class="zoom"><img src="winter/mr_week.jpg" alt="맥시멈K 스케줄러 한 주 펼침면" loading="lazy"></a><div class="tx"><small>08 · 맥시멈K 스케줄러</small><b>7주용 종이 플래너, 매일 선생님 확인</b><p>미라클 7 학생에게 7주용 A5 스케줄러를 한 권씩 드립니다. 왼쪽은 월 · 화 · 수, 오른쪽은 목 · 금 · 토 · 일로 일주일을 2주일처럼 씁니다. 하루 할 일은 7개까지, 공부한 구간은 화살표로 기록하고 선생님이 매일 확인합니다. 7주가 끝나면 맥시멈K 플래너 앱으로 이어서 관리합니다.</p></div></div>
   </div>
 </section>
 
