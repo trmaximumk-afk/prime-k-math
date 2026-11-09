@@ -55,12 +55,15 @@ svg.ic{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-wid
 
 /* 탭 */
 .tabs{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.tabs .wrap{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:8px;padding-bottom:8px}
+.tabs .wrap{display:grid;grid-template-columns:1fr 1fr .8fr;gap:8px;padding-top:8px;padding-bottom:8px}
 .tab{display:block;text-decoration:none;text-align:center;border-radius:12px;padding:7px 6px 8px;border:1.5px solid var(--line);background:#fff;font-weight:900;font-size:14.5px;letter-spacing:-.4px;line-height:1.25}
 .tab small{display:block;font-size:11px;font-weight:700;color:var(--mut);letter-spacing:0}
 .tab.ts{color:var(--s1)} .tab.tm{color:var(--m1)}
 .tab.ts.on{background:var(--s1);border-color:var(--s1);color:#fff} .tab.ts.on small{color:var(--s3)}
 .tab.tm.on{background:var(--m1);border-color:var(--m1);color:#fff} .tab.tm.on small{color:var(--m3)}
+.tab.ta{color:var(--ink)} .tab.ta.on{background:var(--ink);border-color:var(--ink);color:#fff} .tab.ta.on small{color:#f5c451}
+.tab .sm{display:none}
+@media (max-width:560px){.tab .lg{display:none}.tab .sm{display:inline}.tab{font-size:14px}}
 
 /* 프로그램 판 */
 .panel{padding-bottom:30px}
@@ -264,6 +267,9 @@ td.num{text-align:right;white-space:nowrap;font-weight:700;font-variant-numeric:
 .cta small{font-size:12.5px;font-weight:800;letter-spacing:1.5px;color:var(--p3)}
 .cta b{display:block;font-size:21px;font-weight:900;letter-spacing:-.6px;margin:6px 0 2px}
 .cta p{font-size:14px;color:#d3dde8}
+.cta .ctab{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.cta .ctab a{margin-top:0!important}
+.cta a.apl{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--p1);text-decoration:none;font-weight:900;font-size:17px;padding:13px 22px;border-radius:40px}
 .cta a.tel{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:var(--p3);color:var(--p1);text-decoration:none;font-weight:900;font-size:19px;padding:13px 24px;border-radius:40px}
 .other{display:flex;align-items:center;gap:12px;margin-top:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;text-decoration:none}
 .other small{display:block;font-size:12px;font-weight:800;color:var(--mut)}
@@ -278,8 +284,10 @@ footer a{color:#dce4f2}
 footer .maps a{margin-right:10px}
 .fixed{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:9px 12px calc(9px + env(safe-area-inset-bottom));background:rgba(17,21,28,.96);display:flex;gap:8px}
 .fixed a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;font-weight:800;font-size:15px;border-radius:12px;padding:11px 0}
-.fixed .a1{background:#fff;color:#11151c}
+.fixed .a1{flex:0 0 auto;padding:11px 14px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
 .fixed .a2{background:var(--s3);color:var(--s1)}
+.fixed .a3{background:#fff;color:#11151c}
+body.p-ap .fixed .a3{display:none}
 body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
 
 /* 모집 중 · 한눈에 · 단계 */
@@ -324,8 +332,94 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
 .i4 b{display:block;font-size:15px;font-weight:900;color:var(--p1);line-height:1.3}
 .i4 span{font-size:13px;color:var(--ink2)}
 
+/* 참가신청서 */
+.panel.ap{background:#f3f4f6;--p1:#16191f;--p2:#5b6270;--p3:#f5c451;--pl:var(--line);--ps:#eceef1}
+.aph{background:linear-gradient(160deg,#121519 0%,#20252e 60%,#2c323d 100%);color:#fff}
+.aph .wrap{padding:30px 18px 40px}
+.aph .k{font-size:12.5px;font-weight:800;letter-spacing:2px;color:#f5c451}
+.aph h2{font-size:30px;font-weight:900;letter-spacing:-1px;line-height:1.25;margin:6px 0 8px}
+.aph p{font-size:15px;color:#d5d9e0}
+.apf,.apdone{position:relative;margin-top:-20px}
+.fs{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 16px;margin-bottom:12px;box-shadow:0 6px 18px rgba(10,20,40,.05)}
+.fh{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.fh .n{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#f5c451;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.fh b{font-size:17.5px;font-weight:900;letter-spacing:-.4px}
+.fh small{margin-left:auto;font-size:12.5px;color:var(--mut);font-weight:700}
+.pg{display:grid;gap:10px}
+.pc{display:block;cursor:pointer;position:relative}
+.pc input,.ch input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.pc .box{display:block;border:2px solid var(--line);border-radius:14px;padding:13px 14px 13px 50px;position:relative;background:#fff}
+.pc .box::before{content:'';position:absolute;left:14px;top:50%;margin-top:-12px;width:24px;height:24px;border-radius:7px;border:2px solid #c9ccd2;background:#fff center/16px no-repeat}
+.pc input:checked+.box::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")}
+.pc.ps input:checked+.box{border-color:var(--s2);background:var(--sbg)} .pc.ps input:checked+.box::before{background-color:var(--s2);border-color:var(--s2)}
+.pc.pm input:checked+.box{border-color:var(--m2);background:var(--mbg)} .pc.pm input:checked+.box::before{background-color:var(--m2);border-color:var(--m2)}
+.pc input:focus-visible+.box{outline:3px solid #9ec5ff;outline-offset:2px}
+.pc .box small{display:block;font-size:11.5px;font-weight:800;color:var(--mut);letter-spacing:.3px}
+.pc .box b{display:block;font-size:17.5px;font-weight:900;letter-spacing:-.5px;line-height:1.35}
+.pc.ps .box b{color:var(--s1)} .pc.pm .box b{color:var(--m1)}
+.pc .box span{display:block;font-size:13px;color:var(--ink2)}
+.sub{margin-top:10px;padding:12px 14px 14px;border-radius:12px;background:var(--sbg);border:1px solid var(--sline)}
+.sub.m{background:var(--mbg);border-color:var(--mline)}
+.sub .sst{font-size:12.5px;font-weight:900;letter-spacing:.5px;color:var(--s2);margin-bottom:2px}
+.sub.m .sst{color:var(--m2)}
+.q{font-size:13.5px;font-weight:800;color:var(--ink2);margin:10px 0 6px}
+.sst+.q{margin-top:4px}
+.ch{display:flex;flex-wrap:wrap;gap:6px}
+.ch label{cursor:pointer;position:relative}
+.ch span{display:inline-block;border:1.5px solid #cfd3da;background:#fff;border-radius:20px;padding:7px 13px;font-size:14px;font-weight:700;color:var(--ink2);line-height:1.4}
+.ch span small{font-weight:600;color:var(--mut);margin-left:4px;font-size:12px}
+.ch input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.ch input:checked+span small{color:#d5d9e0}
+.ch input:focus-visible+span{outline:3px solid #9ec5ff;outline-offset:2px}
+.sub .ch input:checked+span{background:var(--s1);border-color:var(--s1)}
+.sub.m .ch input:checked+span{background:var(--m1);border-color:var(--m1)}
+.fl{display:block;margin-top:14px;font-size:14.5px;font-weight:800;color:var(--ink)}
+.fh+.fl{margin-top:0}
+.fl em{font-style:normal;font-size:11.5px;font-weight:800;color:#c2410c;margin-left:6px}
+.fl input,.fl textarea{display:block;width:100%;margin-top:6px;border:1.5px solid #cfd3da;border-radius:11px;padding:11px 12px;font:inherit;font-size:16px;font-weight:500;color:var(--ink);background:#fff;-webkit-appearance:none;appearance:none}
+.fl textarea{resize:vertical;min-height:84px}
+.fl input:focus,.fl textarea:focus{outline:none;border-color:var(--ink)}
+.fl .ch{margin-top:6px}
+.fl>small{display:block;font-size:12.5px;color:var(--mut);font-weight:600;margin-top:5px}
+.fl.bad input,.fl.bad textarea{border-color:#e0573a;background:#fff7f5}
+.fl.bad .ch span,.pg.bad .box{border-color:#e0573a}
+.tip{margin-top:10px;font-size:13.5px;background:#fff8e6;border:1px solid #f1dfb0;border-radius:12px;padding:10px 12px;color:#6b4c12}
+.tip b{color:#4a3208}
+.agree .ck{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:15px}
+.agree .ck input{width:22px;height:22px;margin-top:1px;accent-color:#16191f;flex:none}
+.agree .ck.bad{color:#c2410c}
+.agree details{margin-top:8px;font-size:13px;color:var(--ink2)}
+.agree summary{cursor:pointer;font-weight:700;color:var(--mut)}
+.agree ul{margin:6px 0 0 18px}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}
+.err{color:#c2410c;font-weight:800;font-size:14.5px;margin:2px 2px 10px}
+.err:empty{display:none}
+.send{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:14px;background:var(--ink);color:#fff;font:inherit;font-size:18px;font-weight:900;padding:16px;cursor:pointer}
+.send:disabled{opacity:.6;cursor:wait}
+.note{font-size:12.5px;color:var(--mut);text-align:center;margin-top:8px}
+.apdone{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 18px 22px;text-align:center;box-shadow:0 6px 18px rgba(10,20,40,.05)}
+.apdone .ok{width:58px;height:58px;border-radius:50%;background:#e7f6ee;color:#15803d;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.apdone .ok svg{width:30px;height:30px;stroke-width:2.4}
+.apdone .t{display:block;font-size:22px;font-weight:900;letter-spacing:-.6px}
+.apdone p{font-size:15px;color:var(--ink2);margin-top:4px}
+.apdone p b{white-space:nowrap}
+.apdone dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;text-align:left;background:var(--bg);border-radius:12px;padding:12px 14px;margin:16px 0 14px;font-size:14px}
+.apdone dt{color:var(--mut);font-weight:800;white-space:nowrap}
+.apdone dd{font-weight:700}
+.apdone .row2{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.apdone .row2 a,.apdone .row2 button{display:inline-flex;align-items:center;gap:6px;border-radius:40px;padding:11px 18px;font:inherit;font-size:15px;font-weight:800;text-decoration:none;cursor:pointer}
+.apdone .row2 a{background:var(--ink);color:#fff;border:0}
+.apdone .row2 button{background:#fff;color:var(--ink);border:1.5px solid #cfd3da}
+.apgo{display:flex;align-items:center;gap:12px;margin-top:10px;background:var(--ink);color:#fff;border-radius:16px;padding:14px 16px;text-decoration:none}
+.apgo small{display:block;font-size:12px;font-weight:700;color:#c9ced8}
+.apgo b{font-size:17px;font-weight:900}
+.apgo .ar{margin-left:auto;width:36px;height:36px;border-radius:50%;background:#f5c451;color:#16191f;display:flex;align-items:center;justify-content:center;flex:none}
+.apgo .pn{width:36px;height:36px;border-radius:11px;background:rgba(255,255,255,.1);color:#f5c451;display:flex;align-items:center;justify-content:center;flex:none}
+
 @media (min-width:720px){
   body{padding-bottom:0}
+  .pg{grid-template-columns:1fr 1fr}
+  .aph h2{font-size:36px}
   .fixed{display:none}
   .choose h1{font-size:36px}
   .doors{grid-template-columns:1fr 1fr}
@@ -379,11 +473,13 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
     </a>
   </div>
   <div class="both"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg><span><b>두 프로그램을 함께 들으면</b> · 통합과학 겨울특강을 3개월 일시 결제로 수강하는 학생은 미라클 7을 재원생 · 비재원생 구분 없이 200,000원에 들을 수 있습니다.</span></div>
+  <a class="apgo" href="#apply"><span class="pn"><svg class="ic" viewBox="0 0 24 24"><path d="M14 4l6 6L9 21H3v-6z"/><path d="M12 6l6 6"/></svg></span><div><small>두 프로그램 모두 온라인으로 접수합니다</small><b>참가신청서 작성하기</b></div><span class="ar"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
 </div></header>
 
 <nav class="tabs" aria-label="프로그램 선택"><div class="wrap">
-  <a class="tab ts on" href="#science" data-p="science"><small>PROGRAM 01 · 예비고1</small>통합과학1·2 겨울특강</a>
-  <a class="tab tm" href="#miracle" data-p="miracle"><small>PROGRAM 02 · 예비고1·2·3</small>맥시멈K 미라클 7</a>
+  <a class="tab ts on" href="#science" data-p="science"><small><span class="lg">PROGRAM 01 · </span>예비고1</small><span class="lg">통합과학1·2 겨울특강</span><span class="sm">통합과학1·2</span></a>
+  <a class="tab tm" href="#miracle" data-p="miracle"><small><span class="lg">PROGRAM 02 · </span>예비고1·2·3</small><span class="lg">맥시멈K 미라클 7</span><span class="sm">미라클 7</span></a>
+  <a class="tab ta" href="#apply" data-p="apply"><small>온라인 접수</small>참가신청서</a>
 </div></nav>
 
 <!-- ════════════════ PROGRAM 01 통합과학1·2 겨울특강 ════════════════ -->
@@ -409,7 +505,7 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
     <dt>반</dt><dd>12월 토요반 · 일요반<br>1·2월 월수금반 · 화목금반</dd>
     <dt>정원</dt><dd>반별 5명</dd>
     <dt>수강료</dt><dd>재원생 <b>800,000원</b> · 비재원생 <b>1,200,000원</b><br><small style="color:var(--mut);font-weight:600">3개월 일시 결제 기준, 월별 분할 가능</small></dd>
-    <dt>신청</dt><dd>전화 상담 <a href="tel:01064087421">010-6408-7421</a></dd>
+    <dt>신청</dt><dd>참가신청서 또는 전화 상담 <a href="tel:01064087421">010-6408-7421</a></dd>
   </dl></div></div>
   <nav class="subnav"><a href="#sci-why">특징</a><a href="#sci-info">모집 요강</a><a href="#sci-tt">시간표</a><a href="#sci-plan">진도표</a><a href="#sci-test">테스트</a><a href="#sci-perk">혜택</a><a href="#sci-price">수강료</a><a href="#sci-faq">자주 묻는 질문</a></nav>
   <div class="wrap">
@@ -449,7 +545,7 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
       <tr><th>교재</th><td>비상교육 완자 통합과학1 · 통합과학2 (교재비 별도)</td></tr>
       <tr><th>휴강</th><td>2월 5일(금), 2월 8일(월) ~ 11일(목) 설 연휴</td></tr>
       <tr><th>장소</th><td>대전 중구 목동 금호한사랑아파트 106동</td></tr>
-      <tr><th>신청</th><td>전화 상담 <a href="tel:01064087421"><b>010-6408-7421</b></a></td></tr>
+      <tr><th>신청</th><td><a href="#apply-sci"><b>참가신청서 작성</b></a> 또는 전화 상담 <a href="tel:01064087421"><b>010-6408-7421</b></a></td></tr>
     </tbody></table></div>
   </div>
 
@@ -555,15 +651,15 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
   <div class="sec">
     <div class="sh"><span class="n">10</span><h3>신청 절차</h3></div>
     <ol class="steps">
-      <li><div><b>전화 상담</b><span>010-6408-7421로 상담합니다.</span></div></li>
+      <li><div><b>신청서 · 전화 상담</b><span>참가신청서를 보내거나 010-6408-7421로 전화합니다. 원장이 확인하고 연락드립니다.</span></div></li>
       <li><div><b>반 정하기</b><span>12월 토요반 · 일요반, 1·2월 월수금반 · 화목금반 가운데 고릅니다.</span></div></li>
       <li><div><b>수강료 결제</b><span>3개월 일시 결제 또는 월별 분할 가운데 고릅니다.</span></div></li>
       <li><div><b>개강</b><span>12월 5일(토) 토요반, 12월 6일(일) 일요반부터 시작합니다.</span></div></li>
     </ol>
   </div>
 
-  <div class="cta"><small>PROGRAM 01 · 상담 · 신청</small><b>통합과학1·2 겨울특강 상담</b><p>반별 5명 · 전화로 상담하고 신청합니다</p>
-    <a class="tel" href="tel:01064087421"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>010-6408-7421</a></div>
+  <div class="cta"><small>PROGRAM 01 · 상담 · 신청</small><b>통합과학1·2 겨울특강 상담</b><p>반별 5명 · 신청서를 보내거나 전화로 상담합니다</p>
+    <div class="ctab"><a class="apl" href="#apply-sci"><svg class="ic" viewBox="0 0 24 24"><path d="M14 4l6 6L9 21H3v-6z"/><path d="M12 6l6 6"/></svg>참가신청서 쓰기</a><a class="tel" href="tel:01064087421"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>010-6408-7421</a></div></div>
   <a class="other to-m" href="#miracle" data-p="miracle"><div><small>다른 프로그램 · 예비고1·2·3 관리형 스터디</small><b>맥시멈K 미라클 7 보기</b></div><span class="ar"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
   </div>
 </section>
@@ -587,7 +683,7 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
     <dt>시간</dt><dd>8:30 ~ 22:30 · 7교시<br>오전반 8:30 ~ 11:40</dd>
     <dt>관리</dt><dd>AI 학습태도 체크 · 스케줄러 · 보고서</dd>
     <dt>수강료</dt><dd>종일 재원생 <b>420,000원</b> · 비재원생 <b>630,000원</b><br><small style="color:var(--mut);font-weight:600">다닌 날짜 수만큼 결제 · 과학특강 수강생 200,000원</small></dd>
-    <dt>신청</dt><dd>전화 상담 <a href="tel:01064087421">010-6408-7421</a></dd>
+    <dt>신청</dt><dd>참가신청서 또는 전화 상담 <a href="tel:01064087421">010-6408-7421</a></dd>
   </dl></div></div>
   <nav class="subnav"><a href="#mr-info">모집 요강</a><a href="#mr-day">하루 일과</a><a href="#mr-cal">달력</a><a href="#mr-sys">관리 시스템</a><a href="#mr-price">수강료</a><a href="#mr-faq">자주 묻는 질문</a></nav>
   <div class="wrap">
@@ -612,7 +708,7 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
       <tr><th>제공</th><td>맥시멈K 스케줄러 (7주용 A5) 1권</td></tr>
       <tr><th>식사</th><td>개별 해결 (도시락 배달 가능)</td></tr>
       <tr><th>장소</th><td>대전 중구 목동 금호한사랑아파트 106동</td></tr>
-      <tr><th>신청</th><td>전화 상담 <a href="tel:01064087421"><b>010-6408-7421</b></a></td></tr>
+      <tr><th>신청</th><td><a href="#apply-mr"><b>참가신청서 작성</b></a> 또는 전화 상담 <a href="tel:01064087421"><b>010-6408-7421</b></a></td></tr>
     </tbody></table></div>
   </div>
 
@@ -698,16 +794,86 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
   <div class="sec">
     <div class="sh"><span class="n">07</span><h3>신청 절차</h3></div>
     <ol class="steps">
-      <li><div><b>전화 상담</b><span>010-6408-7421로 상담합니다.</span></div></li>
+      <li><div><b>신청서 · 전화 상담</b><span>참가신청서를 보내거나 010-6408-7421로 전화합니다. 원장이 확인하고 연락드립니다.</span></div></li>
       <li><div><b>반과 날짜 정하기</b><span>종일 또는 오전반, 다닐 날짜를 정합니다.</span></div></li>
       <li><div><b>수강료 결제</b><span>다니는 날짜 수에 맞춰 결제합니다.</span></div></li>
       <li><div><b>1월 4일 시작</b><span>스케줄러를 받고, 키오스크 QR로 학생앱을 설치합니다.</span></div></li>
     </ol>
   </div>
 
-  <div class="cta"><small>PROGRAM 02 · 상담 · 신청</small><b>맥시멈K 미라클 7 상담</b><p>예비고1·2·3 · 전화로 상담하고 신청합니다</p>
-    <a class="tel" href="tel:01064087421"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>010-6408-7421</a></div>
+  <div class="cta"><small>PROGRAM 02 · 상담 · 신청</small><b>맥시멈K 미라클 7 상담</b><p>예비고1·2·3 · 신청서를 보내거나 전화로 상담합니다</p>
+    <div class="ctab"><a class="apl" href="#apply-mr"><svg class="ic" viewBox="0 0 24 24"><path d="M14 4l6 6L9 21H3v-6z"/><path d="M12 6l6 6"/></svg>참가신청서 쓰기</a><a class="tel" href="tel:01064087421"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>010-6408-7421</a></div></div>
   <a class="other to-s" href="#science" data-p="science"><div><small>다른 프로그램 · 예비고1 수업</small><b>통합과학1·2 겨울특강 보기</b></div><span class="ar"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  </div>
+</section>
+
+<!-- ════════════════ 참가신청서 ════════════════ -->
+<section class="panel ap" id="apply" data-p="apply">
+  <div class="aph"><div class="wrap">
+    <div class="k">2027 WINTER · APPLY</div>
+    <h2>참가신청서</h2>
+    <p>신청서를 보내면 K선생(김범수 원장)이 확인하고 학부모님께 연락드립니다. 반 배정과 수강료 결제는 상담 때 정합니다.</p>
+  </div></div>
+  <div class="wrap">
+  <form class="apf" id="apForm" novalidate autocomplete="on">
+    <div class="fs">
+      <div class="fh"><span class="n">1</span><b>신청 프로그램</b><small>둘 다 고를 수 있습니다</small></div>
+      <div class="pg" id="apProg">
+        <label class="pc ps"><input type="checkbox" id="wSci"><span class="box"><small>PROGRAM 01 · 예비고1</small><b>통합과학1·2 겨울특강</b><span>12/5 ~ 2/26 · 총 50시간 · 반별 5명</span></span></label>
+        <label class="pc pm"><input type="checkbox" id="wMr"><span class="box"><small>PROGRAM 02 · 예비고1·2·3</small><b>맥시멈K 미라클 7</b><span>1/4 ~ 2/26 · 월~금 35일 · 8:30~22:30</span></span></label>
+      </div>
+      <div class="sub" id="subSci" hidden>
+        <div class="sst">통합과학1·2 겨울특강</div>
+        <div class="q">12월 반 <small style="font-weight:600;color:var(--mut)">주 1회 · 3시간</small></div><div class="ch"><label><input type="radio" name="sci_dec" value="토요반"><span>토요반<small>12/5~</small></span></label><label><input type="radio" name="sci_dec" value="일요반"><span>일요반<small>12/6~</small></span></label><label><input type="radio" name="sci_dec" value="상담 후 결정"><span>상담 후 결정</span></label></div>
+        <div class="q">1·2월 반 <small style="font-weight:600;color:var(--mut)">주 3회 · 2시간, 금요일 합반</small></div><div class="ch"><label><input type="radio" name="sci_jf" value="월수금반"><span>월수금반</span></label><label><input type="radio" name="sci_jf" value="화목금반"><span>화목금반</span></label><label><input type="radio" name="sci_jf" value="상담 후 결정"><span>상담 후 결정</span></label></div>
+        <div class="q">결제 방식</div><div class="ch"><label><input type="radio" name="sci_pay" value="3개월 일시 결제"><span>3개월 일시 결제</span></label><label><input type="radio" name="sci_pay" value="월별 분할"><span>월별 분할</span></label><label><input type="radio" name="sci_pay" value="상담 후 결정"><span>상담 후 결정</span></label></div>
+      </div>
+      <div class="sub m" id="subMr" hidden>
+        <div class="sst">맥시멈K 미라클 7</div>
+        <div class="q">반</div><div class="ch"><label><input type="radio" name="mr_class" value="종일"><span>종일<small>1~7교시</small></span></label><label><input type="radio" name="mr_class" value="오전반"><span>오전반<small>8:30~11:40</small></span></label><label><input type="radio" name="mr_class" value="상담 후 결정"><span>상담 후 결정</span></label></div>
+      </div>
+      <p class="tip" id="tipBoth" hidden><b>함께 들으면</b> · 통합과학 겨울특강을 3개월 일시 결제로 수강하면 미라클 7은 재원생 · 비재원생 구분 없이 200,000원입니다.</p>
+    </div>
+
+    <div class="fs">
+      <div class="fh"><span class="n">2</span><b>학생 정보</b></div>
+      <label class="fl" id="fName">학생 이름<em>필수</em><input name="student_name" maxlength="20" autocomplete="off"></label>
+      <div class="fl" id="fGrade">학년 (2027년 기준)<em>필수</em><div class="ch"><label><input type="radio" name="grade" value="예비고1"><span>예비고1<small>현재 중3</small></span></label><label><input type="radio" name="grade" value="예비고2"><span>예비고2<small>현재 고1</small></span></label><label><input type="radio" name="grade" value="예비고3"><span>예비고3<small>현재 고2</small></span></label></div></div>
+      <label class="fl" id="fSchool">학교<em>필수</em><input name="school" maxlength="40" placeholder="지금 다니는 학교 (예: 충남여중)" autocomplete="off"></label>
+      <label class="fl" id="fSphone">학생 연락처<input name="student_phone" type="tel" inputmode="tel" maxlength="13" placeholder="010-0000-0000" autocomplete="off"></label>
+      <div class="fl" id="fRel">프라임K 재원 여부<em>필수</em><div class="ch"><label><input type="radio" name="relation" value="재원생"><span>재원생</span></label><label><input type="radio" name="relation" value="비재원생"><span>비재원생</span></label></div><small>재원생과 비재원생은 수강료가 다릅니다.</small></div>
+    </div>
+
+    <div class="fs">
+      <div class="fh"><span class="n">3</span><b>학부모 정보</b></div>
+      <label class="fl">학부모 성함<input name="parent_name" maxlength="20" autocomplete="name"></label>
+      <label class="fl" id="fPphone">학부모 연락처<em>필수</em><input name="parent_phone" type="tel" inputmode="tel" maxlength="13" placeholder="010-0000-0000" autocomplete="tel"></label>
+      <label class="fl">상담 받기 편한 시간<input name="contact_time" maxlength="60" placeholder="예: 평일 저녁 7시 이후"></label>
+      <label class="fl">궁금한 점<textarea name="question" maxlength="500" rows="3" placeholder="반 배정, 수강료, 교재처럼 궁금한 점을 적어 주세요"></textarea></label>
+    </div>
+
+    <div class="fs agree">
+      <label class="ck" id="fAgree"><input type="checkbox" id="apConsent"><span><b>개인정보 수집 · 이용에 동의합니다</b> (필수)</span></label>
+      <details><summary>내용 보기</summary><ul>
+        <li>수집 항목: 학생 이름 · 학년 · 학교 · 연락처, 학부모 성함 · 연락처, 상담 희망 시간, 문의 내용</li>
+        <li>이용 목적: 2027 겨울 프로그램 상담 · 반 배정 · 등록 안내</li>
+        <li>보관 기간: 2027년 3월 31일까지 보관한 뒤 파기합니다.</li>
+        <li>동의하지 않을 수 있으며, 이 경우 전화(010-6408-7421)로 신청할 수 있습니다.</li>
+      </ul></details>
+    </div>
+    <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="err" id="apErr" role="alert"></p>
+    <button type="submit" class="send" id="apSend"><svg class="ic" viewBox="0 0 24 24"><path d="M14 4l6 6L9 21H3v-6z"/><path d="M12 6l6 6"/></svg>신청서 보내기</button>
+    <p class="note">같은 학부모 연락처와 학생 이름으로 다시 보내면 마지막에 보낸 내용으로 바뀝니다.</p>
+  </form>
+
+  <div class="apdone" id="apDone" hidden>
+    <div class="ok"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <b class="t" id="dnTitle">신청서가 접수되었습니다</b>
+    <p>K선생(김범수 원장)이 확인하고 <b id="dnPhone"></b>로 연락드립니다.</p>
+    <dl id="dnSum"></dl>
+    <div class="row2"><a href="tel:01064087421"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>010-6408-7421</a><button type="button" id="apAgain">다른 학생 신청하기</button></div>
+  </div>
   </div>
 </section>
 
@@ -718,7 +884,7 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
   <a href="./">프라임K수학 홈</a> · <a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">이용약관</a>
 </div></footer>
 
-<div class="fixed"><a class="a1" href="tel:01064087421"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>전화 상담</a><a class="a2" href="#sci-price">수강료 보기</a></div>
+<div class="fixed"><a class="a1" href="tel:01064087421" aria-label="전화 상담"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>전화</a><a class="a2" href="#sci-price">수강료 보기</a><a class="a3" href="#apply">신청서 쓰기</a></div>
 
 <script>
 (function () {
@@ -738,20 +904,89 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
     el.querySelector('b').textContent = d > 0 ? 'D-' + d : (today <= e ? '진행 중' : '종료');
   });
 
+
+  // ── 참가신청서 ──
+  var SB_URL = 'https://szyexqqofdtlfgeuvsub.supabase.co', SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6eWV4cXFvZmR0bGZnZXV2c3ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxMjQyMzMsImV4cCI6MjA5NzcwMDIzM30.iTz8HPo-qEGSKRQHQObkKeu5OuveJtldzKtciqxpZTI';
+  var form = document.getElementById('apForm'), wSci = document.getElementById('wSci'), wMr = document.getElementById('wMr');
+  function syncProg() {
+    document.getElementById('subSci').hidden = !wSci.checked;
+    document.getElementById('subMr').hidden = !wMr.checked;
+    document.getElementById('tipBoth').hidden = !(wSci.checked && wMr.checked);
+    if (wSci.checked || wMr.checked) document.getElementById('apProg').classList.remove('bad');
+  }
+  function preselect(id) {
+    var el = document.getElementById(id);
+    if (el && !el.checked) { el.checked = true; syncProg(); }
+  }
+  wSci.addEventListener('change', syncProg); wMr.addEventListener('change', syncProg);
+  function val(n) { var el = form.elements[n]; if (!el) return ''; if (el.length && !el.tagName) { for (var i = 0; i < el.length; i++) if (el[i].checked) return el[i].value; return ''; } return (el.value || '').trim(); }
+  function digits(v) { return v.replace(/[^0-9]/g, ''); }
+  function fmt(v) { v = digits(v); return v.length === 11 ? v.slice(0, 3) + '-' + v.slice(3, 7) + '-' + v.slice(7) : v.length === 10 ? v.slice(0, 3) + '-' + v.slice(3, 6) + '-' + v.slice(6) : v; }
+  ['student_phone', 'parent_phone'].forEach(function (n) { form.elements[n].addEventListener('blur', function () { this.value = fmt(this.value); }); });
+  form.addEventListener('input', function (e) { var f = e.target.closest('.fl,.ck'); if (f) f.classList.remove('bad'); });
+  form.addEventListener('change', function (e) { var f = e.target.closest('.fl,.ck'); if (f) f.classList.remove('bad'); });
+  function src() { try { var q = new URLSearchParams(location.search); return (q.get('utm_source') || q.get('src') || 'web').slice(0, 40); } catch (e) { return 'web'; } }
+  var errBox = document.getElementById('apErr'), sendBtn = document.getElementById('apSend');
+  var MSG = { consent: '개인정보 수집 · 이용에 동의해 주세요.', program: '신청할 프로그램을 골라 주세요.', phone: '학부모 연락처를 다시 확인해 주세요.', sphone: '학생 연락처를 다시 확인해 주세요.', busy: '지금 신청이 많아 잠시 뒤 다시 보내 주세요. 급하시면 010-6408-7421로 전화 주세요.', invalid: '입력한 내용을 다시 확인해 주세요.' };
+  function fail(msg, el) { errBox.textContent = msg; if (el) { el.classList.add('bad'); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } }
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault(); errBox.textContent = '';
+    var d = { want_sci: wSci.checked, want_mr: wMr.checked, sci_dec: val('sci_dec'), sci_jf: val('sci_jf'), sci_pay: val('sci_pay'), mr_class: val('mr_class'),
+      student_name: val('student_name'), grade: val('grade'), school: val('school'), student_phone: digits(val('student_phone')), relation: val('relation'),
+      parent_name: val('parent_name'), parent_phone: digits(val('parent_phone')), contact_time: val('contact_time'), question: val('question'),
+      consent: document.getElementById('apConsent').checked, source: src() };
+    var ph = /^01[0-9]{8,9}$/;
+    if (!d.want_sci && !d.want_mr) return fail(MSG.program, document.getElementById('apProg'));
+    if (!d.student_name) return fail('학생 이름을 적어 주세요.', document.getElementById('fName'));
+    if (!d.grade) return fail('학년을 골라 주세요.', document.getElementById('fGrade'));
+    if (!d.school) return fail('학교를 적어 주세요.', document.getElementById('fSchool'));
+    if (d.student_phone && !ph.test(d.student_phone)) return fail(MSG.sphone, document.getElementById('fSphone'));
+    if (!d.relation) return fail('프라임K 재원 여부를 골라 주세요.', document.getElementById('fRel'));
+    if (!ph.test(d.parent_phone)) return fail(MSG.phone, document.getElementById('fPphone'));
+    if (!d.consent) return fail(MSG.consent, document.getElementById('fAgree'));
+    if (form.elements.website.value) return done(d, false);
+    sendBtn.disabled = true; sendBtn.lastChild.textContent = '보내는 중…';
+    fetch(SB_URL + '/rest/v1/rpc/primek_winter_apply', { method: 'POST', headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ p: d }) })
+      .then(function (r) { return r.json(); })
+      .then(function (r) { if (r && r.ok) done(d, r.updated); else fail(MSG[r && r.error] || MSG.invalid); })
+      .catch(function () { fail('보내지 못했습니다. 인터넷 연결을 확인하거나 010-6408-7421로 전화 주세요.'); })
+      .then(function () { sendBtn.disabled = false; sendBtn.lastChild.textContent = '신청서 보내기'; });
+  });
+  function done(d, updated) {
+    var prog = [];
+    if (d.want_sci) prog.push('통합과학1·2 겨울특강 (12월 ' + (d.sci_dec || '상담 후 결정') + ' · 1·2월 ' + (d.sci_jf || '상담 후 결정') + ')');
+    if (d.want_mr) prog.push('맥시멈K 미라클 7 (' + (d.mr_class || '상담 후 결정') + ')');
+    var rows = [['프로그램', prog.join('<br>')], ['학생', esc(d.student_name) + ' · ' + esc(d.grade) + ' · ' + esc(d.school)], ['연락처', fmt(d.parent_phone)]];
+    document.getElementById('dnSum').innerHTML = rows.map(function (r) { return '<dt>' + r[0] + '</dt><dd>' + r[1] + '</dd>'; }).join('');
+    document.getElementById('dnPhone').textContent = fmt(d.parent_phone);
+    document.getElementById('dnTitle').textContent = updated ? '신청서를 새 내용으로 바꿨습니다' : '신청서가 접수되었습니다';
+    form.hidden = true; document.getElementById('apDone').hidden = false;
+    go('apply', true);
+  }
+  function esc(v) { return String(v).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  document.getElementById('apAgain').addEventListener('click', function () {
+    ['student_name', 'school', 'student_phone', 'question'].forEach(function (n) { form.elements[n].value = ''; });
+    Array.prototype.forEach.call(form.querySelectorAll('input[name=grade]'), function (r) { r.checked = false; });
+    form.hidden = false; document.getElementById('apDone').hidden = true; go('apply', true);
+  });
+
   // 프로그램 탭: 한 번에 한 프로그램만 보이기
-  var panels = { science: document.getElementById('science'), miracle: document.getElementById('miracle') };
+  var panels = { science: document.getElementById('science'), miracle: document.getElementById('miracle'), apply: document.getElementById('apply') };
   var tabsBar = document.querySelector('.tabs');
   var priceBtn = document.querySelector('.fixed .a2');
   function show(p) {
     Object.keys(panels).forEach(function (k) { panels[k].hidden = k !== p; });
     document.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t.dataset.p === p); });
     document.body.classList.toggle('p-mr', p === 'miracle');
-    priceBtn.setAttribute('href', p === 'miracle' ? '#mr-price' : '#sci-price');
+    document.body.classList.toggle('p-ap', p === 'apply');
+    if (p !== 'apply') priceBtn.setAttribute('href', p === 'miracle' ? '#mr-price' : '#sci-price');
   }
   function topOf(el) { return el.getBoundingClientRect().top + window.pageYOffset; }
   function panelOf(el) { while (el && !(el.classList && el.classList.contains('panel'))) el = el.parentElement; return el ? el.dataset.p : null; }
   // h: 프로그램 이름 또는 안쪽 칸 id. 프로그램이면 탭 바로 아래로, 안쪽 칸이면 그 칸으로 이동
+  // #apply-sci · #apply-mr: 신청서를 열면서 프로그램을 미리 골라 둠
   function go(h, smooth) {
+    if (h === 'apply-sci' || h === 'apply-mr') { preselect(h === 'apply-sci' ? 'wSci' : 'wMr'); h = 'apply'; }
     var p = panels[h] ? h : panelOf(document.getElementById(h));
     if (!p) return false;
     show(p);
@@ -763,7 +998,7 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
     var a = ev.target.closest('a[href^="#"]');
     if (!a) return;
     var h = a.getAttribute('href').slice(1);
-    if (!document.getElementById(h)) return;
+    if (!document.getElementById(h) && h !== 'apply-sci' && h !== 'apply-mr') return;
     ev.preventDefault();
     history.replaceState(null, '', '#' + h);
     go(h, true);
@@ -775,6 +1010,8 @@ body.p-mr .fixed .a2{background:var(--m3);color:var(--m1)}
     var moved = false;
     window.addEventListener('wheel', function () { moved = true; }, { once: true, passive: true });
     window.addEventListener('touchstart', function () { moved = true; }, { once: true, passive: true });
+    window.addEventListener('pointerdown', function () { moved = true; }, { once: true, passive: true });
+    window.addEventListener('keydown', function () { moved = true; }, { once: true });
     window.addEventListener('load', function () { if (!moved) go(first, false); });
   }
 })();
